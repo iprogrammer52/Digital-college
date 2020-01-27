@@ -24,15 +24,25 @@
 <body>
     <header class="cm-header">
         <nav class="cm-menu cm-header__menu">
-            <ul class="cm-list cm-menu__list--horizontal">
-                <li class="cm-item">
-                    <a href="" class="cm-link">
-                        about as
+            <ul class="cm-list cm-list--horizontal cm-menu__list">
+                <li class="cm-item cm-list__cm-item">
+                    <a href="" class="cm-link cm-item__cm-link">
+                        {{__('app.about_us')}}
                     </a>
                 </li>
-                <li class="item">
-                    <a href="" class="link">
-                        background
+                <li class="cm-item cm-list__cm-item">
+                    <a href="" class="cm-link cm-item__cm-link">
+                        {{__('app.docs')}}
+                    </a>
+                </li>
+                <li class="cm-item cm-list__cm-item">
+                    <a href="" class="cm-link cm-item__cm-link">
+                        {{__('app.news')}}
+                    </a>
+                </li>
+                <li class="cm-item cm-list__cm-item">
+                    <a href="" class="cm-link cm-item__cm-link">
+                        {{__('app.price')}}
                     </a>
                 </li>
             </ul>
