@@ -1,50 +1,35 @@
-//variables
-$main-color: #021526;
-$aditional-color: #657D8C;
-$light-text: #ffffff;
-$dark-text: $main-color;
-$shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-$shadow-intense: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
-$transition: all 0.3s cubic-bezier(.25,.8,.25,1);
-;
-$font-size-text: 14px;
-
 body {
-	display: flex;
 	font-family: $font-family-sans-serif;
-}
-// haeder, menu, links, ul, li
-.cm-header {
 	width: 100%;
-	height: 78px;
+	height: 100%;
+}
+// navbar, menu, list
+.cm-navbar {
 	display: flex;
+	justify-content: center;
+	position: fixed;
+	width: 100%;
+	height: 64px;
+	overflow: hidden;
 	background-color: $main-color;
 	box-shadow: $shadow;
-	opacity: 85%;
-	&__menu {
-		justify-content: center;
-	}
+	opacity: .8;
 }
 
 .cm-menu {
 	display: flex;
-	height: 100%;
-	width: 100%;
+	&__cm-list > li:hover {
+		background-color: $aditional-color;
+		box-shadow: $shadow-intense;
+	}
 }
 
 .cm-list {
 	display: flex;
+	width: 100%;
+	height: 100%;
 	&--horizontal {
 		justify-content: row;
-	}
-	&__cm-item {
-		padding-right: 16px;
-		padding-left: 16px;
-	}
-	&__cm-item:hover {
-		background-color: $aditional-color;
-		box-shadow:$shadow-intense;
-		transition:$transition;	
 	}
 }
 
@@ -52,15 +37,66 @@ body {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	&__cm-link {
+	color: $light-text;
+	padding: 8px;
+}
+
+.cm-link {
+	color: $light-text;
+	text-decoration: none;
+}
+
+// content, banner
+.cm-content {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	// overflow: hidden;
+}
+
+.cm-banner {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	&--fullscreen > img {
+		width: 100%;
+		height: 100%;
 
 	}
 }
 
-.cm-link {
-	color:$light-text;
-	text-decoration: none;
-	font-size:$font-size-text;
+.cm-banner > img {
+	width: 100%; 
 }
 
-// content
+
+/* Large desktops and laptops */
+@media (min-width: 1200px) {
+
+}
+
+/* Portrait tablets and medium desktops */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* Portrait tablets and small desktops */
+@media (min-width: 768px) and (max-width: 991px) {
+
+}
+
+/* Landscape phones and portrait tablets */
+@media (max-width: 767px) {
+	.cm-navbar {
+		display: none;
+	}
+}
+
+/* Landscape phones and smaller */
+@media (max-width: 480px) {
+	.cm-navbar {
+		display: none;
+	}
+}

@@ -37054,6 +37054,8 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
+__webpack_require__(/*! ./cm-styles */ "./resources/js/cm-styles.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37098,6 +37100,27 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+/***/ }),
+
+/***/ "./resources/js/cm-styles.js":
+/*!***********************************!*\
+  !*** ./resources/js/cm-styles.js ***!
+  \***********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(window).on('scroll', function () {
+  if ($(this).scrollTop() > 65) {
+    $('.cm-navbar').css({
+      'opacity': '.6'
+    });
+  } else {
+    $('.cm-navbar').css({
+      'opacity': '.8'
+    });
+  }
+});
 
 /***/ }),
 
