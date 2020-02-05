@@ -35,6 +35,16 @@
                         {{__('app.price')}}        
                     </a>
                 </li>
+                <li class="cm-item">
+                    <a href="" class="cm-link">
+                        {{__('app.news')}}        
+                    </a>
+                </li>
+                <li class="cm-item">
+                    <a href="" class="cm-link">
+                        {{__('app.docs')}}        
+                    </a>
+                </li>
             </ul>
 		</nav>
     </header>
