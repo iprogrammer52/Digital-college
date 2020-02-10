@@ -202,29 +202,33 @@ body {
   overflow: hidden;
 }
 
-.video-background {
+.cm-banner {
   width: 100%;
   height: 100%;
-  overflow: hidden;
-  z-index: -10;
-}
-
-.cm-info {
-  width: 100%;
   display: -webkit-box;
   display: flex;
-}
-
-.cm-info--horizontal {
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
           flex-direction: row;
 }
 
-.cm-info--vertical {
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
+.cm-image {
+  width: 100%;
+  min-height: 100vh;
+  -o-object-fit: cover;
+     object-fit: cover;
+  position: fixed;
+  z-index: -1;
+}
+
+.cm-image--blur {
+  -webkit-filter: blur(4px);
+          filter: blur(4px);
+}
+
+.cm-header {
+  color: #ffffff;
+  font-size: 36px;
 }
 
 /* Large desktops and laptops */
@@ -236,14 +240,4 @@ body {
 /* Landscape phones and portrait tablets */
 
 /* Landscape phones and smaller */
-
-@media (max-width: 480px) {
-  .cm-navbar {
-    height: 48px;
-  }
-
-  .video-background {
-    display: none;
-  }
-}
 
