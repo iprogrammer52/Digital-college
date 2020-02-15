@@ -27,22 +27,12 @@
             <ul class="cm-list cm-list--horizontal cm-menu__cm-list">
                 <li class="cm-item">
                     <a href="" class="cm-link">
-                        {{__('app.about_us')}}        
+                        {{__('app.about_us')}}
                     </a>
                 </li>
                 <li class="cm-item">
                     <a href="" class="cm-link">
-                        {{__('app.price')}}        
-                    </a>
-                </li>
-                <li class="cm-item">
-                    <a href="" class="cm-link">
-                        {{__('app.news')}}        
-                    </a>
-                </li>
-                <li class="cm-item">
-                    <a href="" class="cm-link">
-                        {{__('app.docs')}}        
+                        Лента   
                     </a>
                 </li>
             </ul>
