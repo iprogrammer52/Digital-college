@@ -1,9 +1,10 @@
 @extends('layouts.app')
 
 @section('content')  
-    <div class="cm-banner">
+    <div class="cm-banner cm-banner--fullscreen">
         <img 
             class="cm-image cm-image--fullscreen cm-image--fixed cm-image--blur"
+            id="cm-background-image"
             src="https://www.tactfoot.com/wp-content/uploads/2018/09/%D0%B7%D0%B0%D0%B9%D0%BC-%D0%BF%D0%BE%D0%B4-%D0%B7%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8.jpg" 
             alt="college"
         >
@@ -69,7 +70,6 @@
             alt=""
         >
     </div>
-    {{-- <hr class="cm-separation-line"> --}}
     <div class="cm-container cm-container--vertical">
         <div class="cm-infoblock cm-infoblock--center">
             <h2 class="cm-header cm-header--dark">
@@ -79,42 +79,7 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Recusandae consequuntur delectus, porro nobis vero quidem!
             </p>
         </div>
-        <div class="cm-tile">
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
-            <img 
-                src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
-                alt="" 
-                class="cm-image"
-            >
+        <div class="cm-imagegroup cm-imagegroup--tile">
             <img 
                 src="https://www.avtovzglyad.ru/media/article/BMW_3-Series_2019.jpg.740x555_q85_box-38%2C115%2C1102%2C913_crop_detail_upscale.jpg" 
                 alt="" 
@@ -122,5 +87,31 @@
             >
         </div>
     </div>
-
+    <div class="cm-banner">
+        <div class="cm-infoblock cm-banner__cm-infoblock cm-infoblock--center">
+            <h1 class="cm-header cm-header--light">
+                Хотите знать о наших новостях ?
+            </h1>
+            <p class="cm-text cm-text--light">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, harum atque? Ex, architecto est! Unde!
+            </p>
+            <form 
+                action="" 
+                method="get"
+            >
+                @csrf
+                <input 
+                    class="cm-field-input"
+                    type="email" 
+                    placeholder="Введите email"
+                    required
+                />
+                <input
+                    class="cm-button cm-button--light" 
+                    type="button" 
+                    value="Подписаться" 
+                />
+        </form>
+        </div>
+    </div>
 @endsection
