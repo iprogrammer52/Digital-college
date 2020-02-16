@@ -11,6 +11,9 @@ p {
 h1 {
 	font-size: $font-size-header;
 }
+svg {
+	fill: $light;
+}
 // navbar, menu, list
 .cm-navbar {
 	display: flex;
@@ -46,6 +49,9 @@ h1 {
 	align-items: center;
 	color: $light-text;
 	padding: 8px;
+	&--mobile {
+		display: none;
+	}
 }
 
 .cm-link {
@@ -186,6 +192,14 @@ h1 {
     height: 1px;
     clear: both;
 }
+
+.cm-footer {
+	width: 100%;
+	background-color: $main-color;
+	display: flex;
+	flex-direction: row;
+}
+
 /* Large desktops and laptops */
 @media (min-width: 1200px) {
 	.cm-banner > * {
@@ -195,18 +209,6 @@ h1 {
 	.cm-container > * {
 		flex: 1;
 	}
-	
-}
-
-.cm-imagegroup {
-	display: flex;
-	flex-direction: row;
-	order: 4fr;
-	&--tile {
-
-	}
-}
-.cm-imagegroup {
 	
 }
 
@@ -246,9 +248,22 @@ h1 {
 /* Landscape phones and smaller  480*/ 
 @media (max-width: 767px) {
 	.cm-navbar {
-
+		margin-top: calc(100vh - 62px);
 	}
-
+	.cm-menu {
+		width: 100%;
+		justify-content: space-between;
+		align-item: center;
+	}
+	.cm-list {
+		justify-content: space-between;
+	}
+	.cm-item {
+		display: none;
+		&--mobile {
+			display: flex;
+		}
+	}
 	.cm-infoblock {
 		text-align: center;	
 	}

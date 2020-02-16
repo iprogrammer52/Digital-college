@@ -108,10 +108,49 @@
                 />
                 <input
                     class="cm-button cm-button--light" 
-                    type="button" 
+                    type="submit" 
                     value="Подписаться" 
                 />
         </form>
+        </div>
+    </div>
+    <div class="cm-container">
+        <form 
+            action="" 
+            method="get"
+        >
+            <input
+                class="cm-field-input" 
+                type="text"
+                placeholder="введите ФИО"
+            >
+            <input 
+                class="cm-field-input"
+                type="email" 
+                name="" 
+                id=""
+                placeholder="Введите email"
+            >
+            <br>
+            <textarea 
+                name="" 
+                id="" 
+                cols="30" 
+                rows="10"
+                placeholder="введите ваше обращение"
+            ></textarea>
+            <br>
+            <input 
+                class="cm-button cm-button--dark"
+                type="submit" 
+                value="отправить"
+            >
+        </form>
+        <div class="cm-infoblock cm-container__cm-infoblock cm-infoblock--center">
+            <h2 class="cm-header cm-header--dark">
+                КОНТАКТЫ
+            </h2>
+            <p class="cm-text cm-text--dark">Lorem, ipsum dolor.</p>
         </div>
     </div>
 @endsection
