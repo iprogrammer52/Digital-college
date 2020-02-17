@@ -4,6 +4,7 @@ html, body {
 	height: 100%;
 	line-height: $line-height-base;
 }
+
 p {
 	font-size: $font-size-base;
 }
@@ -11,9 +12,7 @@ p {
 h1 {
 	font-size: $font-size-header;
 }
-svg {
-	fill: $light;
-}
+
 // navbar, menu, list
 .cm-navbar {
 	display: flex;
@@ -25,13 +24,17 @@ svg {
 	background-color: $main-color;
 	box-shadow: $shadow;
 }
+.cm-svg-image {
+	height: 100%;
+	width: 100%;
+	fill: $light;
 
+	&:active {
+		background-color: $main-color;
+	}
+}
 .cm-menu {
 	display: flex;
-	&__cm-list > li:hover {
-		background-color: $aditional-color;
-		box-shadow: $shadow-intense;
-	}
 }
 
 .cm-list {
@@ -41,16 +44,20 @@ svg {
 	&--horizontal {
 		justify-content: row;
 	}
-}
-
-.cm-item {
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	color: $light-text;
-	padding: 8px;
-	&--mobile {
-		display: none;
+	&--vertical {
+		justify-content: column;
+	}
+	&__cm-item {
+		display: flex;
+		justify-content: center;
+		align-items: center;		
+		padding: 4px;
+		&:hover {
+			background-color: $aditional-color;
+		}
+		&--mobile {
+			display: none;
+		}	
 	}
 }
 
@@ -113,6 +120,7 @@ svg {
 	&--center {
 		align-items: center;
 	}
+
 }
 
 .cm-text {
@@ -254,16 +262,23 @@ svg {
 		width: 100%;
 		justify-content: space-between;
 		align-items: center;
-	}
-	.cm-list {
-		justify-content: space-between;
-	}
-	.cm-item {
-		display: none;
-		&--mobile {
-			display: flex;
+		&__cm-list {
+			padding: $padding-base;
 		}
 	}
+	.cm-list {
+		justify-content: space-around;
+		&__cm-item {
+			display: none;
+			&--mobile {
+				display: flex;
+				&:hover {
+					background-color: $main-color;
+				}
+			}
+		}
+	}
+
 	.cm-infoblock {
 		text-align: center;	
 	}

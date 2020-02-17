@@ -39,7 +39,7 @@
             >
         </video>
     </div>
-    <div class="cm-container">
+    {{-- <div class="cm-container">
         <div class="cm-infoblock cm-container__cm-infoblock">
             <h2 class="cm-header cm-header--dark">
                 Как будет выглядеть твой диплом
@@ -69,8 +69,8 @@
             src="https://www.rea.ru/ru/org/branches/erevan/PublishingImages/Pages/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC.png" 
             alt=""
         >
-    </div>
-    <div class="cm-container cm-container--vertical">
+    </div> --}}
+    {{-- <div class="cm-container cm-container--vertical">
         <div class="cm-infoblock cm-infoblock--center">
             <h2 class="cm-header cm-header--dark">
                 НАШИ НАСТАВНИКИ
@@ -86,8 +86,8 @@
                 class="cm-image"
             >
         </div>
-    </div>
-    <div class="cm-banner">
+    </div> --}}
+    {{-- <div class="cm-banner">
         <div class="cm-infoblock cm-banner__cm-infoblock cm-infoblock--center">
             <h1 class="cm-header cm-header--light">
                 Хотите знать о наших новостях ?
@@ -113,8 +113,8 @@
                 />
         </form>
         </div>
-    </div>
-    <div class="cm-container">
+    </div> --}}
+    {{-- <div class="cm-container">
         <form 
             action="" 
             method="get"
@@ -152,5 +152,5 @@
             </h2>
             <p class="cm-text cm-text--dark">Lorem, ipsum dolor.</p>
         </div>
-    </div>
+    </div> --}}
 @endsection
