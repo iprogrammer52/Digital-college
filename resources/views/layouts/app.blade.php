@@ -99,7 +99,7 @@
 
     <footer class="cm-footer">
         <p class="cm-text cm-text--light">
-            &copy Создатель <a class="cm-link" href="https://vk.com/programmerivan" target="_blank">Иван Балашов</a>
+            &copy Разработчик <a class="cm-link" href="https://vk.com/programmerivan" target="_blank">Иван Балашов</a>
         </p>
     </footer>
 </body>

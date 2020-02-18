@@ -1,18 +1,18 @@
 @extends('layouts.app')
 
 @section('content')  
-    <div class="cm-banner cm-banner--fullscreen">
+    <div class="cm-container cm-container--fullscreen">
         <img 
-            class="cm-image cm-image--fullscreen cm-image--fixed cm-image--blur"
+            class="cm-image cm-image--fixed cm-image--blur"
             id="cm-background-image"
             src="https://www.tactfoot.com/wp-content/uploads/2018/09/%D0%B7%D0%B0%D0%B9%D0%BC-%D0%BF%D0%BE%D0%B4-%D0%B7%D0%B0%D0%BB%D0%BE%D0%B3-%D0%BD%D0%B5%D0%B4%D0%B2%D0%B8%D0%B6%D0%B8%D0%BC%D0%BE%D1%81%D1%82%D0%B8.jpg" 
             alt="college"
         >
-        <div class="cm-infoblock cm-banner__cm-infoblock">
-            <h1 class="cm-header cm-banner__cm-header cm-header--light">
+        <div class="cm-infoblock cm-container__cm-infoblock">
+            <h1 class="cm-header cm-infoblock__cm-header cm-header--light">
                 {{__('app.сollege_economics_computer_science')}}
             </h1>
-            <p class="cm-text--light">
+            <p class="cm-text--light cm-infoblock__cm-text">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
                 Dignissimos quasi itaque fugit asperiores eveniet illo id suscipit eos, 
                 placeat beatae quisquam quo perferendis ipsum. Recusandae consequatur 
@@ -20,7 +20,8 @@
                 Sed quos repellendus exercitationem, nemo sapiente dolores officiis 
                 accusamus? Iste, voluptas! Quo suscipit modi eligendi odit.
             </p>
-            <form 
+            <form
+                class="cm-form"
                 action="" 
                 method="get"
             >
@@ -32,19 +33,27 @@
                 />
             </form>
         </div>
-        <video class="cm-video cm-banner__cm-video" controls>
+        <iframe 
+            class="cm-video"
+            src="https://www.youtube.com/embed/HDQUpidiTJg" 
+            frameborder="0" 
+            allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" 
+            allowfullscreen
+        ></iframe>
+        {{-- <video class="cm-video cm-container__cm-video" controls>
             <source 
+                class="cm-video__cm-source"
                 src="{{asset('video/preroll.mp4')}}" 
                 type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'
             >
-        </video>
+        </video> --}}
     </div>
-    {{-- <div class="cm-container">
+    <div class="cm-container cm-container--opaque">
         <div class="cm-infoblock cm-container__cm-infoblock">
-            <h2 class="cm-header cm-header--dark">
+            <h2 class="cm-header cm-infoblock__cm-header">
                 Как будет выглядеть твой диплом
             </h2>
-            <p class="cm-text cm-text--dark">
+            <p class="cm-text cm-infoblock__cm-text">
                 Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
                 Dignissimos quasi itaque fugit asperiores eveniet illo id suscipit eos, 
                 placeat beatae quisquam quo perferendis ipsum. Recusandae consequatur 
@@ -52,7 +61,8 @@
                 Sed quos repellendus exercitationem, nemo sapiente dolores officiis 
                 accusamus? Iste, voluptas! Quo suscipit modi eligendi odit.
             </p>
-            <form 
+            <form
+                class="cm-form" 
                 action="" 
                 method="get"
             >
@@ -69,7 +79,7 @@
             src="https://www.rea.ru/ru/org/branches/erevan/PublishingImages/Pages/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC/%D0%94%D0%B8%D0%BF%D0%BB%D0%BE%D0%BC.png" 
             alt=""
         >
-    </div> --}}
+    </div>
     {{-- <div class="cm-container cm-container--vertical">
         <div class="cm-infoblock cm-infoblock--center">
             <h2 class="cm-header cm-header--dark">
@@ -87,15 +97,16 @@
             >
         </div>
     </div> --}}
-    {{-- <div class="cm-banner">
-        <div class="cm-infoblock cm-banner__cm-infoblock cm-infoblock--center">
-            <h1 class="cm-header cm-header--light">
+    <div class="cm-container">
+        <div class="cm-infoblock cm-container__cm-infoblock cm-infoblock--center">
+            <h1 class="cm-header cm-infoblock__cm-header cm-header--light">
                 Хотите знать о наших новостях ?
             </h1>
-            <p class="cm-text cm-text--light">
+            <p class="cm-text cm-infoblock__cm-text cm-text--light">
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis, harum atque? Ex, architecto est! Unde!
             </p>
-            <form 
+            <form
+                class="cm-form" 
                 action="" 
                 method="get"
             >
@@ -113,44 +124,50 @@
                 />
         </form>
         </div>
-    </div> --}}
-    {{-- <div class="cm-container">
-        <form 
-            action="" 
-            method="get"
-        >
-            <input
-                class="cm-field-input" 
-                type="text"
-                placeholder="введите ФИО"
-            >
-            <input 
-                class="cm-field-input"
-                type="email" 
-                name="" 
-                id=""
-                placeholder="Введите email"
-            >
-            <br>
-            <textarea 
-                name="" 
-                id="" 
-                cols="30" 
-                rows="10"
-                placeholder="введите ваше обращение"
-            ></textarea>
-            <br>
-            <input 
-                class="cm-button cm-button--dark"
-                type="submit" 
-                value="отправить"
-            >
-        </form>
+    </div>
+    <div class="cm-container cm-container--opaque cm-container--vertical">
         <div class="cm-infoblock cm-container__cm-infoblock cm-infoblock--center">
-            <h2 class="cm-header cm-header--dark">
+            <h2 class="cm-header cm-infoblock__cm-header">
                 КОНТАКТЫ
             </h2>
-            <p class="cm-text cm-text--dark">Lorem, ipsum dolor.</p>
+            <p class="cm-text cm-infoblock__cm-text">Lorem, ipsum dolor.</p>
         </div>
-    </div> --}}
+        <div class="cm-container">
+            <form 
+                class="cm-form"
+                action="" 
+                method="get"
+            >
+                <input
+                    class="cm-field-input" 
+                    type="text"
+                    placeholder="введите ФИО"
+                >
+                <input 
+                    class="cm-field-input"
+                    type="email" 
+                    name="" 
+                    id=""
+                    placeholder="Введите email"
+                >
+                <br>
+                <textarea 
+                    name="" 
+                    id="" 
+                    cols="30" 
+                    rows="10"
+                    placeholder="введите ваше обращение"
+                ></textarea>
+                <br>
+                <input 
+                    class="cm-button cm-button--dark"
+                    type="submit" 
+                    value="отправить"
+                >
+            </form>
+            <div class="cm-infoblock cm-container__cm-infoblock cm-infoblock--center">
+                <p class="cm-text cm-infoblock__cm-text">Адреса: <br> ул. Энгельса 4а</p>
+            </div>
+        </div>
+    </div>
 @endsection
