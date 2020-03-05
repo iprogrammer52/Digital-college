@@ -14,10 +14,9 @@
 Route::resource('/','IndexController');
 Route::resource('/about_us','AboutUsController');
 
-Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::resource('feed','FeedNewsController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
