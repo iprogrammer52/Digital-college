@@ -12,9 +12,11 @@
 */
 
 Route::resource('/','IndexController');
-
-Auth::routes();
+Route::resource('/about_us','AboutUsController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('feed','FeedNewsController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

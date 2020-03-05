@@ -6,8 +6,11 @@
 @import 'variables';
 
 // Bulma
-@import '~bulma/bulma';
+// @import '~bulma/bulma';
 
 // Bootstrap
-// @import '~bootstrap/scss/bootstrap';
+@import '~bootstrap/scss/bootstrap';
 
+// custom style
+@import 'styles';
+@import 'sidebar';
