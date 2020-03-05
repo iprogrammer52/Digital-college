@@ -1,198 +1,108 @@
-{{-- This is sidebar was taken from the site https://codepen.io/azouaoui-med/pen/wpBadb --}}
 <div class="page-wrapper chiller-theme toggled">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="fas fa-bars"></i>
     </a>
     <nav id="sidebar" class="sidebar-wrapper">
         <div class="sidebar-content">
-        {{-- <div class="sidebar-brand">
-            <a href="#">pro sidebar</a>
-            <div id="close-sidebar">
-            <i class="fas fa-times"></i>
-            </div> 
-        </div> --}}
         <div class="sidebar-header">
             <div class="user-pic">
             <img class="img-responsive img-rounded" src="https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg"
                 alt="User picture">
             </div>
             <div class="user-info">
-            <span class="user-name">{{Auth::user()->name}} {{Auth::user()->surname}}</span>
-            <span class="user-role">{{Auth::user()->role}}</span>
-            <span class="user-status">
-            </span>
+                <span class="user-name">
+                    {{Auth::user()->name}}  {{Auth::user()->surname}}
+                </span>
+                <span class="user-role">
+                    {{Auth::user()->role}}
+                </span>
             </div>
         </div>
         <div class="sidebar-menu">
             <ul>
             <li class="header-menu">
-                <span>Главное</span>
+                <span>General</span>
             </li>
             <li>
-                <a href="#">
-                <i class="fa fa-book"></i>
-                <span>Расписание</span>
-                <span class="badge badge-pill badge-primary">Beta</span>
+                <a href="{{asset('home')}}">
+                <i class="fa fa-folder"></i>
+                <span>Лента</span>
                 </a>
             </li>
             <li class="sidebar-dropdown">
                 <a href="#">
                 <i class="fa fa-tachometer-alt"></i>
-                <span>Учеба</span>
+                <span>Dashboard</span>
                 <span class="badge badge-pill badge-warning">New</span>
                 </a>
                 <div class="sidebar-submenu">
                 <ul>
                     <li>
-                    <a href="#">Dashboard 1
-                        <span class="badge badge-pill badge-success">Pro</span>
+                        <a href="#">Dashboard 1
+                            <span class="badge badge-pill badge-success">Pro</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard 2</a>
+                    </li>
+                    <li>
+                        <a href="#">Dashboard 3</a>
+                    </li>
+                </ul>
+                </div>
+            </li>
+            @if(Auth::user()->role == "root")
+                <li class="header-menu">
+                    <span>Управление</span>
+                </li>
+                <li>
+                    <a href="{{asset('create_news')}}">
+                    <i class="fa fa-folder"></i>
+                    <span>Добавить новость</span>
                     </a>
-                    </li>
-                    <li>
-                    <a href="#">Dashboard 2</a>
-                    </li>
-                    <li>
-                    <a href="#">Dashboard 3</a>
-                    </li>
-                </ul>
-                </div>
-            </li>
-            <li class="sidebar-dropdown">
-                <a href="#">
-                <i class="fa fa-shopping-cart"></i>
-                <span>E-commerce</span>
-                <span class="badge badge-pill badge-danger">3</span>
-                </a>
-                <div class="sidebar-submenu">
-                <ul>
-                    <li>
-                    <a href="#">Products
-
+                </li>
+                <li>
+                    <a href="{{asset('create_news')}}">
+                    <i class="fa fa-folder"></i>
+                    <span>Создать опрос</span>
                     </a>
-                    </li>
-                    <li>
-                    <a href="#">Orders</a>
-                    </li>
-                    <li>
-                    <a href="#">Credit cart</a>
-                    </li>
-                </ul>
-                </div>
-            </li>
-            <li class="sidebar-dropdown">
-                <a href="#">
-                <i class="far fa-gem"></i>
-                <span>Components</span>
-                </a>
-                <div class="sidebar-submenu">
-                <ul>
-                    <li>
-                    <a href="#">General</a>
-                    </li>
-                    <li>
-                    <a href="#">Panels</a>
-                    </li>
-                    <li>
-                    <a href="#">Tables</a>
-                    </li>
-                    <li>
-                    <a href="#">Icons</a>
-                    </li>
-                    <li>
-                    <a href="#">Forms</a>
-                    </li>
-                </ul>
-                </div>
-            </li>
-            <li class="sidebar-dropdown">
-                <a href="#">
-                <i class="fa fa-chart-line"></i>
-                <span>Charts</span>
-                </a>
-                <div class="sidebar-submenu">
-                <ul>
-                    <li>
-                    <a href="#">Pie chart</a>
-                    </li>
-                    <li>
-                    <a href="#">Line chart</a>
-                    </li>
-                    <li>
-                    <a href="#">Bar chart</a>
-                    </li>
-                    <li>
-                    <a href="#">Histogram</a>
-                    </li>
-                </ul>
-                </div>
-            </li>
-            <li class="sidebar-dropdown">
-                <a href="#">
-                <i class="fa fa-globe"></i>
-                <span>Maps</span>
-                </a>
-                <div class="sidebar-submenu">
-                <ul>
-                    <li>
-                    <a href="#">Google maps</a>
-                    </li>
-                    <li>
-                    <a href="#">Open street map</a>
-                    </li>
-                </ul>
-                </div>
-            </li>
+                </li>
+                <li>
+                    <a href="{{asset('create_news')}}">
+                    <i class="fa fa-folder"></i>
+                    <span>Изменить расписание</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="{{asset('create_news')}}">
+                    <i class="fa fa-folder"></i>
+                    <span>Кек</span>
+                    </a>
+                </li>
+            @endif
             <li class="header-menu">
                 <span>Extra</span>
             </li>
             <li>
-                <a href="#">
-                <i class="fa fa-book"></i>
-                <span>Documentation</span>
-                <span class="badge badge-pill badge-primary">Beta</span>
+                <a href="{{asset('create_news')}}">
+                <span>Настройки профиля</span>
                 </a>
             </li>
             <li>
-                <a href="#">
-                <i class="fa fa-calendar"></i>
-                <span>Calendar</span>
+                <a  
+                    href="{{ route('logout') }}"
+                    onclick="event.preventDefault();
+                    document.getElementById('logout-form').submit();"
+                >
+                    {{ __('Logout') }}
                 </a>
-            </li>
-            <li>
-                <a href="#">
-                <i class="fa fa-folder"></i>
-                <span>Examples</span>
-                </a>
-            </li>
-            <li>
-                <a class="" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
-                 {{ __('Logout') }}
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    @csrf
-                </form>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
             </li>
             </ul>
         </div>
         <!-- sidebar-menu  -->
         </div>
-        <!-- sidebar-content  -->
-        {{-- <div class="sidebar-footer">
-        <a href="#">
-            <i class="fa fa-bell"></i>
-            <span class="badge badge-pill badge-warning notification">3</span>
-        </a>
-        <a href="#">
-            <i class="fa fa-envelope"></i>
-            <span class="badge badge-pill badge-success notification">7</span>
-        </a>
-        <a href="#">
-            <i class="fa fa-cog"></i>
-            <span class="badge-sonar"></span>
-        </a>
-        <a href="#">
-            <i class="fa fa-power-off"></i>
-        </a>
-        </div> --}}
     </nav>
-    <!-- sidebar-wrapper  -->
+</div>

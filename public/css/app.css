@@ -11755,6 +11755,7 @@ body {
 /*--------------------------side-footer------------------------------*/
 
 .sidebar-footer {
+  position: absolute;
   width: 100%;
   bottom: 0;
   display: -webkit-box;
@@ -11937,19 +11938,11 @@ body {
   border-right: none;
 }
 
-@media (max-width: 576px) {
-  .sidebar-wrapper {
-    display: none;
-    width: 100vh;
-    height: 100vh;
-  }
-}
-
 @media (max-width: 768px) {
   .sidebar-wrapper {
+    width: 100%;
+    position: absolute;
     display: none;
-    width: 100vh;
-    height: 100vh;
   }
 }
 

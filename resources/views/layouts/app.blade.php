@@ -13,8 +13,11 @@
         <nav class="navbar navbar-expand justify-content-center navbar-dark bg-dark">
             <div class="navbar-expand" id="navbarNav">
                 <ul class="navbar-nav">
+                    <li class="nav-item d-md-none">
+                        <a id="cm-js-open-menu" class="nav-link" href="#"><ion-icon name="menu-outline"></ion-icon></a>
+                    </li>
                     <li class="nav-item">
-                        <a id="cm-js-open-menu" class="nav-link" href="#">menu</a>
+                        <a href="{{asset('about_us')}}" class="nav-link">{{__('app.about_us')}}</a>
                     </li>
                     @guest
                         <li class="nav-item">
@@ -26,14 +29,22 @@
                     @endguest
                 </ul>
             </div>
-            </nav>
-            @auth
+        </nav>
+    </header>
+    <div class="container-fluid">
+        <div class="row">
+            <div>
+                @auth
                 @component ('layouts.sidebar') @endcomponent
             @endauth
-    </header>
-    <main class="py-4">
-        @yield('content')
-    </main>
+            </div>
+            <div class="col">
+                <main>
+                    @yield('content')
+                </main>
+            </div>
+        </div>
+    </div>
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
