@@ -28,11 +28,24 @@
                     <li class="nav-item">
                         <a id="cm-js-open-menu" class="nav-link" href="#">menu</a>
                     </li>
+                    @guest
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
+                        </li>
+                    @endguest
                 </ul>
             </div>
             </nav>
-            @component ('layouts.sidebar') @endcomponent
+            @auth
+                @component ('layouts.sidebar') @endcomponent
+            @endauth
     </header>
+    <main class="py-4">
+        @yield('content')
+    </main>
     <script src="{{asset('js/app.js')}}"></script>
 </body>
 </html>
