@@ -12,8 +12,12 @@
 */
 
 Route::resource('/','IndexController');
+Route::resource('/about_us','AboutUsController');
 
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

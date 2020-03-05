@@ -1,2 +1,3 @@
 require('./bootstrap');
-require('./cm-styles');
+require('./sidebar');
+require('./cm-js-open-menu');

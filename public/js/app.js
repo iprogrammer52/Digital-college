@@ -37054,7 +37054,9 @@ module.exports = function(module) {
 
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-__webpack_require__(/*! ./cm-styles */ "./resources/js/cm-styles.js");
+__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
+
+__webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js");
 
 /***/ }),
 
@@ -37103,14 +37105,44 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
-/***/ "./resources/js/cm-styles.js":
-/*!***********************************!*\
-  !*** ./resources/js/cm-styles.js ***!
-  \***********************************/
+/***/ "./resources/js/cm-js-open-menu.js":
+/*!*****************************************!*\
+  !*** ./resources/js/cm-js-open-menu.js ***!
+  \*****************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+$('#cm-js-open-menu').on('click', function () {
+  $('#sidebar').toggle();
+});
 
+/***/ }),
+
+/***/ "./resources/js/sidebar.js":
+/*!*********************************!*\
+  !*** ./resources/js/sidebar.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(".sidebar-dropdown > a").click(function () {
+  $(".sidebar-submenu").slideUp(200);
+
+  if ($(this).parent().hasClass("active")) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this).parent().removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this).next(".sidebar-submenu").slideDown(200);
+    $(this).parent().addClass("active");
+  }
+});
+$("#close-sidebar").click(function () {
+  $(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function () {
+  $(".page-wrapper").addClass("toggled");
+});
 
 /***/ }),
 
