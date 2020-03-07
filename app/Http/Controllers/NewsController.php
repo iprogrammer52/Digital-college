@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\News;
 
 class NewsController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -23,7 +34,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +45,24 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $for_all = $request['for_all'] ?? 'off';
+        $news = new News();
+        if (isset($request['image_news'])) {
+            $imageName = time().'.'.$request->image_news->getClientOriginalExtension();
+            $request->image_news->move(public_path('images'), $imageName);
+        } else {
+            $imageName = '';
+        }
+        $news
+            ->create([
+                'title_news' => $request['title_news'],
+                'body_news' => $request['body_news'],
+                'for_all' => $for_all,
+                'image_news' => $imageName,
+            ])
+            ->save();
+ 
+        return redirect('home');
     }
 
     /**

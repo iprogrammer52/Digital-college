@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\News;
 
 class IndexController extends Controller
 {
@@ -13,7 +14,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $news = new News();
+        $news = $news->where(['for_all' => 'on'])->get();
+
+        return view('index', ['news' => $news]);
     }
 
     /**
@@ -23,7 +27,7 @@ class IndexController extends Controller
      */
     public function create()
     {
-        //
+
     }
 
     /**
@@ -34,7 +38,7 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
     }
 
     /**

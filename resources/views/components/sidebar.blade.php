@@ -51,6 +51,15 @@
                 </ul>
                 </div>
             </li>
+            <li class="header-menu">
+                <span>Учеба</span>
+            </li>
+            <li>
+                <a href="{{asset('home')}}">
+                <i class="fa fa-folder"></i>
+                <span>Расписание</span>
+                </a>
+            </li>
             @if(Auth::user()->role == "root")
                 <li class="header-menu">
                     <span>Управление</span>

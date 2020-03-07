@@ -480,8 +480,10 @@ body {
 
 @media (max-width: 768px) {
     .sidebar-wrapper {
-       width: 100%;
-       position: absolute;
-       display: none;
+        width: 100%;
+        position: absolute;
+        display: none;
+        overflow: hidden;
+        z-index: 2;
     }
 }

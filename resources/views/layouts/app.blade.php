@@ -6,6 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     
+    {{-- fulscreen --}}
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
+    {{-- fulscreen end --}}
+
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -14,7 +19,7 @@
             <div class="navbar-expand" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item d-md-none">
-                        <a id="cm-js-open-menu" class="nav-link" href="#"><ion-icon name="menu-outline"></ion-icon></a>
+                        <a id="cm-js-open-menu" class="nav-link" href="#">menu</a>
                     </li>
                     <li class="nav-item">
                         <a href="{{asset('about_us')}}" class="nav-link">{{__('app.about_us')}}</a>
@@ -35,7 +40,7 @@
         <div class="row">
             <div>
                 @auth
-                @component ('layouts.sidebar') @endcomponent
+                @component ('components.sidebar') @endcomponent
             @endauth
             </div>
             <div class="col">
