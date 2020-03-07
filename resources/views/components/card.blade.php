@@ -1,6 +1,6 @@
 <div class="card mb-3">
     @if ($image != '')
-        <img src="/images/{{$image}}" class="card-img-top" alt="...">    
+        <img src="{{asset("images/{$image}")}}" class="card-img-top" alt="...">    
     @endif
     <div class="card-body">
         <h5 class="card-title">{{$title}}</h5>
