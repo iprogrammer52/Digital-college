@@ -6,12 +6,8 @@
         <div class="card-body">
             <form action="{{route('create_news.store')}}" enctype="multipart/form-data" method="POST">
                 @csrf
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" name="image_news" class="custom-file-input" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04">
-                        <label class="custom-file-label" for="inputGroupFile04">Choose file</label>
-                    </div>
-                </div>
+                @component('components.imageuploader')
+                @endcomponent
                 <div class="form-group">
                     <label for="title_news">Название новости</label>
                     <input id="title_news" class="form-control" type="text" name="title_news">

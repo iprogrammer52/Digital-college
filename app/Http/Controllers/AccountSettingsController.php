@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\News;
+use App\User;
 
-class NewsController extends Controller
+class AccountSettingsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,7 +16,7 @@ class NewsController extends Controller
     {
         $this->middleware('auth');
     }
-
+    
     /**
      * Display a listing of the resource.
      *
@@ -24,7 +24,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('create_news');
+        return view('account_settings');
     }
 
     /**
@@ -34,7 +34,7 @@ class NewsController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -45,20 +45,8 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $for_all = $request['for_all'] ?? 'off';
-        $news = new News();
-        $imageName = Controller::fileupload($request->image, 'images');
 
-        $news
-            ->create([
-                'title_news' => $request['title_news'],
-                'body_news' => $request['body_news'],
-                'for_all' => $for_all,
-                'image_news' => $imageName,
-            ])
-            ->save();
- 
-        return redirect('home');
+        return redirect()->back();
     }
 
     /**

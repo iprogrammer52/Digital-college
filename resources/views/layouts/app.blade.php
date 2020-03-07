@@ -14,7 +14,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header>
+    <header class="cm-header">
         <nav class="navbar navbar-expand justify-content-center navbar-dark bg-dark">
             <div class="navbar-expand" id="navbarNav">
                 <ul class="navbar-nav">
@@ -44,7 +44,7 @@
             @endauth
             </div>
             <div class="col">
-                <main>
+                <main class="container mt-4">
                     @yield('content')
                 </main>
             </div>

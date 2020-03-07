@@ -22,3 +22,4 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/create_news','NewsController');
+Route::resource('/settings','AccountSettingsController');

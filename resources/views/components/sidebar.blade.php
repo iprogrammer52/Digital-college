@@ -29,7 +29,7 @@
                 <span>Лента</span>
                 </a>
             </li>
-            <li class="sidebar-dropdown">
+            {{-- <li class="sidebar-dropdown">
                 <a href="#">
                 <i class="fa fa-tachometer-alt"></i>
                 <span>Dashboard</span>
@@ -50,16 +50,16 @@
                     </li>
                 </ul>
                 </div>
-            </li>
-            <li class="header-menu">
+            </li> --}}
+            {{-- <li class="header-menu">
                 <span>Учеба</span>
-            </li>
-            <li>
+            </li> --}}
+            {{-- <li>
                 <a href="{{asset('home')}}">
                 <i class="fa fa-folder"></i>
                 <span>Расписание</span>
                 </a>
-            </li>
+            </li> --}}
             @if(Auth::user()->role == "root")
                 <li class="header-menu">
                     <span>Управление</span>
@@ -68,33 +68,29 @@
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
                     <span>Добавить новость</span>
-                    </a>
+                    <span class="badge badge-pill badge-warning">New</span>    
+                </a>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
                     <span>Создать опрос</span>
                     </a>
-                </li>
-                <li>
+                </li> --}}
+                {{-- <li>
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
                     <span>Изменить расписание</span>
                     </a>
-                </li>
-                <li>
-                    <a href="{{asset('create_news')}}">
-                    <i class="fa fa-folder"></i>
-                    <span>Кек</span>
-                    </a>
-                </li>
+                </li> --}}
             @endif
             <li class="header-menu">
                 <span>Extra</span>
             </li>
             <li>
-                <a href="{{asset('create_news')}}">
+                <a href="{{asset('settings')}}">
                 <span>Настройки профиля</span>
+                <span class="badge badge-pill badge-warning">New</span>
                 </a>
             </li>
             <li>
