@@ -76,13 +76,22 @@
             </li> --}}
             @if(Auth::user()->role == "root")
                 <li class="header-menu">
-                    <span>Управление</span>
+                    <span>
+                        Управление
+                    </span>
                 </li>
                 <li>
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
                     <span>Добавить новость</span>
                     <span class="badge badge-pill badge-warning">New</span>    
+                </a>
+                </li>
+                <li>
+                    <a href="{{asset('mailing')}}">
+                    <i class="fa fa-folder"></i>
+                    <span>Создать рассылку</span>
+                    <span class="badge badge-pill badge-danger">403</span>    
                 </a>
                 </li>
                 {{-- <li>
@@ -101,12 +110,40 @@
             <li class="header-menu">
                 <span>Extra</span>
             </li>
-            <li>
+            <li class="sidebar-dropdown">
+                <a href="#">
+                <i class="fa fa-tachometer-alt"></i>
+                <span>Настройки</span>
+                <span class="badge badge-pill badge-warning">New</span>
+                </a>
+                <div class="sidebar-submenu">
+                <ul>
+                    <li>
+                        <a href="{{asset('settings')}}">
+                            Настройка профиля
+                            {{-- <span class="badge badge-pill badge-yellow">Pro</span> --}}
+                        </a>
+                    </li>
+                    {{-- <li>
+                        <a href="#" aria-disabled="true">
+                            Настройка уведомлений
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            Прочие настройки
+                        </a>
+                    </li> --}}
+                </ul>
+                </div>
+            </li>
+
+            {{-- <li>
                 <a href="{{asset('settings')}}">
                 <span>Настройки профиля</span>
                 <span class="badge badge-pill badge-warning">New</span>
                 </a>
-            </li>
+            </li> --}}
             <li>
                 <a  
                     href="{{ route('logout') }}"

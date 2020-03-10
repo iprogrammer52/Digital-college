@@ -27,6 +27,9 @@
                             <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
                         </li>
                     @endguest
+                    <li class="nav-item">
+                        <a href="#" class="nav-link">Уведомления <span class="badge badge-pill badge-light">0</span></a>                        
+                    </li>
                 </ul>
             </div>
         </nav>
@@ -35,7 +38,7 @@
         <div class="row">
             <div>
                 @auth
-                @component ('components.sidebar') @endcomponent
+                @component ('layouts.sidebar') @endcomponent
             @endauth
             </div>
             <div class="col">
