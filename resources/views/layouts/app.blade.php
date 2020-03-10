@@ -6,16 +6,11 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     
-    {{-- fulscreen --}}
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="mobile-web-app-capable" content="yes">
-    {{-- fulscreen end --}}
-
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
     <header class="cm-header">
-        <nav class="navbar navbar-expand justify-content-center navbar-dark bg-dark">
+        <nav class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark">
             <div class="navbar-expand" id="navbarNav">
                 <ul class="navbar-nav">
                     <li class="nav-item d-md-none">

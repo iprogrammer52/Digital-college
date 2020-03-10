@@ -37059,9 +37059,7 @@ __webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
 __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js");
 
 __webpack_require__(/*! ./fileuploader */ "./resources/js/fileuploader.js"); // from node_modules
-
-
-__webpack_require__(!(function webpackMissingModule() { var e = new Error("Cannot find module 'ionicons'"); e.code = 'MODULE_NOT_FOUND'; throw e; }()));
+// not found
 
 /***/ }),
 

@@ -1,7 +1,8 @@
 @extends('layouts.app')
 
-@section('content')  
-<form action="{{route('settings.store')}}" method="POST">
+@section('content')
+<form action="{{route('settings.update', Auth::user()->id)}}" enctype="multipart/form-data" method="POST">
+    @method('PUT')
     @csrf
     <div class="form-row">
         <div class="form-group col-md-6">
@@ -15,7 +16,7 @@
     </div>
     <div class="form-group">
         <label for="middlename">Отчество</label>
-        <input id="middlename" class="form-control" type="text" name="middlename">
+        <input id="middlename" class="form-control" type="text" name="middlename" value="{{Auth::user()->middlename}}">
     </div>
     <div class="form-group">
         <label for="inputEmail4">Email</label>
@@ -23,12 +24,12 @@
     </div>
     <div class="form-row">
         <div class="form-group col-md-6">
-            <label for="inputPassword4">Password</label>
-            <input type="password" class="form-control" id="inputPassword4" name="password">
+            <label for="password">Новый пароль</label>
+            <input type="password" class="form-control" id="password" name="password">
         </div>
         <div class="form-group col-md-6">
-            <label for="inputPassword4">Подтвердите пароль</label>
-            <input type="password" class="form-control" id="inputPassword4">
+            <label for="repassword">Подтвердите пароль</label>
+            <input type="password" name="repassword" class="form-control" id="repassword">
         </div>
     </div>
     @component('components.imageuploader')
