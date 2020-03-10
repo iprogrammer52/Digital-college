@@ -6,13 +6,26 @@
         <div class="sidebar-content">
         <div class="sidebar-header">
             <div class="user-pic">
-            <img class="img-responsive img-rounded" src="{{asset("images/avatar/". Auth::user()->avatar)}}"
-                alt="User picture">
+            @if(!empty(Auth::user()->avatar))
+                <img 
+                    class="img-responsive img-rounded" 
+                    src="{{asset("images/avatar/" . Auth::user()->avatar)}}"
+                    alt="User picture"
+                >
+            @else
+                <img 
+                    class="img-responsive img-rounded" 
+                    src="{{asset("images/avatar/default.jpg")}}"
+                    alt="User picture"
+                >
+            @endif
             </div>
-            {{-- TODO: https://raw.githubusercontent.com/azouaoui-med/pro-sidebar-template/gh-pages/src/img/user.jpg Скачать для фото по умолчанию --}}
             <div class="user-info">
                 <span class="user-name">
                     {{Auth::user()->name}}  {{Auth::user()->surname}}
+                </span>
+                <span class="user-name">
+                    {{Auth::user()->middlename}}
                 </span>
                 <span class="user-role">
                     {{Auth::user()->role}}
