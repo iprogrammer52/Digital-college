@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')  
-<form action="{{asset('mailing.store')}}" method="POST">
+<form action="{{route('mailing.store')}}" method="POST">
     @csrf
     <div class="form-group">
         <label for="TypeMailing">Типы рассылки</label>

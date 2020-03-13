@@ -2,10 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use Illuminate\Http\Request;
+use App\Notifications\Administrative;
+use Illuminate\Notifications\Notifiable;
 
 class MailingController extends Controller
 {
+    use Notifiable;
+    
     /**
      * Create a new controller instance.
      *
@@ -15,7 +20,6 @@ class MailingController extends Controller
     {
         $this->middleware('auth');
         $this->middleware('root');
-        $this->middleware('ad');
     }
 
     /**
@@ -46,7 +50,8 @@ class MailingController extends Controller
      */
     public function store(Request $request)
     {
-        return redirect()->back();
+        $user->notify(new Administrative());
+        // return redirect()->back();
     }
 
     /**
