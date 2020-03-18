@@ -1,4 +1,4 @@
-<div class="page-wrapper chiller-theme toggled">
+<div class="page-wrapper chiller-theme toggled cm-sidebar">
     <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
         <i class="fas fa-bars"></i>
     </a>
@@ -84,6 +84,13 @@
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
                     <span>Добавить новость</span>
+                    <span class="badge badge-pill badge-warning">New</span>    
+                </a>
+                </li>
+                <li>
+                    <a href="{{asset('user_settings')}}">
+                    <i class="fa fa-folder"></i>
+                    <span>Пользователи</span>
                     <span class="badge badge-pill badge-warning">New</span>    
                 </a>
                 </li>

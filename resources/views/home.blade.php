@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="container mt-4">
+    <div class="mt-4">
         @foreach ($news as $item)
                 @component('components.card')
                     @slot('image')
@@ -12,6 +12,9 @@
                     @endslot
                     @slot('body')
                         {{$item['body_news']}}
+                    @endslot
+                    @slot('date')
+                        {{$item['created_at']}}                        
                     @endslot
                 @endcomponent
             @endforeach

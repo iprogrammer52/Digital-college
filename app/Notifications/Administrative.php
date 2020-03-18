@@ -13,16 +13,16 @@ class Administrative extends Notification
 {
     use Queueable;
 
-    public $user;
+    public $data;
 
     /**
      * Create a new notification instance.
      *
      * @return void
      */
-    public function __construct(User $user)
+    public function __construct($data)
     {
-        $this->user = $user;
+        $this->data = $data;
     }
 
     /**
@@ -43,9 +43,9 @@ class Administrative extends Notification
      * @return array
      */
     public function toDatabase($notifiable)
-    {
+    {   
         return [
-            'data' => 'awdawdaw',
+            'message' => $this->data['message'],
         ];
     }
 

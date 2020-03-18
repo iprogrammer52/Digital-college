@@ -12,6 +12,9 @@
             @slot('body')
                 {{$item['body_news']}}
             @endslot
+            @slot('date')
+                {{$item['created_at']}}                
+            @endslot
         @endcomponent
     @endforeach
 @endsection
