@@ -20,8 +20,8 @@ class Controller extends BaseController
      * @return string $fileName
      */
     protected function fileupload($file, $path_to_upload) :string {
-        
-        $fileName = time().'_'.$file->getClientOriginalExtension();
+
+        $fileName = $file->getClientOriginalName();
 
         if (file_exists(public_path($path_to_upload))) {
 

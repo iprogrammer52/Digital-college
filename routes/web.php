@@ -11,13 +11,9 @@
 |
 */
 
+Auth::routes();
 Route::resource('/','IndexController');
 Route::resource('/about_us','AboutUsController');
-
-Route::get('/home', 'HomeController@index')->name('home');
-
-// Route::resource('feed','FeedNewsController');
-Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -25,3 +21,5 @@ Route::resource('/create_news','NewsController');
 Route::resource('/settings','AccountSettingsController');
 Route::resource('/mailing','MailingController');
 Route::resource('/user_settings','UserSettingsController');
+
+

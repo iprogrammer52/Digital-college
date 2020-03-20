@@ -1,10 +1,29 @@
 <?php
 
 return [
-
-    'about_us' => 'About us',
-    'docs'     => 'Documents',
-    'news'     => 'News',
-    'price'    => 'Tuition fees',
-    'сollege_economics_computer_science' => 'College of Economics and computer science'
-];
+    'en'               => 'English',
+    'ru'               => 'Russian',
+    'ar'               => 'Arabic',
+    'about_us'         => 'About us',
+    'notifications'    => 'Notifications',
+    'menu'             => 'Menu',
+    'general'          => 'General',
+    'lents'            => 'Lents',
+    'management'       => 'Management',
+    'add_news'         => 'Add news',
+    'new'              => 'New',
+    'users'            => 'Users',
+    'add_mailing'      => 'Add mailing',
+    'extra'            => 'Extra',
+    'settings'         => 'Settings',
+    'profile'          => 'Profile',
+    'name'             => 'Name',
+    'surname'          => 'Surname',
+    'middlename'       => 'Middlename',
+    'new_password'     => 'New Password',
+    'confirm_password' => 'Confirm password',
+    'text_mailing'     => 'Text mailing',
+    'recipients'       => 'Recipients',
+    'register'         => 'Register',
+    'login'            => 'Login',
+];  

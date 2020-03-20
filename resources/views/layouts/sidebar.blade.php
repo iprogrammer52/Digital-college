@@ -35,12 +35,12 @@
         <div class="sidebar-menu">
             <ul>
             <li class="header-menu">
-                <span>General</span>
+                <span>{{__('app.general')}}</span>
             </li>
             <li>
                 <a href="{{asset('home')}}">
                 <i class="fa fa-folder"></i>
-                <span>Лента</span>
+                <span>{{__('app.lents')}}</span>
                 </a>
             </li>
             {{-- <li class="sidebar-dropdown">
@@ -77,80 +77,50 @@
             @if(Auth::user()->role == "root")
                 <li class="header-menu">
                     <span>
-                        Управление
+                        {{__('app.management')}}
                     </span>
                 </li>
                 <li>
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
-                    <span>Добавить новость</span>
-                    <span class="badge badge-pill badge-warning">New</span>    
+                    <span>{{__('app.add_news')}}</span>
+                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>    
                 </a>
                 </li>
                 <li>
                     <a href="{{asset('user_settings')}}">
                     <i class="fa fa-folder"></i>
-                    <span>Пользователи</span>
-                    <span class="badge badge-pill badge-warning">New</span>    
+                    <span>{{__('app.users')}}</span>
+                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>    
                 </a>
                 </li>
                 <li>
                     <a href="{{asset('mailing')}}">
                     <i class="fa fa-folder"></i>
-                    <span>Создать рассылку</span>
+                    <span>{{__('app.add_mailing')}}</span>
                     <span class="badge badge-pill badge-danger">403</span>    
                 </a>
                 </li>
-                {{-- <li>
-                    <a href="{{asset('create_news')}}">
-                    <i class="fa fa-folder"></i>
-                    <span>Создать опрос</span>
-                    </a>
-                </li> --}}
-                {{-- <li>
-                    <a href="{{asset('create_news')}}">
-                    <i class="fa fa-folder"></i>
-                    <span>Изменить расписание</span>
-                    </a>
-                </li> --}}
             @endif
             <li class="header-menu">
-                <span>Extra</span>
+                <span>{{__('app.extra')}}</span>
             </li>
             <li class="sidebar-dropdown">
                 <a href="#">
                 <i class="fa fa-tachometer-alt"></i>
-                <span>Настройки</span>
-                <span class="badge badge-pill badge-warning">New</span>
+                <span>{{__('app.settings')}}</span>
+                <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>
                 </a>
                 <div class="sidebar-submenu">
-                <ul>
-                    <li>
-                        <a href="{{asset('settings')}}">
-                            Настройка профиля
-                            {{-- <span class="badge badge-pill badge-yellow">Pro</span> --}}
-                        </a>
-                    </li>
-                    {{-- <li>
-                        <a href="#" aria-disabled="true">
-                            Настройка уведомлений
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            Прочие настройки
-                        </a>
-                    </li> --}}
-                </ul>
+                    <ul>
+                        <li>
+                            <a href="{{asset('settings')}}">
+                                {{__('app.profile')}}
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </li>
-
-            {{-- <li>
-                <a href="{{asset('settings')}}">
-                <span>Настройки профиля</span>
-                <span class="badge badge-pill badge-warning">New</span>
-                </a>
-            </li> --}}
             <li>
                 <a  
                     href="{{ route('logout') }}"
@@ -165,7 +135,6 @@
             </li>
             </ul>
         </div>
-        <!-- sidebar-menu  -->
         </div>
     </nav>
 </div>

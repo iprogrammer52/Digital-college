@@ -4,11 +4,11 @@
 <form action="{{route('mailing.store')}}" method="POST">
     @csrf
     <div class="form-group">
-        <label for="message">Текст рассылки</label>
+        <label for="message">{{__('app.text_mailing')}}</label>
         <textarea id="message" class="form-control" name="message" rows="3"></textarea>
     </div>
     <div class="form-group">
-        <label for="addressee">Получатели: </label>
+        <label for="addressee">{{__('app.recipients')}}: </label>
         <div class="form-check form-check-inline">
             <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option3">
             <label class="form-check-label" for="inlineCheckbox3">Все</label>
@@ -26,6 +26,6 @@
             <label class="form-check-label" for="inlineCheckbox3">Администрация</label>
         </div>
     </div>
-    <input class="btn btn-dark" type="submit" name="send">
+    <input class="btn btn-dark" type="submit" name="send" value="{{__('send')}}">
 </form>
 @endsection
