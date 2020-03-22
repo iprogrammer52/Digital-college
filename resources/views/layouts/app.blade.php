@@ -13,7 +13,7 @@
         <nav class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark">
             <div class="navbar-expand" id="navbarNav">
                 <ul class="navbar-nav">
-                    <li class="nav-item dropdown">
+                    {{-- <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             {{__('app.' . App::getLocale())}}
                         </a>
@@ -22,7 +22,7 @@
                             <a class="dropdown-item" href="ru">{{__('app.ru')}}</a>
                             <a class="dropdown-item" href="ar">{{__('app.ar')}}</a>
                         </div>
-                        </li>
+                    </li> --}}
                     <li class="nav-item">
                         <a href="{{asset('about_us')}}" class="nav-link">{{__('app.about_us')}}</a>
                     </li>
