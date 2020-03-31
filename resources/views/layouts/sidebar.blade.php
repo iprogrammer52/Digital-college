@@ -7,13 +7,13 @@
         <div class="sidebar-header">
             <div class="user-pic">
             @if(!empty(Auth::user()->avatar))
-                <img 
+                <img
                     class="img-responsive img-rounded" 
-                    src="{{asset("images/avatar/" . Auth::user()->avatar)}}"
+                    src="{{asset(Auth::user()->avatar)}}"
                     alt="User picture"
                 >
             @else
-                <img 
+                <img
                     class="img-responsive img-rounded" 
                     src="{{asset("images/avatar/default.jpg")}}"
                     alt="User picture"

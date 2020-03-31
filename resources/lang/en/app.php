@@ -31,4 +31,7 @@ return [
     'remember_me'          => 'Remember me',
     'forgot_your_password' => 'Forgot your password',
     'kei'                  => 'College of Economics and computer science',
+    'logout'               => 'LogOut',
+    'for_abiturient'       => 'For abiturient',
+    'save'                 => 'Save',
 ];  

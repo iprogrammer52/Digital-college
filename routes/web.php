@@ -21,5 +21,5 @@ Route::resource('/create_news','NewsController');
 Route::resource('/settings','AccountSettingsController');
 Route::resource('/mailing','MailingController');
 Route::resource('/user_settings','UserSettingsController');
-
+Route::resource('/abiturient_info','AbiturientInfoController');
 

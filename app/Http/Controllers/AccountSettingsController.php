@@ -104,7 +104,7 @@ class AccountSettingsController extends Controller
         }
 
         if (!empty($request->image)) {
-            $user_data['avatar'] = Controller::fileupload($request->image, 'images/avatar');
+            $user_data['avatar'] = $request->image->store('public/avatars');
         }
 
         if (!empty($user_data)) {

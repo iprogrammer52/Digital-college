@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-    <div class="mt-4">
+    <div>
         @foreach ($news as $item)
                 @component('components.card')
                     @slot('image')
