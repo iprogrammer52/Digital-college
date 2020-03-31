@@ -8,14 +8,14 @@
             <div class="user-pic">
             @if(!empty(Auth::user()->avatar))
                 <img
-                    class="img-responsive img-rounded" 
-                    src="{{asset(Auth::user()->avatar)}}"
+                    class="img-responsive img-rounded"
+                    src="{{asset('storage/' . Auth::user()->avatar)}}"
                     alt="User picture"
                 >
             @else
                 <img
-                    class="img-responsive img-rounded" 
-                    src="{{asset("images/avatar/default.jpg")}}"
+                    class="img-responsive img-rounded"
+                    src="{{asset("images/default_avatar.jpg")}}"
                     alt="User picture"
                 >
             @endif
@@ -84,21 +84,21 @@
                     <a href="{{asset('create_news')}}">
                     <i class="fa fa-folder"></i>
                     <span>{{__('app.add_news')}}</span>
-                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>    
+                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>
                 </a>
                 </li>
                 <li>
                     <a href="{{asset('user_settings')}}">
                     <i class="fa fa-folder"></i>
                     <span>{{__('app.users')}}</span>
-                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>    
+                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>
                 </a>
                 </li>
                 <li>
                     <a href="{{asset('mailing')}}">
                     <i class="fa fa-folder"></i>
                     <span>{{__('app.add_mailing')}}</span>
-                    <span class="badge badge-pill badge-danger">403</span>    
+                    <span class="badge badge-pill badge-danger">403</span>
                 </a>
                 </li>
             @endif
@@ -122,7 +122,7 @@
                 </div>
             </li>
             <li>
-                <a  
+                <a
                     href="{{ route('logout') }}"
                     onclick="event.preventDefault();
                     document.getElementById('logout-form').submit();"

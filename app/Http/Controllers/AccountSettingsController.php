@@ -17,7 +17,7 @@ class AccountSettingsController extends Controller
     {
         $this->middleware('auth');
     }
-    
+
     /**
      * Display a listing of the resource.
      *
@@ -46,7 +46,7 @@ class AccountSettingsController extends Controller
      */
     public function store(Request $request)
     {
-        // 
+        //
     }
 
     /**
@@ -75,11 +75,17 @@ class AccountSettingsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id user_Id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
+        $request = $request->validate([
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'middlename' => 'required|max:255',
+        ]);
+
         $user_data = [];
 
         if (!empty($request->name)) {
@@ -104,7 +110,7 @@ class AccountSettingsController extends Controller
         }
 
         if (!empty($request->image)) {
-            $user_data['avatar'] = $request->image->store('public/avatars');
+            $user_data['avatar'] = $request->image->store('avatars', 'public');
         }
 
         if (!empty($user_data)) {
