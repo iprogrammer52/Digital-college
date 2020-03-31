@@ -80,12 +80,6 @@ class AccountSettingsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $request = $request->validate([
-            'name' => 'required|max:255',
-            'surname' => 'required|max:255',
-            'middlename' => 'required|max:255',
-        ]);
-
         $user_data = [];
 
         if (!empty($request->name)) {

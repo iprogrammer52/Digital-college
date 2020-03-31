@@ -1,7 +1,7 @@
-<div class="card mb-2">
+<div class="card mb-2 shadow-sm">
     @if ($image != '')
         <img
-            src="{{asset("images/{$image}")}}"
+            src="{{asset("storage/{$image}")}}"
             class="card-img-top"
         >
     @endif

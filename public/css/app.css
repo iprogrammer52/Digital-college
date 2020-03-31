@@ -10992,10 +10992,6 @@ a.text-dark:focus {
   }
 }
 
-body {
-  font-size: 0.9rem;
-}
-
 .page-wrapper .sidebar-wrapper,
 .sidebar-wrapper .sidebar-brand > a,
 .sidebar-wrapper .sidebar-dropdown > a:after,

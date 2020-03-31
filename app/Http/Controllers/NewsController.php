@@ -49,7 +49,7 @@ class NewsController extends Controller
         $for_all = $request['for_all'] ?? 'off';
         $news = new News();
         if (!empty($request->image)) {
-            $imageName = Controller::fileupload($request->image, 'images');
+            $imageName = $request->image->store('news', 'public');
         } else {
             $imageName = '';
         }
