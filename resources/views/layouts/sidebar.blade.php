@@ -1,140 +1,90 @@
-<div class="page-wrapper chiller-theme toggled cm-sidebar">
-    <a id="show-sidebar" class="btn btn-sm btn-dark" href="#">
-        <i class="fas fa-bars"></i>
-    </a>
-    <nav id="sidebar" class="sidebar-wrapper">
-        <div class="sidebar-content">
-        <div class="sidebar-header">
-            <div class="user-pic">
-            @if(!empty(Auth::user()->avatar))
-                <img
-                    class="img-responsive img-rounded"
-                    src="{{asset('storage/' . Auth::user()->avatar)}}"
-                    alt="User picture"
-                >
-            @else
-                <img
-                    class="img-responsive img-rounded"
-                    src="{{asset("images/default_avatar.jpg")}}"
-                    alt="User picture"
-                >
-            @endif
-            </div>
-            <div class="user-info">
-                <span class="user-name">
-                    {{Auth::user()->name}}  {{Auth::user()->surname}}
-                </span>
-                <span class="user-name">
-                    {{Auth::user()->middlename}}
-                </span>
-                <span class="user-role">
-                    {{Auth::user()->role}}
-                </span>
-            </div>
+<div class="card bg-dark text-white mt-4">
+    <img src="{{asset('/storage/' . Auth::user()->avatar)}}" class="card-img" alt="...">
+    <div class="card-img-overlay">
+        <p class="card-text">{{Auth::user()->surname}} <br> {{Auth::user()->name}} {{Auth::user()->middlename}}</p>
+        <p class="card-text text-muted">{{Auth::user()->role}}</p>
+    </div>
+</div>
+
+<div class="accordion mt-2" id="generalAccordion">
+    <div class="card bg-dark text-light">
+        <div class="card-header" id="generalHeading">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#generalCollapse" aria-expanded="true" aria-controls="generalCollapse">
+                    {{__('app.general')}}
+                </button>
+            </h2>
         </div>
-        <div class="sidebar-menu">
-            <ul>
-            <li class="header-menu">
-                <span>{{__('app.general')}}</span>
-            </li>
-            <li>
-                <a href="{{asset('home')}}">
-                <i class="fa fa-folder"></i>
-                <span>{{__('app.lents')}}</span>
-                </a>
-            </li>
-            {{-- <li class="sidebar-dropdown">
-                <a href="#">
-                <i class="fa fa-tachometer-alt"></i>
-                <span>Dashboard</span>
-                <span class="badge badge-pill badge-warning">New</span>
-                </a>
-                <div class="sidebar-submenu">
-                <ul>
-                    <li>
-                        <a href="#">Dashboard 1
-                            <span class="badge badge-pill badge-success">Pro</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">Dashboard 2</a>
-                    </li>
-                    <li>
-                        <a href="#">Dashboard 3</a>
-                    </li>
-                </ul>
-                </div>
-            </li> --}}
-            {{-- <li class="header-menu">
-                <span>Учеба</span>
-            </li> --}}
-            {{-- <li>
-                <a href="{{asset('home')}}">
-                <i class="fa fa-folder"></i>
-                <span>Расписание</span>
-                </a>
-            </li> --}}
-            @if(Auth::user()->role == "root")
-                <li class="header-menu">
-                    <span>
-                        {{__('app.management')}}
-                    </span>
+        <div id="generalCollapse" class="collapse show" aria-labelledby="generalHeading" data-parent="#generalAccordion">
+            <ul class="list-group list-group-flush bg-dark text-light">
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('home')}}" class="card-link text-light">
+                        {{__('app.lents')}}
+                    </a>
                 </li>
-                <li>
-                    <a href="{{asset('create_news')}}">
-                    <i class="fa fa-folder"></i>
-                    <span>{{__('app.add_news')}}</span>
-                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>
-                </a>
-                </li>
-                <li>
-                    <a href="{{asset('user_settings')}}">
-                    <i class="fa fa-folder"></i>
-                    <span>{{__('app.users')}}</span>
-                    <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>
-                </a>
-                </li>
-                <li>
-                    <a href="{{asset('mailing')}}">
-                    <i class="fa fa-folder"></i>
-                    <span>{{__('app.add_mailing')}}</span>
-                    <span class="badge badge-pill badge-danger">403</span>
-                </a>
-                </li>
-            @endif
-            <li class="header-menu">
-                <span>{{__('app.extra')}}</span>
-            </li>
-            <li class="sidebar-dropdown">
-                <a href="#">
-                <i class="fa fa-tachometer-alt"></i>
-                <span>{{__('app.settings')}}</span>
-                <span class="badge badge-pill badge-warning">{{__('app.new')}}</span>
-                </a>
-                <div class="sidebar-submenu">
-                    <ul>
-                        <li>
-                            <a href="{{asset('settings')}}">
-                                {{__('app.profile')}}
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </li>
-            <li>
-                <a
-                    href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();"
-                >
-                    {{ __('Logout') }}
-                </a>
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
-            </li>
             </ul>
         </div>
+    </div>
+</div>
+@if(Auth::user()->role == "root")
+<div class="accordion mt-2" id="managementAccordion">
+    <div class="card bg-dark text-light">
+        <div class="card-header" id="managementHeading">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#managementCollapse" aria-expanded="false">
+                    {{__('app.management')}}
+                    </button>
+            </h2>
         </div>
-    </nav>
+        <div id="managementCollapse" class="collapse" aria-labelledby="managementHeading" data-parent="#managementAccordion">
+            <ul class="list-group list-group-flush bg-dark text-light">
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('create_news')}}" class="card-link text-light">
+                            {{__('app.add_news')}}
+                        </a>
+                </li>
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('user_settings')}}" class="card-link text-light">
+                            {{__('app.users')}}
+                        </a>
+                </li>
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('mailing')}}" class="card-link text-light">
+                            {{__('app.add_mailing')}}
+                        </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+@endif
+
+<div class="accordion mt-2" id="extraAccordion">
+    <div class="card bg-dark text-light">
+        <div class="card-header" id="extraHeading">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#extraCollapse" aria-expanded="false">
+                {{__('app.extra')}}
+                </button>
+            </h2>
+        </div>
+        <div id="extraCollapse" class="collapse" aria-labelledby="extraHeading" data-parent="#extraAccordion">
+            <ul class="list-group list-group-flush bg-dark text-light">
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('settings')}}" class="card-link text-light">
+                        {{__('app.profile')}}
+                    </a>
+                </li>
+                <li class="list-group-item bg-dark">
+                    <a class="card-link text-light" href="{{ route('logout') }}" onclick="event.preventDefault();
+                        document.getElementById('logout-form').submit();">
+                        {{ __('app.logout') }}
+                    </a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </li>
+            </ul>
+        </div>
+    </div>
 </div>

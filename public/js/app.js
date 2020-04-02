@@ -37058,7 +37058,7 @@ __webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
 
 __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js");
 
-__webpack_require__(/*! ./fileuploader */ "./resources/js/fileuploader.js");
+__webpack_require__(/*! ./imageuploader */ "./resources/js/imageuploader.js");
 
 /***/ }),
 
@@ -37120,10 +37120,10 @@ $('#cm-js-open-menu').on('click', function () {
 
 /***/ }),
 
-/***/ "./resources/js/fileuploader.js":
-/*!**************************************!*\
-  !*** ./resources/js/fileuploader.js ***!
-  \**************************************/
+/***/ "./resources/js/imageuploader.js":
+/*!***************************************!*\
+  !*** ./resources/js/imageuploader.js ***!
+  \***************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
