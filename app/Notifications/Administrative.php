@@ -33,6 +33,7 @@ class Administrative extends Notification
      */
     public function via($notifiable)
     {
+        dd($notifiable);
         return ['database'];
     }
 
@@ -45,7 +46,7 @@ class Administrative extends Notification
     public function toDatabase($notifiable)
     {   
         return [
-            'message' => $this->data['message'],
+            'message' => 'awdwadwadwad',
         ];
     }
 

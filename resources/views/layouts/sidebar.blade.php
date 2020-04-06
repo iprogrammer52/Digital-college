@@ -33,25 +33,46 @@
             <h2 class="mb-0">
                 <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#managementCollapse" aria-expanded="false">
                     {{__('app.management')}}
-                    </button>
+                </button>
             </h2>
         </div>
         <div id="managementCollapse" class="collapse" aria-labelledby="managementHeading" data-parent="#managementAccordion">
             <ul class="list-group list-group-flush bg-dark text-light">
                 <li class="list-group-item bg-dark">
                     <a href="{{asset('create_news')}}" class="card-link text-light">
-                            {{__('app.add_news')}}
-                        </a>
+                        {{__('app.add_news')}}
+                    </a>
                 </li>
                 <li class="list-group-item bg-dark">
                     <a href="{{asset('user_settings')}}" class="card-link text-light">
-                            {{__('app.users')}}
-                        </a>
+                        {{__('app.users')}}
+                    </a>
                 </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="accordion mt-2" id="createNotificationsAccordion">
+    <div class="card bg-dark text-light">
+        <div class="card-header" id="createNotificationsHeading">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#createNotificationsCollapse" aria-expanded="false">
+                    {{__('app.create_notifications')}}
+                </button>
+            </h2>
+        </div>
+        <div id="createNotificationsCollapse" class="collapse" aria-labelledby="createNotificationsHeading" data-parent="#createNotificationsAccordion">
+            <ul class="list-group list-group-flush bg-dark text-light">
                 <li class="list-group-item bg-dark">
                     <a href="{{asset('mailing')}}" class="card-link text-light">
-                            {{__('app.add_mailing')}}
-                        </a>
+                        {{__('app.add_mailing')}}
+                    </a>
+                </li>
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('notify')}}" class="card-link text-light">
+                        {{__('app.notify')}}
+                    </a>
                 </li>
             </ul>
         </div>
@@ -64,7 +85,7 @@
         <div class="card-header" id="extraHeading">
             <h2 class="mb-0">
                 <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#extraCollapse" aria-expanded="false">
-                {{__('app.extra')}}
+                    {{__('app.extra')}}
                 </button>
             </h2>
         </div>

@@ -23,3 +23,4 @@ Route::resource('/mailing','MailingController');
 Route::resource('/user_settings','UserSettingsController');
 Route::resource('/abiturient_info','AbiturientInfoController');
 
+Route::resource('/notify','NotifyController');

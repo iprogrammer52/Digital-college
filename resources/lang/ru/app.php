@@ -34,4 +34,15 @@ return [
     'logout'               => 'Выйти',
     'for_abiturient'       => 'Абитуриенту',
     'save'                 => 'Сохранить',
-];  
+    'create_notifications' => 'Создать уведомление',
+    'notify'               => 'Уведомить',
+    'all'                  => 'Все',
+    'students'             => 'Студенты',
+    'teachers'             => 'Преподаватели',
+    'administration'       => 'Администрация',
+    'notification_type'    => 'Тип уведомления',
+    'warning'              => 'Внимание',
+    'important'            => 'Важное',
+    'normal'               => 'Обычное',
+    'send'                 => 'Отправить',
+];
