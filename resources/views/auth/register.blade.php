@@ -1,25 +1,26 @@
 @extends('layouts.auth')
 
 @section('auth_form')
-    <form 
-        method="POST" 
+    <h2 class="title mb-4">{{strtoupper(__('app.register'))}}</h2>
+    <form
+        method="POST"
         action="{{ route('register') }}"
     >
     @csrf
-    
+
         <div class="form-group">
-            <input 
-                id="surname" 
-                class="form-control 
-                    @error('surname') 
-                        is-invalid 
-                    @enderror" 
-                name="surname" 
-                type="text" 
-                value="{{ old('surname') }}" 
-                autocomplete="surname" 
+            <input
+                id="surname"
+                class="form-control
+                    @error('surname')
+                        is-invalid
+                    @enderror"
+                name="surname"
+                type="text"
+                value="{{ old('surname') }}"
+                autocomplete="surname"
                 placeholder="{{ __('app.surname') }}"
-                required 
+                required
                 autofocus
             >
             @error('surname')
@@ -29,18 +30,18 @@
             @enderror
         </div>
         <div class="form-group">
-            <input 
-                id="name" 
-                class="form-control 
-                    @error('name') 
-                        is-invalid 
-                    @enderror" 
-                name="name" 
-                type="text" 
-                value="{{ old('name') }}" 
-                autocomplete="name" 
+            <input
+                id="name"
+                class="form-control
+                    @error('name')
+                        is-invalid
+                    @enderror"
+                name="name"
+                type="text"
+                value="{{ old('name') }}"
+                autocomplete="name"
                 placeholder="{{ __('app.name') }}"
-                required 
+                required
                 autofocus
             >
             @error('name')
@@ -50,18 +51,18 @@
             @enderror
         </div>
         <div class="form-group">
-            <input 
-                id="email" 
-                class="form-control 
-                    @error('email') 
-                        is-invalid 
-                    @enderror" 
-                name="email" 
-                type="email" 
-                value="{{ old('email') }}" 
-                autocomplete="email" 
+            <input
+                id="email"
+                class="form-control
+                    @error('email')
+                        is-invalid
+                    @enderror"
+                name="email"
+                type="email"
+                value="{{ old('email') }}"
+                autocomplete="email"
                 placeholder="{{ __('app.email') }}"
-                required 
+                required
                 autofocus
             >
             @error('email')
@@ -71,18 +72,18 @@
             @enderror
         </div>
         <div class="form-group">
-            <input 
-                id="password" 
-                class="form-control 
-                    @error('password') 
-                        is-invalid 
-                    @enderror" 
-                name="password" 
-                type="password" 
-                value="{{ old('password') }}" 
-                autocomplete="password" 
+            <input
+                id="password"
+                class="form-control
+                    @error('password')
+                        is-invalid
+                    @enderror"
+                name="password"
+                type="password"
+                value="{{ old('password') }}"
+                autocomplete="password"
                 placeholder="{{ __('app.password') }}"
-                required 
+                required
                 autofocus
             >
             @error('password')
@@ -92,18 +93,18 @@
             @enderror
         </div>
         <div class="form-group">
-            <input 
-                id="confirm_password" 
-                class="form-control 
-                    @error('confirm_password') 
-                        is-invalid 
-                    @enderror" 
-                name="password_confirmation" 
-                type="password" 
-                value="{{ old('confirm_password') }}" 
-                autocomplete="confirm_password" 
+            <input
+                id="confirm_password"
+                class="form-control
+                    @error('confirm_password')
+                        is-invalid
+                    @enderror"
+                name="password_confirmation"
+                type="password"
+                value="{{ old('confirm_password') }}"
+                autocomplete="confirm_password"
                 placeholder="{{ __('app.confirm_password') }}"
-                required 
+                required
                 autofocus
             >
             @error('confirm_password')

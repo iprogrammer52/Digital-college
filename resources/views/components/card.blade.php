@@ -1,10 +1,4 @@
 <div class="card mb-2 shadow-sm">
-    @if ($image != '')
-        <img
-            src="{{asset("storage/{$image}")}}"
-            class="card-img-top"
-        >
-    @endif
     <div class="card-body">
         <h5 class="card-title">
             {{$title}}
@@ -18,4 +12,11 @@
             </small>
         </p>
     </div>
+    @if($image != '')
+        <img
+            src="{{asset("storage/{$image}")}}"
+            class="card-img-bottom"
+        >
+    @endif
+
 </div>

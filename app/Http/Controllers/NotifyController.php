@@ -36,9 +36,6 @@ class NotifyController extends Controller
      */
     public function store(Request $request)
     {
-        dd($user_id);
-        $user->notify(new Administrative('test'));
-
         return redirect()->back();
     }
 
