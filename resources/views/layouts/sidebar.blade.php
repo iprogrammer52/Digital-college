@@ -78,6 +78,28 @@
         </div>
     </div>
 </div>
+
+<div class="accordion mt-2" id="admissionCampaignAccordion">
+    <div class="card bg-dark text-light">
+        <div class="card-header" id="admissionCampaignHeading">
+            <h2 class="mb-0">
+                <button class="btn btn-link collapsed text-light" type="button" data-toggle="collapse" data-target="#admissionCampaignCollapse" aria-expanded="false">
+                    {{__('app.admission_campaign')}}
+                </button>
+            </h2>
+        </div>
+        <div id="admissionCampaignCollapse" class="collapse" aria-labelledby="admissionCampaignHeading" data-parent="#admissionCampaignAccordion">
+            <ul class="list-group list-group-flush bg-dark text-light">
+                <li class="list-group-item bg-dark">
+                    <a href="{{asset('reception_time')}}" class="card-link text-light">
+                        {{__('app.reception_time')}}
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
 @endif
 
 <div class="accordion mt-2" id="extraAccordion">

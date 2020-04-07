@@ -24,3 +24,6 @@ Route::resource('/user_settings','UserSettingsController');
 Route::resource('/abiturient_info','AbiturientInfoController');
 
 Route::resource('/notify','NotifyController');
+
+
+Route::get('/reception_time','ReceptionTimeController@index');

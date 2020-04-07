@@ -9,6 +9,17 @@ use App\Notifications\Administrative;
 class NotifyController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('root');
+    }
+    
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
