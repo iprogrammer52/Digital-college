@@ -37351,6 +37351,8 @@ __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"
 
 __webpack_require__(/*! ./imageuploader */ "./resources/js/imageuploader.js");
 
+__webpack_require__(/*! ./cm-timereception-change */ "./resources/js/cm-timereception-change.js");
+
 /***/ }),
 
 /***/ "./resources/js/bootstrap.js":
@@ -37408,6 +37410,17 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 $('#cm-js-open-menu').on('click', function () {
   $('#sidebar').toggle();
 });
+
+/***/ }),
+
+/***/ "./resources/js/cm-timereception-change.js":
+/*!*************************************************!*\
+  !*** ./resources/js/cm-timereception-change.js ***!
+  \*************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 

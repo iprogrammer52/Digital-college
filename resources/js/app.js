@@ -5,3 +5,4 @@ require('../../node_modules/croppie/croppie.min.js');
 // custom script
 require('./cm-js-open-menu');
 require('./imageuploader');
+require('./cm-timereception-change');

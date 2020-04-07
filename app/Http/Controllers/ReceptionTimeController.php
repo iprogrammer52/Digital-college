@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ReceptionTime;
 
 class ReceptionTimeController extends Controller
 {
@@ -24,6 +25,17 @@ class ReceptionTimeController extends Controller
      */
     public function index()
     {
-        return view('reception_time');
+        $receptionTimes = new ReceptionTime();
+
+        return view('reception_time', ['receptionTimes' => $receptionTimes->get()]);
+    }
+
+    public function changeStatus($data)
+    {
+        $receptionTimes = new ReceptionTime();
+        $receptionTimes
+            ->where('id', 1)
+            ->update($data);
+
     }
 }

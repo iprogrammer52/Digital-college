@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ReceptionTimeTable extends Migration
+class ReceptionTimesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,8 +13,10 @@ class ReceptionTimeTable extends Migration
      */
     public function up()
     {
-        Schema::create('reception_time', function (Blueprint $table) {
+        Schema::create('reception_times', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->time('time');
+            $table->string('status');
             $table->timestamps();
         });
     }
