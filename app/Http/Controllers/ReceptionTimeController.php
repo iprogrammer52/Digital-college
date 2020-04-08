@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ReceptionTime;
-
+use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Validator;
 class ReceptionTimeController extends Controller
 {
     /**
@@ -30,12 +31,22 @@ class ReceptionTimeController extends Controller
         return view('reception_time', ['receptionTimes' => $receptionTimes->get()]);
     }
 
-    public function changeStatus($data)
+    public function changeStatus(Request $request)
     {
-        $receptionTimes = new ReceptionTime();
-        $receptionTimes
-            ->where('id', 1)
-            ->update($data);
+        Validator::make($request->all(), [
+            'status' => [
+                'required',
+                Rule::in(['on','off']),
+            ],
+            'id' => 'numeric'
+        ])->validate();
 
+        $receptionTimes = new ReceptionTime();
+
+        $renewed = $receptionTimes
+            -> where('id', $request->id)
+            -> update(['status' => $request->status]);
+
+            return $renewed;
     }
 }
