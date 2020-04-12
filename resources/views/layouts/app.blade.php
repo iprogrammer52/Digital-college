@@ -11,7 +11,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 
-<body>
+<body class="bg-light">
     <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark">
         <div class="navbar-expand" id="navbarNav">
             <ul class="navbar-nav">
