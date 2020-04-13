@@ -1,8 +1,7 @@
 @extends('layouts.app')
-
 @section('content')
     @if (!empty($receptionTimes))
-        <table class="table">
+        <table class="table" id="reception-times-table">
             <thead>
                 <tr>
                 <th scope="col">{{__('app.id')}}</th>
@@ -12,7 +11,7 @@
             </thead>
             <tbody>
                 @foreach ($receptionTimes as $time)
-                    <tr>
+                    <tr class="">
                         <td scope="row">{{$time->id}}</td>
                         <td>{{$time->time}}</td>
                         <td>
@@ -27,7 +26,7 @@
                     <td scope="row">
                     </td>
                     <td>
-                        <input class="form-control" type="time" name="">
+                        <input class="form-control" type="time" name="time" id="time">
                     </td>
                     <td>
                         <input class="form-control btn btn-dark" type="button" value="save" id="save_rt">

@@ -51,8 +51,17 @@ class ReceptionTimeController extends Controller
         return $renewed;
     }
 
-    public function addReceptionTime(Request $request) 
+    public function addReceptionTime(Request $request)
     {
-        
+        $receptionTimeData = new ReceptionTime();
+        $receptionTimeData
+            ->create([
+                'time' => '8:30:00',
+                'date' => '2020-04-08',
+                'status'=> 'on',
+                'free' => true,
+                'created_at'=>date('Y:m:d'),
+            ])
+            ->save();
     }
 }

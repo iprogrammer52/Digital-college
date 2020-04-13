@@ -37444,12 +37444,28 @@ $('#save_rt').on('click', function () {
   });
   $.ajax({
     type: 'PUT',
+    cache: false,
     url: 'reception_time',
-    data: {},
-    success: function success(xhr, status, error) {},
-    error: function error(xhr, status, _error) {}
+    data: {
+      'time': $('#time').val()
+    },
+    success: function success(xhr, status, error) {
+      $('#reception-times-table').load('reception_time #reception-times-table');
+      statusOk();
+    },
+    error: function error(xhr, status, _error) {
+      statusError();
+    }
   });
 });
+
+function statusOk() {
+  return $('#notifications_data').append('<div class="alert alert-success fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
+}
+
+function statusError() {
+  return $('#notifications_data').append('<div class="alert alert-danger fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
+}
 
 /***/ }),
 
@@ -37510,8 +37526,8 @@ function statusError() {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/kdc/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/kdc/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

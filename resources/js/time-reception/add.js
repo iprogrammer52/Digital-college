@@ -11,10 +11,42 @@ $('#save_rt').on('click', function() {
 
     $.ajax({
         type: 'PUT',
+        cache:false,
         url: 'reception_time',
-        data: {},
-        success: function(xhr, status, error) {},
-        error: function(xhr, status, error) {}
+        data: {
+            'time': $('#time').val(),
+        },
+        success: function(xhr, status, error) {
+            $('#reception-times-table').load('reception_time #reception-times-table');
+            statusOk();
+        },
+        error: function(xhr, status, error) {
+            statusError();
+        }
 
     });
 });
+
+function statusOk() {
+    return $('#notifications_data').append(
+        '<div class="alert alert-success fade show animated fadeInRight" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' +
+        '<p class="alert-heading">Well done!</p>' +
+        '<p>Done</p>' +
+        '</div>'
+    );
+}
+
+function statusError() {
+    return $('#notifications_data').append(
+        '<div class="alert alert-danger fade show animated fadeInRight" role="alert">' +
+        '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+        '<span aria-hidden="true">&times;</span>' +
+        '</button>' +
+        '<p class="alert-heading">Well done!</p>' +
+        '<p>Done</p>' +
+        '</div>'
+    );
+}
