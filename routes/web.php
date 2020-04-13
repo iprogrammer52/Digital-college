@@ -28,3 +28,4 @@ Route::resource('/notify','NotifyController');
 
 Route::get('/reception_time','ReceptionTimeController@index');
 Route::post('/reception_time','ReceptionTimeController@changeStatus');
+Route::put('/reception_time', 'ReceptionTimeController@addReceptionTime');

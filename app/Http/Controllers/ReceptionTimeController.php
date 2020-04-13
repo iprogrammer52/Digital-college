@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ReceptionTime;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
 class ReceptionTimeController extends Controller
 {
@@ -47,6 +48,11 @@ class ReceptionTimeController extends Controller
             -> where('id', $request->id)
             -> update(['status' => $request->status]);
 
-            return $renewed;
+        return $renewed;
+    }
+
+    public function addReceptionTime(Request $request) 
+    {
+        
     }
 }

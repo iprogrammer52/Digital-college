@@ -57,21 +57,7 @@
                         @yield('content')
                     </main>
                 </div>
-                <div class="col-2 d-lg-block d-none mt-4">
-                    <div class="alert alert-dark fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="alert-heading">Well done!</h4>
-                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                    </div>
-                    <div class="alert alert-dark fade show" role="alert">
-                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="alert-heading">Well done!</h4>
-                        <p>Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.</p>
-                    </div>
+                <div class="col-2 d-lg-block d-none mt-4" id="notifications_data">
                 </div>
             @else
                 <div class="col-12">

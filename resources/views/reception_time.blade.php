@@ -23,13 +23,19 @@
                         </td>
                     </tr>
                 @endforeach
-                <tr>
-                    <td colspan="3" align="center">
-                        <input class="btn btn-dark" id="add_rt" type="button" name="add_reception_time" value="+">
+                <tr class="d-none" id="reception-time-template">
+                    <td scope="row">
+                    </td>
+                    <td>
+                        <input class="form-control" type="time" name="">
+                    </td>
+                    <td>
+                        <input class="form-control btn btn-dark" type="button" value="save" id="save_rt">
                     </td>
                 </tr>
             </tbody>
         </table>
+        <input class="btn btn-dark" id="add_rt" type="button" name="add_reception_time" value="+">
     @else
         <div class="card mb-3">
             <div class="card-body justify-content-center d-flex">

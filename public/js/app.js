@@ -37351,7 +37351,9 @@ __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"
 
 __webpack_require__(/*! ./imageuploader */ "./resources/js/imageuploader.js");
 
-__webpack_require__(/*! ./cm-timereception-change */ "./resources/js/cm-timereception-change.js");
+__webpack_require__(/*! ./time-reception/change */ "./resources/js/time-reception/change.js");
+
+__webpack_require__(/*! ./time-reception/add */ "./resources/js/time-reception/add.js");
 
 /***/ }),
 
@@ -37413,10 +37415,48 @@ $('#cm-js-open-menu').on('click', function () {
 
 /***/ }),
 
-/***/ "./resources/js/cm-timereception-change.js":
-/*!*************************************************!*\
-  !*** ./resources/js/cm-timereception-change.js ***!
-  \*************************************************/
+/***/ "./resources/js/imageuploader.js":
+/*!***************************************!*\
+  !*** ./resources/js/imageuploader.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/time-reception/add.js":
+/*!********************************************!*\
+  !*** ./resources/js/time-reception/add.js ***!
+  \********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#add_rt').on('click', function () {
+  $('#reception-time-template').removeClass('d-none');
+});
+$('#save_rt').on('click', function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'PUT',
+    url: 'reception_time',
+    data: {},
+    success: function success(xhr, status, error) {},
+    error: function error(xhr, status, _error) {}
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/time-reception/change.js":
+/*!***********************************************!*\
+  !*** ./resources/js/time-reception/change.js ***!
+  \***********************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37432,20 +37472,23 @@ $('[data-time-reception-id]').change(function () {
     data: {
       'status': $(this).val(),
       'id': $(this).data('time-reception-id')
+    },
+    success: function success(xhr, status, error) {
+      statusOk();
+    },
+    error: function error(xhr, status, _error) {
+      statusError();
     }
   });
 });
 
-/***/ }),
+function statusOk() {
+  return $('#notifications_data').append('<div class="alert alert-success fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
+}
 
-/***/ "./resources/js/imageuploader.js":
-/*!***************************************!*\
-  !*** ./resources/js/imageuploader.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
+function statusError() {
+  return $('#notifications_data').append('<div class="alert alert-danger fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
+}
 
 /***/ }),
 
@@ -37467,8 +37510,8 @@ $('[data-time-reception-id]').change(function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/kdc/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/code/kdc/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
