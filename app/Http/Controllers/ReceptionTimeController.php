@@ -7,6 +7,8 @@ use App\ReceptionTime;
 use Illuminate\Validation\Rule;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
+use App\Events\Changes;
+
 class ReceptionTimeController extends Controller
 {
     /**
@@ -54,7 +56,7 @@ class ReceptionTimeController extends Controller
     public function addReceptionTime(Request $request)
     {
         $receptionTimeData = new ReceptionTime();
-        $receptionTimeData
+        $answer = $receptionTimeData
             ->create([
                 'time' => '8:30:00',
                 'date' => '2020-04-08',
@@ -63,5 +65,8 @@ class ReceptionTimeController extends Controller
                 'created_at'=>date('Y:m:d'),
             ])
             ->save();
+        event(new Changes());
+
+        return $answer;
     }
 }

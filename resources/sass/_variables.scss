@@ -1,16 +1,18 @@
 // Fonts
 @font-face {
     font-family: 'OpenSans';
-    src:
-        url('./public/fonts/open-sans/OpenSans-Regular.ttf')  format('truetype');
+    src: url('./public/fonts/open-sans/OpenSans-Regular.ttf') format('truetype');
     font-weight: normal;
     font-style: normal;
 }
 
 // Typography
-$font-family-sans-serif: 'OpenSans', sans-serif;
+$font-family-sans-serif: 'OpenSans',
+sans-serif;
 // $font-size-base: 0.9rem;
 // $line-height-base: 1.6;
+// $enable-responsive-font-sizes: true;
+// $font-size-base: 14px;
 // Colors
 $blue: #3490dc;
 $indigo: #6574cd;
