@@ -8,3 +8,4 @@ require('./imageuploader');
 
 require('./time-reception/change');
 require('./time-reception/add');
+require('./time-reception/delete');

@@ -12,20 +12,23 @@
 */
 
 Auth::routes();
-Route::resource('/','IndexController');
-Route::resource('/about_us','AboutUsController');
+Route::resource('/', 'IndexController');
+Route::resource('/about_us', 'AboutUsController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::resource('/create_news','NewsController');
-Route::resource('/settings','AccountSettingsController');
-Route::resource('/mailing','MailingController');
-Route::resource('/user_settings','UserSettingsController');
-Route::resource('/abiturient_info','AbiturientInfoController');
+Route::resource('/create_news', 'NewsController');
+Route::resource('/settings', 'AccountSettingsController');
+Route::resource('/mailing', 'MailingController');
+Route::resource('/user_settings', 'UserSettingsController');
+Route::resource('/abiturient_info', 'AbiturientInfoController');
 
-Route::resource('/notify','NotifyController');
+Route::resource('/notify', 'NotifyController');
 
 
-Route::get('/reception_time','ReceptionTimeController@index');
-Route::post('/reception_time','ReceptionTimeController@changeStatus');
+Route::get('/reception_time', 'ReceptionTimeController@index');
+Route::post('/reception_time', 'ReceptionTimeController@changeStatus');
 Route::put('/reception_time', 'ReceptionTimeController@addReceptionTime');
+Route::delete('/reception_time', 'ReceptionTimeController@deleteReceptionTime');
+
+Route::resource('/submit_documents','SubmitDocumentsController');

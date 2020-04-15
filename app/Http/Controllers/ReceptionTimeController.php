@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\ReceptionTime;
 use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\Facades\Validator;
-use App\Events\Changes;
+use App\Events\Notify;
+use App\ReceptionDate;
 
 class ReceptionTimeController extends Controller
 {
@@ -29,9 +29,9 @@ class ReceptionTimeController extends Controller
      */
     public function index()
     {
-        $receptionTimes = new ReceptionTime();
+        $receptionDate = ReceptionDate::all();
 
-        return view('reception_time', ['receptionTimes' => $receptionTimes->get()]);
+        return view('reception_time', ['receptionDate' => $receptionDate]);
     }
 
     public function changeStatus(Request $request)
@@ -65,8 +65,18 @@ class ReceptionTimeController extends Controller
                 'created_at'=>date('Y:m:d'),
             ])
             ->save();
-        event(new Changes());
 
-        return $answer;
+        // event(new Notify());
+
+        return true;
+    }
+
+    public function deleteReceptionTime($id)
+    {
+        $receptionTime = new ReceptionTime();
+        $receptionTime
+            ->where('id', '=', $id)
+            ->delete();
+        return true;
     }
 }
