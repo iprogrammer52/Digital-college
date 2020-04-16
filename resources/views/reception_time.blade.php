@@ -26,7 +26,7 @@
         >
             <div class="card">
                 <div class="card-body d-flex justify-content-center">
-                    <p class="card-text text-muted">Выбирите дату</p>
+                    <p class="card-text text-muted">{{__('app.select_a_date')}}</p>
                 </div>
             </div>
         </div>
@@ -50,15 +50,21 @@
                             <tr class="">
                                 <td scope="row">{{$time->id}}</td>
                                 <td>{{$time->time}}</td>
-                                <td>
-                                    <select class="form-control form-control-sm cm-status" data-time-reception-id="{{$time->id}}">
-                                        <option value="on" @if($time->status == 'on') selected @endif>{{__('app.on')}}</option>
-                                        <option value="off" @if($time->status == 'off') selected @endif>{{__('app.off')}}</option>
-                                    </select>
-                                </td>
+                                @if($time->free == 1)
+                                    <td>
+                                        <select class="form-control form-control-sm cm-status" data-time-reception-id="{{$time->id}}">
+                                            <option value="on" @if($time->status == 'on') selected @endif>{{__('app.on')}}</option>
+                                            <option value="off" @if($time->status == 'off') selected @endif>{{__('app.off')}}</option>
+                                        </select>
+                                    </td>
+                                @else
+                                    <td>
+                                        {{__('app.busy_date')}}
+                                    </td>
+                                @endif
                             </tr>
                         @endforeach
-                        <tr class="d-none" id="reception-time-template">
+                        <tr class="" id="reception-time-template">
                             <td scope="row">
                             </td>
                             <td>

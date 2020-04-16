@@ -1,10 +1,11 @@
 // require from node_module
 require('./bootstrap');
-require('../../node_modules/croppie/croppie.min.js');
+// require('../../node_modules/croppie/croppie.min.js');
 
 // custom script
 require('./cm-js-open-menu');
 require('./imageuploader');
+require('./sidebar');
 
 require('./time-reception/change');
 require('./time-reception/add');

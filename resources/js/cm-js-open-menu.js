@@ -1,3 +1,3 @@
-$('#cm-js-open-menu').on('click',function () { 
-    $('#sidebar').toggle();
+$('#cm-js-open-menu').on('click', function() {
+    $('#sidebar').toggleClass('d-none animated fadeInLeft');
 });
