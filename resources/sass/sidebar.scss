@@ -1,6 +1,39 @@
-.cm-sidebar-wrapper {
+.cm-wrapper-sidebar {
     display: flex;
+    flex-direction: column;
     width: 100%;
-    height: 100vh;
+    height: 100%;
+    overflow: hidden;
     background-color: $dark;
+    &__profile-info {
+        display: flex;
+        width: 100%;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 4px;
+    }
+    &__profile-text {
+        display: flex;
+        padding-left: 4px;
+        &--column {
+            flex-direction: column;
+        }
+        &--row {
+            flex-direction: row;
+        }
+    }
+    &__profile-image {
+        width: 58px;
+        height: 58px;
+        border-radius: 50%;
+    }
+    &__menu {
+        list-style-type: none;
+    }
+}
+
+.cm-sidebar-menu__item {
+    &__item {
+
+    }
 }

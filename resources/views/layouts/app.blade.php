@@ -37,7 +37,7 @@
                 @else
                     <li class="nav-item d-md-none">
                         <a id="cm-js-open-menu" class="nav-link" href="#">
-                            <img src="{{asset('icons/menu.svg')}}" class="" alt="{{__('app.menu')}}">
+                            <img src="{{ asset('icons/menu.svg') }}" class="" alt="{{ __('app.menu') }}">
                         </a>
                     </li>
                 @endguest
@@ -48,7 +48,7 @@
         <div class="row justify-content-sm-center">
             @auth
                 <div class="col-2 p-0 m-0 d-lg-block d-none" id="sidebar">
-                    @component('layouts/sidebar') @endcomponent
+                    @component ('layouts/sidebar') @endcomponent
                 </div>
                 <div class="col-md-8 col-sm-12 m-0 p-0">
                     <main class="mt-4 container-fluid">
@@ -66,6 +66,6 @@
             @endauth
         </div>
     </div>
-    <script src="{{asset('js/app.js')}}"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

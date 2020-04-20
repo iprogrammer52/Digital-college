@@ -1,17 +1,22 @@
 <hr class="p-0 m-0 bg-dark">
-<div class="cm-sidebar-wrapper">
-    <div>
-        <img src="{{asset('/storage/' . Auth::user()->avatar)}}" class="card-img" alt="...">
-        <p></p>
-        <p></p>
-        <p></p>
+<div class="cm-wrapper-sidebar">
+    <div class="cm-wrapper-sidebar__profile-info">
+        <img
+            class="cm-wrapper-sidebar__profile-image"
+            src="{{ asset('/storage/' . Auth::user()->avatar) }}"
+            alt="{{ __('app.avatar') }}"
+        >
+        <div class="cm-wrapper-sidebar__profile-text cm-wrapper-sidebar__profile-text--column">
+            <p>{{ Auth::user()->surname }} {{ Auth::user()->name }}</p>
+            <p class="text-muted">{{Auth::user()->role}}</p>
+        </div>
     </div>
-    <div>
+    <hr class="p-0 m-0 bg-dark">
+    <ul class="cm-wrapper-sidebar__menu cm-sidebar-menu">
+        <li class="cm-sidebar-menu__item">
 
-    </div>
-    <div>
-
-    </div>
+        </li>
+    </ul>
 </div>
 {{-- <div class="bg-light w-100">
 <div class="card bg-dark text-white mt-4">
