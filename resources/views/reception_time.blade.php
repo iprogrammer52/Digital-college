@@ -16,6 +16,19 @@
                 </a>
             </li>
         @endforeach
+        <li class="nav-item">
+            <a
+                class="nav-link bg-dark text-light"
+                id="pills-new-tab"
+                data-toggle="pill"
+                href="#pills-new"
+                role="tab"
+                aria-controls="pills-new"
+                aria-selected="true"
+            >
+                +
+            </a>
+        </li>
     </ul>
     <div class="tab-content" id="pills-tabContent">
         <div
@@ -78,5 +91,33 @@
                 </table>
             </div>
         @endforeach
+            <div
+                class="tab-pane fade"
+                id="pills-new"
+                role="tabpanel"
+                aria-labelledby="pills-new-tab"
+            >
+            <table class="table" id="reception-times-table">
+                <thead>
+                    <tr>
+                    <th scope="col">{{__('app.id')}}</th>
+                    <th scope="col">{{__('app.reception_time')}}</th>
+                    <th scope="col"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="" id="reception-time-template">
+                        <td scope="row">
+                        </td>
+                        <td>
+                            <input class="form-control" type="time" name="time" id="time">
+                        </td>
+                        <td>
+                            <input class="form-control btn btn-dark" type="button" value="save" id="save_rt">
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     </div>
 @endsection
