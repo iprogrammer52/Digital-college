@@ -2,24 +2,27 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow: hidden;
     background-color: $dark;
     &__profile-info {
         display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
         width: 100%;
-        padding-top: 4px;
-        padding-bottom: 4px;
-        padding-left: 4px;
+        padding-top: 8px;
+        padding-bottom: 8px;
     }
     &__profile-text {
         display: flex;
-        padding-left: 4px;
+        align-items: center;
         &--column {
             flex-direction: column;
         }
-        &--row {
-            flex-direction: row;
+        &>p {
+            margin: 0;
+            padding: 0;
         }
     }
     &__profile-image {
@@ -32,8 +35,7 @@
     }
 }
 
-.cm-sidebar-menu__item {
-    &__item {
-
-    }
+.cm-sidebar-menu {
+    margin: 0;
+    padding: 0;
 }
