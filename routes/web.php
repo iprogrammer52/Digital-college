@@ -31,4 +31,6 @@ Route::post('/reception_time', 'ReceptionTimeController@changeStatus');
 Route::put('/reception_time', 'ReceptionTimeController@addReceptionTime');
 Route::delete('/reception_time', 'ReceptionTimeController@deleteReceptionTime');
 
+Route::resource('/reception_date', 'ReceptionDateController');
+
 Route::resource('/submit_documents','SubmitDocumentsController');

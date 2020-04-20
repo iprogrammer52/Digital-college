@@ -10,4 +10,13 @@ class ReceptionDate extends Model
     {
         return $this->hasMany(ReceptionTime::class);
     }
+
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
+    protected $fillable = [
+        'date'
+    ];
 }

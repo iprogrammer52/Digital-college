@@ -7,6 +7,8 @@ require('./cm-js-open-menu');
 require('./imageuploader');
 require('./sidebar');
 
-require('./time-reception/change');
-require('./time-reception/add');
-require('./time-reception/delete');
+// reception time scrits
+require('./time-reception/changeTime');
+require('./time-reception/addTime');
+require('./time-reception/deleteTime');
+require('./time-reception/addDate');

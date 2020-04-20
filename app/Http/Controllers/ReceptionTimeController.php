@@ -56,10 +56,11 @@ class ReceptionTimeController extends Controller
     public function addReceptionTime(Request $request)
     {
         $receptionTimeData = new ReceptionTime();
-        $answer = $receptionTimeData
+
+        $receptionTimeData
             ->create([
-                'time' => '8:30:00',
-                'date' => '2020-04-08',
+                'time' => $request->time,
+                'reception_date_id' => $request->eception_date_id,
                 'status'=> 'on',
                 'free' => true,
                 'created_at'=>date('Y:m:d'),
@@ -71,12 +72,12 @@ class ReceptionTimeController extends Controller
         return true;
     }
 
-    public function deleteReceptionTime($id)
-    {
-        $receptionTime = new ReceptionTime();
-        $receptionTime
-            ->where('id', '=', $id)
-            ->delete();
-        return true;
-    }
+    // public function deleteReceptionTime($id)
+    // {
+    //     $receptionTime = new ReceptionTime();
+    //     $receptionTime
+    //         ->where('id', '=', $id)
+    //         ->delete();
+    //     return true;
+    // }
 }

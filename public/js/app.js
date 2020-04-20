@@ -37061,13 +37061,16 @@ __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"
 
 __webpack_require__(/*! ./imageuploader */ "./resources/js/imageuploader.js");
 
-__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
+__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js"); // reception time scrits
 
-__webpack_require__(/*! ./time-reception/change */ "./resources/js/time-reception/change.js");
 
-__webpack_require__(/*! ./time-reception/add */ "./resources/js/time-reception/add.js");
+__webpack_require__(/*! ./time-reception/changeTime */ "./resources/js/time-reception/changeTime.js");
 
-__webpack_require__(/*! ./time-reception/delete */ "./resources/js/time-reception/delete.js");
+__webpack_require__(/*! ./time-reception/addTime */ "./resources/js/time-reception/addTime.js");
+
+__webpack_require__(/*! ./time-reception/deleteTime */ "./resources/js/time-reception/deleteTime.js");
+
+__webpack_require__(/*! ./time-reception/addDate */ "./resources/js/time-reception/addDate.js");
 
 /***/ }),
 
@@ -37168,53 +37171,98 @@ $("#show-sidebar").click(function () {
 
 /***/ }),
 
-/***/ "./resources/js/time-reception/add.js":
-/*!********************************************!*\
-  !*** ./resources/js/time-reception/add.js ***!
-  \********************************************/
+/***/ "./resources/js/time-reception/addDate.js":
+/*!************************************************!*\
+  !*** ./resources/js/time-reception/addDate.js ***!
+  \************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-$('#add_rt').on('click', function () {
-  $('#reception-time-template').removeClass('d-none');
-});
-$('#save_rt').on('click', function () {
+$('#add-reception-date').on('click', function () {
+  console.log($('#reception-date-value').val());
   $.ajaxSetup({
     headers: {
       'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
   });
   $.ajax({
-    type: 'PUT',
+    type: 'POST',
     cache: false,
-    url: 'reception_time',
+    url: 'reception_date',
     data: {
-      'time': $('#time').val()
+      'date': $('#reception-date-value').val()
     },
     success: function success(xhr, status, error) {
-      $('#reception-times-table').load('reception_time #reception-times-table');
-      statusOk();
+      $('#pills-tab').load('reception_time #pills-tab');
     },
-    error: function error(xhr, status, _error) {
-      statusError();
-    }
+    error: function error(xhr, status, _error) {}
   });
 });
 
-function statusOk() {
-  return $('#notifications_data').append('<div class="alert alert-success fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
-}
+/***/ }),
 
-function statusError() {
-  return $('#notifications_data').append('<div class="alert alert-danger fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
-}
+/***/ "./resources/js/time-reception/addTime.js":
+/*!************************************************!*\
+  !*** ./resources/js/time-reception/addTime.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// $('#add_rt').on('click', function() {
+//     $('#reception-time-template').removeClass('d-none');
+// });
+console.log('awd');
+$('#save_rt').on('click', function () {
+  console.log($('#time').val(), $('.tab-pane fade active').attr('id')); //     $.ajaxSetup({
+  //         headers: {
+  //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //         },
+  //     });
+  //     $.ajax({
+  //         type: 'PUT',
+  //         cache:false,
+  //         url: 'reception_time',
+  //         data: {
+  //             'time': $('#time').val(),
+  //             'reception_date_id':$('.tab-pane fade active').attr('id'),
+  //         },
+  //         success: function(xhr, status, error) {
+  //             $('#reception-times-table').load('reception_time #reception-times-table');
+  //             statusOk();
+  //         },
+  //         error: function(xhr, status, error) {
+  //             statusError();
+  //         }
+  //     });
+}); // function statusOk() {
+//     return $('#notifications_data').append(
+//         '<div class="alert alert-success fade show animated fadeInRight" role="alert">' +
+//         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+//         '<span aria-hidden="true">&times;</span>' +
+//         '</button>' +
+//         '<p class="alert-heading">Well done!</p>' +
+//         '<p>Done</p>' +
+//         '</div>'
+//     );
+// }
+// function statusError() {
+//     return $('#notifications_data').append(
+//         '<div class="alert alert-danger fade show animated fadeInRight" role="alert">' +
+//         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+//         '<span aria-hidden="true">&times;</span>' +
+//         '</button>' +
+//         '<p class="alert-heading">Well done!</p>' +
+//         '<p>Done</p>' +
+//         '</div>'
+//     );
+// }
 
 /***/ }),
 
-/***/ "./resources/js/time-reception/change.js":
-/*!***********************************************!*\
-  !*** ./resources/js/time-reception/change.js ***!
-  \***********************************************/
+/***/ "./resources/js/time-reception/changeTime.js":
+/*!***************************************************!*\
+  !*** ./resources/js/time-reception/changeTime.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37250,10 +37298,10 @@ function statusError() {
 
 /***/ }),
 
-/***/ "./resources/js/time-reception/delete.js":
-/*!***********************************************!*\
-  !*** ./resources/js/time-reception/delete.js ***!
-  \***********************************************/
+/***/ "./resources/js/time-reception/deleteTime.js":
+/*!***************************************************!*\
+  !*** ./resources/js/time-reception/deleteTime.js ***!
+  \***************************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
@@ -37294,8 +37342,8 @@ $('.deleteReceptionTime').on('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /home/vagrant/code/kdc/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /home/vagrant/code/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/kdc/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
