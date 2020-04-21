@@ -38,7 +38,7 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{ asset('home') }}" class="card-link text-light">
+                                <a href="{{ asset('home') }}" class="card-link text-light pl-4">
                                     {{ __('app.lents') }}
                                 </a>
                             </li>
@@ -72,12 +72,12 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{asset('create_news')}}" class="card-link text-light">
+                                <a href="{{asset('create_news')}}" class="card-link text-light pl-4">
                                     {{ __('app.add_news') }}
                                 </a>
                             </li>
                             <li class="list-group-item bg-dark">
-                                <a href="{{asset('user_settings')}}" class="card-link text-light">
+                                <a href="{{asset('user_settings')}}" class="card-link text-light pl-4">
                                     {{ __('app.users') }}
                                 </a>
                             </li>
@@ -111,12 +111,12 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{ asset('mailing') }}" class="card-link text-light">
+                                <a href="{{ asset('mailing') }}" class="card-link text-light pl-4">
                                     {{ __('app.add_mailing') }}
                                 </a>
                             </li>
                             <li class="list-group-item bg-dark">
-                                <a href="{{ asset('notify') }}" class="card-link text-light">
+                                <a href="{{ asset('notify') }}" class="card-link text-light pl-4">
                                     {{ __('app.notify') }}
                                 </a>
                             </li>
@@ -150,7 +150,7 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{ asset('reception_time') }}" class="card-link text-light">
+                                <a href="{{ asset('reception_time') }}" class="card-link text-light pl-4">
                                     {{ __('app.reception_time') }}
                                 </a>
                             </li>
@@ -184,12 +184,12 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{ asset('settings') }}" class="card-link text-light">
+                                <a href="{{ asset('settings') }}" class="card-link text-light pl-4">
                                     {{ __('app.profile') }}
                                 </a>
                             </li>
                             <li class="list-group-item bg-dark">
-                                <a class="card-link text-light" href="{{ route('logout') }}" onclick="event.preventDefault();
+                                <a class="card-link text-light pl-4" href="{{ route('logout') }}" onclick="event.preventDefault();
                                     document.getElementById('logout-form').submit();">
                                     {{ __('app.logout') }}
                                 </a>

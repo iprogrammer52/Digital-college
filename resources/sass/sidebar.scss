@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     overflow: hidden;
     background-color: $dark;
     &__profile-info {
@@ -38,4 +38,13 @@
 .cm-sidebar-menu {
     margin: 0;
     padding: 0;
+    &__item button, a {
+        text-align: left;
+    }
+}
+
+@media (max-width: 576px) {
+    .cm-wrapper-sidebar {
+        width: 100vw;
+    }
 }
