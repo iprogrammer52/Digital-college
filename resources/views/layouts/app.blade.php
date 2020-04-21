@@ -10,7 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark">
+    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark cm-navbar">
         <div class="navbar-expand" id="navbarNav">
             <ul class="navbar-nav">
                 <li class="nav-item d-lg-block d-none">

@@ -37211,7 +37211,6 @@ $('#add-reception-date').on('click', function () {
 // $('#add_rt').on('click', function() {
 //     $('#reception-time-template').removeClass('d-none');
 // });
-console.log('awd');
 $('#save_rt').on('click', function () {
   console.log($('#time').val(), $('.tab-pane fade active').attr('id')); //     $.ajaxSetup({
   //         headers: {

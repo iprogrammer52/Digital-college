@@ -8,7 +8,7 @@ $('#add-reception-date').on('click', function(){
 
     $.ajax({
         type: 'POST',
-        cache:false,
+        cache: false,
         url: 'reception_date',
         data: {
             'date': $('#reception-date-value').val(),
