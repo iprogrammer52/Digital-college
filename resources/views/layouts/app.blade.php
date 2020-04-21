@@ -11,8 +11,8 @@
 </head>
 <body>
     <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark cm-navbar">
-        <div class="navbar-expand" id="navbarNav">
-            <ul class="navbar-nav">
+        <div class="navbar-expand w-100" id="navbarNav">
+            <ul class="navbar-nav justify-content-around justify-content-md-end">
                 <li class="nav-item d-lg-block d-none">
                     <a href="{{ asset('about_us') }}" class="nav-link">
                         {{ __('app.about_us') }}
@@ -34,10 +34,30 @@
                             {{ __('app.register') }}
                         </a>
                     </li>
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <img src="{{ asset('icons/login.svg') }}" alt="{{ __('app.login') }}">
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link" href="{{ route('index') }}">
+                            <img src="{{ asset('icons/newspaper.svg') }}" alt="{{ __('app.news') }}">
+                        </a>
+                    </li>
                 @else
                     <li class="nav-item d-md-none">
+                        <a class="nav-link" href="#">
+                            <img src="{{ asset('icons/timetable.svg') }}" alt="{{ __('app.') }}">
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
                         <a id="cm-js-open-menu" class="nav-link" href="#">
-                            <img src="{{ asset('icons/menu.svg') }}" class="" alt="{{ __('app.menu') }}">
+                            <img src="{{ asset('icons/menu.svg') }}" alt="{{ __('app.menu') }}">
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a id="cm-js-open-notifications" class="nav-link" href="#">
+                            <img src="{{ asset('icons/notifications.svg') }}" alt="{{ __('app.notifications') }}">
                         </a>
                     </li>
                 @endguest
@@ -55,7 +75,15 @@
                         @yield('content')
                     </main>
                 </div>
-                <div class="col-2 d-lg-block d-none mt-4" id="notifications_data">
+                <div class="col-md-2 col-sm-12 d-lg-block d-none mt-4" id="notifications_data">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Добавлено в релизе</h5>
+                            <ul>
+                                <li>Иконки меню</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             @else
                 <div class="col-12">
