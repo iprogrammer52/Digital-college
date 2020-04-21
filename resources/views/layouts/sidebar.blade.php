@@ -1,4 +1,4 @@
-<hr class="p-0 m-0 bg-dark">
+<hr class="p-0 m-0 bg-dark d-none d-md-block">
 <div class="cm-wrapper-sidebar">
     <div class="cm-wrapper-sidebar__profile-info">
         <img
