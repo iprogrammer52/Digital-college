@@ -3,21 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Hash;
-use App\User;
 
-class AccountSettingsController extends Controller
+class QuizController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -25,7 +13,7 @@ class AccountSettingsController extends Controller
      */
     public function index()
     {
-        return view('account_settings');
+        //
     }
 
     /**
@@ -75,46 +63,12 @@ class AccountSettingsController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id user_Id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        $user_data = [];
-
-        if (!empty($request->name)) {
-            $user_data['name'] = $request->name;
-        }
-
-        if (!empty($request->surname)) {
-            $user_data['surname'] = $request->surname;
-        }
-
-        if (!empty($request->middlename)) {
-            $user_data['middlename'] = $request->middlename;
-        }
-
-        if (!empty($request->email)) {
-            $user_data['email'] = $request->email;
-        }
-
-        if (!empty($request->password) && !empty($request->repassword)) {
-            if ($request->password == $request->repassword)
-            $user_data['password'] = Hash::make($request->password);
-        }
-
-        if (!empty($request->image)) {
-            $user_data['avatar'] = $request->image->store('avatars', 'public');
-        }
-
-        if (!empty($user_data)) {
-            $user = new User();
-            $user
-                ->where('id', $id)
-                ->update($user_data);
-        }
-
-        return redirect()->back();
+        //
     }
 
     /**

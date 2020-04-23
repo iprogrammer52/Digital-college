@@ -18,7 +18,7 @@ Route::resource('/about_us', 'AboutUsController');
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::resource('/add_news', 'NewsController');
-Route::resource('/settings', 'AccountSettingsController');
+Route::resource('/profile', 'ProfileController');
 Route::resource('/mailing', 'MailingController');
 Route::resource('/user_settings', 'UserSettingsController');
 Route::resource('/abiturient_info', 'AbiturientInfoController');

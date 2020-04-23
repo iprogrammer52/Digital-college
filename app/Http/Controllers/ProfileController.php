@@ -3,10 +3,21 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\News;
+use Illuminate\Support\Facades\Hash;
+use App\User;
 
-class IndexController extends Controller
+class ProfileController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,10 +25,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $news = new News();
-        $news = $news->where(['for_all' => 'on'])->orderBy('created_at', 'desc')->get();
-
-        return view('index', ['news' => $news]);
+        return view('profile');
     }
 
     /**
@@ -27,7 +35,7 @@ class IndexController extends Controller
      */
     public function create()
     {
-
+        //
     }
 
     /**
@@ -38,7 +46,7 @@ class IndexController extends Controller
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -67,12 +75,46 @@ class IndexController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  int  $id user_Id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
     {
-        //
+        $user_data = [];
+
+        if (!empty($request->name)) {
+            $user_data['name'] = $request->name;
+        }
+
+        if (!empty($request->surname)) {
+            $user_data['surname'] = $request->surname;
+        }
+
+        if (!empty($request->middlename)) {
+            $user_data['middlename'] = $request->middlename;
+        }
+
+        if (!empty($request->email)) {
+            $user_data['email'] = $request->email;
+        }
+
+        if (!empty($request->password) && !empty($request->repassword)) {
+            if ($request->password == $request->repassword)
+            $user_data['password'] = Hash::make($request->password);
+        }
+
+        if (!empty($request->image)) {
+            $user_data['avatar'] = $request->image->store('avatars', 'public');
+        }
+
+        if (!empty($user_data)) {
+            $user = new User();
+            $user
+                ->where('id', $id)
+                ->update($user_data);
+        }
+
+        return redirect()->back();
     }
 
     /**

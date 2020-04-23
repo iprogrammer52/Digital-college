@@ -184,7 +184,7 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{ asset('settings') }}" class="card-link text-light pl-4">
+                                <a href="{{ asset('profile') }}" class="card-link text-light pl-4">
                                     {{ __('app.profile') }}
                                 </a>
                             </li>

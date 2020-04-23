@@ -47,6 +47,13 @@ class NewsController extends Controller
     public function store(Request $request)
     {
         $news = new News();
+
+        // $validatedData = $request->validate([
+        //     'title' => 'required|max:100',
+        //     'body' => 'required',
+        //     'for_all' => Rule::in(['on','off']),
+        // ]);
+
         if (!empty($request->image)) {
             $imageName = $request->image->store('news', 'public');
         } else {
@@ -55,10 +62,10 @@ class NewsController extends Controller
 
         $news
             ->create([
-                'title' => $request['title'],
-                'body' => $request['body'],
-                'for_all' => $for_all ?? '',
-                'image' => $imageName,
+                'title'   => $request['title'],
+                'body'    => $request['body'],
+                'for_all' => $request->for_all ?? '',
+                'image'   => $imageName,
             ])
             ->save();
  
