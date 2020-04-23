@@ -17,6 +17,7 @@
             <input type="checkbox" class="custom-control-input" id="customSwitch1">
             <label class="custom-control-label" for="customSwitch1">Для всех</label>
         </div>
+        @component ('components/cm-toggle-button') @endcomponent
         {{-- <div class="form-group form-check">
             <input class="form-check-input" type="checkbox" name="for_all" id="defaultCheck1">
             <label class="form-check-label" for="defaultCheck1">
