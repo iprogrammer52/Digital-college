@@ -25,7 +25,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        return view('create_news');
+        return view('add_news');
     }
 
     /**
@@ -46,7 +46,6 @@ class NewsController extends Controller
      */
     public function store(Request $request)
     {
-        $for_all = $request['for_all'] ?? 'off';
         $news = new News();
         if (!empty($request->image)) {
             $imageName = $request->image->store('news', 'public');
@@ -56,10 +55,10 @@ class NewsController extends Controller
 
         $news
             ->create([
-                'title_news' => $request['title_news'],
-                'body_news' => $request['body_news'],
-                'for_all' => $for_all,
-                'image_news' => $imageName,
+                'title' => $request['title'],
+                'body' => $request['body'],
+                'for_all' => $for_all ?? '',
+                'image' => $imageName,
             ])
             ->save();
  

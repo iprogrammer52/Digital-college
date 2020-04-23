@@ -3,12 +3,12 @@
     <div class="cm-wrapper-sidebar__profile-info">
         <img
             class="cm-wrapper-sidebar__profile-image"
-            src="{{ asset('/storage/' . Auth::user()->avatar) }}"
+            src="{{ !empty(Auth::user()->avatar) ? asset('/storage/' . Auth::user()->avatar) : asset('/images/default-avatar.png') }}"
             alt="{{ __('app.avatar') }}"
         >
         <div class="cm-wrapper-sidebar__profile-text cm-wrapper-sidebar__profile-text--column">
             <p class="text-light">{{ Auth::user()->surname }} {{ Auth::user()->name }}</p>
-            <p class="text-muted">{{ Auth::user()->role }}</p>
+            <p class="text-muted">{{ Auth::user()->usergroup }}</p>
         </div>
     </div>
     <hr class="p-0 m-0 bg-dark">
@@ -72,7 +72,7 @@
                     >
                         <ul class="list-group list-group-flush text-light">
                             <li class="list-group-item bg-dark">
-                                <a href="{{asset('create_news')}}" class="card-link text-light pl-4">
+                                <a href="{{asset('add_news')}}" class="card-link text-light pl-4">
                                     {{ __('app.add_news') }}
                                 </a>
                             </li>

@@ -4,13 +4,13 @@
         @foreach ($news as $item)
             @component('components.card')
                 @slot('image')
-                    {{$item['image_news']}}                
+                    {{$item['image']}}                
                 @endslot
                 @slot('title')
-                    {{$item['title_news']}}
+                    {{$item['title']}}
                 @endslot
                 @slot('body')
-                    {{$item['body_news']}}
+                    {{$item['body']}}
                 @endslot
                 @slot('date')
                     {{$item['created_at']}}                        
