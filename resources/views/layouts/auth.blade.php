@@ -7,7 +7,7 @@
             @yield('auth_form')
         </div>
     </div>
-    <div class="d-sm-block d-md-none">
+    <div class="d-sm-block d-md-none justify-content-center">
         @yield('auth_form')
     </div>
 </div>

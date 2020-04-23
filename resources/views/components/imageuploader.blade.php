@@ -1,1 +1,0 @@
-<input class="form-control" type="file" name="image">

@@ -94,6 +94,9 @@
             @endauth
         </div>
     </div>
+    <footer class="bg-light cm-footer">
+        &copy;  2014–2020 Колледж экономики и информатики им. А.Н. Афанасьева | Все права защищены
+    </footer>
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>
