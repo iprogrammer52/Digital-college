@@ -7,7 +7,8 @@
             alt="{{ __('app.avatar') }}"
         >
         <div class="cm-wrapper-sidebar__profile-text cm-wrapper-sidebar__profile-text--column">
-            <p class="text-light">{{ Auth::user()->surname }} {{ Auth::user()->name }}</p>
+            <p class="text-light">{{ Auth::user()->surname }}</p>
+            <p class="text-light">{{ Auth::user()->name }} {{ Auth::user()->middlename }}</p>
             <p class="text-muted">{{ Auth::user()->usergroup }}</p>
         </div>
     </div>

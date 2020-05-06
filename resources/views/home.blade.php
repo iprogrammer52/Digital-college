@@ -3,6 +3,9 @@
 @section('content')
         @foreach ($news as $item)
             @component('components.card')
+                @slot('id')
+                    {{$item['id']}}
+                @endslot
                 @slot('image')
                     {{$item['image']}}                
                 @endslot

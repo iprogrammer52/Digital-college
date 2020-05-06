@@ -16,11 +16,12 @@ class AddRootUserTable extends Migration
         if (Schema::hasTable('users')) {
             DB::table('users')
                 ->insert([
-                    'name'      => 'Петр',
-                    'surname'   => 'Сергеевич',
-                    'email'     => 'test@test.com',
-                    'password'  => Hash::make('kdc12345'),
-                    'usergroup' => 'root'
+                    'name'       => 'Петр I',
+                    'surname'    => 'Великий',
+                    'middlename' => 'Алексеевич'
+                    'email'      => 'test@test.com',
+                    'password'   => Hash::make('kdc12345'),
+                    'usergroup'  => 'root'
                 ]);
         }
     }

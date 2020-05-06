@@ -6430,6 +6430,26 @@ module.exports = {
 
 /***/ }),
 
+/***/ "./node_modules/dots/index.js":
+/*!************************************!*\
+  !*** ./node_modules/dots/index.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function (str, length) {
+	if (length < 1) {
+		return '';
+	}
+
+	return str.length >= length ? str.slice(0, length - 1) + '…' : str;
+};
+
+
+/***/ }),
+
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -37053,7 +37073,9 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // require from node_module
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('../../node_modules/croppie/croppie.min.js');
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ../../node_modules/dots/index */ "./node_modules/dots/index.js"); // require('../../node_modules/croppie/croppie.min.js');
 // custom script
 
 
@@ -37061,7 +37083,9 @@ __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"
 
 __webpack_require__(/*! ./imageuploader */ "./resources/js/imageuploader.js");
 
-__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js"); // reception time scrits
+__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
+
+__webpack_require__(/*! ./cm-vertical-carusel */ "./resources/js/cm-vertical-carusel.js"); // reception time scrits
 
 
 __webpack_require__(/*! ./time-reception/changeTime */ "./resources/js/time-reception/changeTime.js");
@@ -37132,6 +37156,17 @@ $('#cm-js-open-menu').on('click', function () {
 $('#cm-js-open-notifications').on('click', function () {
   $('#notifications_data').toggleClass('d-none animated fadeInUp');
 });
+
+/***/ }),
+
+/***/ "./resources/js/cm-vertical-carusel.js":
+/*!*********************************************!*\
+  !*** ./resources/js/cm-vertical-carusel.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 
