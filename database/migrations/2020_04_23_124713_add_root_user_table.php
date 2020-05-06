@@ -18,7 +18,7 @@ class AddRootUserTable extends Migration
                 ->insert([
                     'name'       => 'Петр I',
                     'surname'    => 'Великий',
-                    'middlename' => 'Алексеевич'
+                    'middlename' => 'Алексеевич',
                     'email'      => 'test@test.com',
                     'password'   => Hash::make('kdc12345'),
                     'usergroup'  => 'root'
