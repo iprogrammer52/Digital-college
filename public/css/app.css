@@ -11223,3 +11223,9 @@ a.text-dark:focus {
   }
 }
 
+.cm-vertical-carusel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+}
+

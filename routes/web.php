@@ -33,4 +33,5 @@ Route::delete('/reception_time', 'ReceptionTimeController@deleteReceptionTime');
 
 Route::resource('/reception_date', 'ReceptionDateController');
 
-Route::resource('/submit_documents','SubmitDocumentsController');
+Route::resource('/submit_documents', 'SubmitDocumentsController');
+Route::resource('/news', 'NewsController');
