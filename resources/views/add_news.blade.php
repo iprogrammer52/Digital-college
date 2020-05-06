@@ -5,7 +5,9 @@
         <div class="card-body">
             <form action="{{ route('add_news.store') }}" enctype="multipart/form-data" method="POST">
                 @csrf
-                @component ('components.imageuploader') @endcomponent
+                @component('components.imageuploader')
+
+                @endcomponent
                 <div class="form-group">
                     <label for="title">{{ __('app.title') }}</label>
                     <input id="title" class="form-control @error('title') is-invalid @enderror" type="text" name="title">
