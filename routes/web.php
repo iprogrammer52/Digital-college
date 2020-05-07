@@ -11,18 +11,27 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
+Route::resource('/', 'IndexController');
+Route::resource('/about_us', 'AboutUsController');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Auth::routes();
+Route::resource('/add_news', 'NewsController');
+Route::resource('/profile', 'ProfileController');
+Route::resource('/mailing', 'MailingController');
+Route::resource('/user_settings', 'UserSettingsController');
+Route::resource('/abiturient_info', 'AbiturientInfoController');
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::resource('/notify', 'NotifyController');
 
-Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/reception_time', 'ReceptionTimeController@index');
+Route::post('/reception_time', 'ReceptionTimeController@changeStatus');
+Route::put('/reception_time', 'ReceptionTimeController@addReceptionTime');
+Route::delete('/reception_time', 'ReceptionTimeController@deleteReceptionTime');
+
+Route::resource('/reception_date', 'ReceptionDateController');
+
+Route::resource('/submit_documents', 'SubmitDocumentsController');
+Route::resource('/news', 'NewsController');

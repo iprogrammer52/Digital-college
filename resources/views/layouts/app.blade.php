@@ -1,80 +1,102 @@
-<!doctype html>
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <!-- CSRF Token -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>kdc</title>
+    <link rel="manifest" href="{{ asset('kdc.webmanifest') }}">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav mr-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ml-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }} <span class="caret"></span>
-                                </a>
-
-                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
-
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
+    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark cm-navbar">
+        <div class="navbar-expand w-100" id="navbarNav">
+            <ul class="navbar-nav justify-content-around justify-content-md-end">
+                <li class="nav-item d-lg-block d-none">
+                    <a href="{{ asset('about_us') }}" class="nav-link">
+                        {{ __('app.about_us') }}
+                    </a>
+                </li>
+                @guest
+                    <li class="nav-item d-lg-block d-none">
+                        <a href="{{ asset('abiturient_info') }}" class="nav-link">
+                            {{ __('app.for_abiturient') }}
+                        </a>
+                    </li>
+                    <li class="nav-item d-lg-block d-none">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            {{ __('app.login') }}
+                        </a>
+                    </li>
+                    <li class="nav-item d-lg-block d-none">
+                        <a class="nav-link" href="{{ route('register') }}">
+                            {{ __('app.register') }}
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link" href="{{ route('login') }}">
+                            <img src="{{ asset('icons/login.svg') }}" alt="{{ __('app.login') }}">
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link" href="{{ route('index') }}">
+                            <img src="{{ asset('icons/newspaper.svg') }}" alt="{{ __('app.news') }}">
+                        </a>
+                    </li>
+                @else
+                    <li class="nav-item d-md-none">
+                        <a class="nav-link" href="#">
+                            <img src="{{ asset('icons/timetable.svg') }}" alt="{{ __('app.') }}">
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a id="cm-js-open-menu" class="nav-link" href="#">
+                            <img src="{{ asset('icons/menu.svg') }}" alt="{{ __('app.menu') }}">
+                        </a>
+                    </li>
+                    <li class="nav-item d-md-none">
+                        <a id="cm-js-open-notifications" class="nav-link" href="#">
+                            <img src="{{ asset('icons/notifications.svg') }}" alt="{{ __('app.notifications') }}">
+                        </a>
+                    </li>
+                @endguest
+            </ul>
+        </div>
+    </header>
+    <div class="container-fluid">
+        <div class="row justify-content-sm-center">
+            @auth
+                <div class="col-2 p-0 m-0 d-lg-block d-none" id="sidebar">
+                    @component ('layouts/sidebar') @endcomponent
                 </div>
-            </div>
-        </nav>
-
-        <main class="py-4">
-            @yield('content')
-        </main>
+                <div class="col-md-8 col-sm-12 m-0 p-0">
+                    <main class="mt-4 container-fluid">
+                        @yield('content')
+                    </main>
+                </div>
+                <div class="col-md-2 col-sm-12 d-lg-block d-none mt-4" id="notifications_data">
+                    <div class="card bg-light">
+                        <div class="card-body">
+                            <h5 class="card-title">Добавлено в релизе</h5>
+                            <ul>
+                                <li>Иконки меню</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            @else
+                <div class="col-12">
+                    <main class="mt-4 container-fluid">
+                        @yield('content')
+                    </main>
+                </div>
+            @endauth
+        </div>
     </div>
+    <footer class="bg-light cm-footer">
+        &copy;  2014–2020 Колледж экономики и информатики им. А.Н. Афанасьева | Все права защищены
+    </footer>
+    <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

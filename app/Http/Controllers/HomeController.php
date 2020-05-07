@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\News;
 
 class HomeController extends Controller
 {
@@ -23,6 +24,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $news = new News();
+        $news = $news->orderBy('created_at', 'desc')->get();
+
+        return view('home', ['news' => $news]);
     }
 }

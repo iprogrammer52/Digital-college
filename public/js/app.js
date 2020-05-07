@@ -1346,7 +1346,6 @@ module.exports = function isAbsoluteURL(url) {
 
 
 var utils = __webpack_require__(/*! ./../utils */ "./node_modules/axios/lib/utils.js");
-var isValidXss = __webpack_require__(/*! ./isValidXss */ "./node_modules/axios/lib/helpers/isValidXss.js");
 
 module.exports = (
   utils.isStandardBrowserEnv() ?
@@ -1366,10 +1365,6 @@ module.exports = (
     */
       function resolveURL(url) {
         var href = url;
-
-        if (isValidXss(url)) {
-          throw new Error('URL contains XSS injection attempt');
-        }
 
         if (msie) {
         // IE needs attribute set twice to normalize properties
@@ -1416,25 +1411,6 @@ module.exports = (
       };
     })()
 );
-
-
-/***/ }),
-
-/***/ "./node_modules/axios/lib/helpers/isValidXss.js":
-/*!******************************************************!*\
-  !*** ./node_modules/axios/lib/helpers/isValidXss.js ***!
-  \******************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-module.exports = function isValidXss(requestURL) {
-  var xssRegex = /(\b)(on\w+)=|javascript|(<\s*)(\/*)script/gi;
-  return xssRegex.test(requestURL);
-};
-
 
 
 /***/ }),
@@ -6450,6 +6426,26 @@ module.exports = {
 
 })));
 //# sourceMappingURL=bootstrap.js.map
+
+
+/***/ }),
+
+/***/ "./node_modules/dots/index.js":
+/*!************************************!*\
+  !*** ./node_modules/dots/index.js ***!
+  \************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+module.exports = function (str, length) {
+	if (length < 1) {
+		return '';
+	}
+
+	return str.length >= length ? str.slice(0, length - 1) + '…' : str;
+};
 
 
 /***/ }),
@@ -34191,7 +34187,7 @@ return jQuery;
 __webpack_require__.r(__webpack_exports__);
 /* WEBPACK VAR INJECTION */(function(global) {/**!
  * @fileOverview Kickass library to create and place poppers near their reference elements.
- * @version 1.16.0
+ * @version 1.16.1
  * @license
  * Copyright (c) 2016 Federico Zivolo and contributors
  *
@@ -34537,7 +34533,7 @@ function getBordersSize(styles, axis) {
   var sideA = axis === 'x' ? 'Left' : 'Top';
   var sideB = sideA === 'Left' ? 'Right' : 'Bottom';
 
-  return parseFloat(styles['border' + sideA + 'Width'], 10) + parseFloat(styles['border' + sideB + 'Width'], 10);
+  return parseFloat(styles['border' + sideA + 'Width']) + parseFloat(styles['border' + sideB + 'Width']);
 }
 
 function getSize(axis, body, html, computedStyle) {
@@ -34692,8 +34688,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   var scrollParent = getScrollParent(children);
 
   var styles = getStyleComputedProperty(parent);
-  var borderTopWidth = parseFloat(styles.borderTopWidth, 10);
-  var borderLeftWidth = parseFloat(styles.borderLeftWidth, 10);
+  var borderTopWidth = parseFloat(styles.borderTopWidth);
+  var borderLeftWidth = parseFloat(styles.borderLeftWidth);
 
   // In cases where the parent is fixed, we must ignore negative scroll in offset calc
   if (fixedPosition && isHTML) {
@@ -34714,8 +34710,8 @@ function getOffsetRectRelativeToArbitraryNode(children, parent) {
   // differently when margins are applied to it. The margins are included in
   // the box of the documentElement, in the other cases not.
   if (!isIE10 && isHTML) {
-    var marginTop = parseFloat(styles.marginTop, 10);
-    var marginLeft = parseFloat(styles.marginLeft, 10);
+    var marginTop = parseFloat(styles.marginTop);
+    var marginLeft = parseFloat(styles.marginLeft);
 
     offsets.top -= borderTopWidth - marginTop;
     offsets.bottom -= borderTopWidth - marginTop;
@@ -35654,8 +35650,8 @@ function arrow(data, options) {
   // Compute the sideValue using the updated popper offsets
   // take popper margin in account because we don't have this info available
   var css = getStyleComputedProperty(data.instance.popper);
-  var popperMarginSide = parseFloat(css['margin' + sideCapitalized], 10);
-  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width'], 10);
+  var popperMarginSide = parseFloat(css['margin' + sideCapitalized]);
+  var popperBorderSide = parseFloat(css['border' + sideCapitalized + 'Width']);
   var sideValue = center - data.offsets.popper[side] - popperMarginSide - popperBorderSide;
 
   // prevent arrowElement from being placed not contiguously to its popper
@@ -37076,7 +37072,29 @@ module.exports = function(module) {
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
+// require from node_module
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+
+__webpack_require__(/*! ../../node_modules/dots/index */ "./node_modules/dots/index.js"); // require('../../node_modules/croppie/croppie.min.js');
+// custom script
+
+
+__webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js");
+
+__webpack_require__(/*! ./imageuploader */ "./resources/js/imageuploader.js");
+
+__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
+
+__webpack_require__(/*! ./cm-vertical-carusel */ "./resources/js/cm-vertical-carusel.js"); // reception time scrits
+
+
+__webpack_require__(/*! ./time-reception/changeTime */ "./resources/js/time-reception/changeTime.js");
+
+__webpack_require__(/*! ./time-reception/addTime */ "./resources/js/time-reception/addTime.js");
+
+__webpack_require__(/*! ./time-reception/deleteTime */ "./resources/js/time-reception/deleteTime.js");
+
+__webpack_require__(/*! ./time-reception/addDate */ "./resources/js/time-reception/addDate.js");
 
 /***/ }),
 
@@ -37125,6 +37143,224 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/cm-js-open-menu.js":
+/*!*****************************************!*\
+  !*** ./resources/js/cm-js-open-menu.js ***!
+  \*****************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#cm-js-open-menu').on('click', function () {
+  $('#sidebar').toggleClass('d-none animated fadeInUp');
+});
+$('#cm-js-open-notifications').on('click', function () {
+  $('#notifications_data').toggleClass('d-none animated fadeInUp');
+});
+
+/***/ }),
+
+/***/ "./resources/js/cm-vertical-carusel.js":
+/*!*********************************************!*\
+  !*** ./resources/js/cm-vertical-carusel.js ***!
+  \*********************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/imageuploader.js":
+/*!***************************************!*\
+  !*** ./resources/js/imageuploader.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
+
+/***/ }),
+
+/***/ "./resources/js/sidebar.js":
+/*!*********************************!*\
+  !*** ./resources/js/sidebar.js ***!
+  \*********************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(".sidebar-dropdown > a").click(function () {
+  $(".sidebar-submenu").slideUp(200);
+
+  if ($(this).parent().hasClass("active")) {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this).parent().removeClass("active");
+  } else {
+    $(".sidebar-dropdown").removeClass("active");
+    $(this).next(".sidebar-submenu").slideDown(200);
+    $(this).parent().addClass("active");
+  }
+});
+$("#close-sidebar").click(function () {
+  $(".page-wrapper").removeClass("toggled");
+});
+$("#show-sidebar").click(function () {
+  $(".page-wrapper").addClass("toggled");
+});
+
+/***/ }),
+
+/***/ "./resources/js/time-reception/addDate.js":
+/*!************************************************!*\
+  !*** ./resources/js/time-reception/addDate.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('#add-reception-date').on('click', function () {
+  console.log($('#reception-date-value').val());
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'POST',
+    cache: false,
+    url: 'reception_date',
+    data: {
+      'date': $('#reception-date-value').val()
+    },
+    success: function success(xhr, status, error) {
+      $('#pills-tab').load('reception_time #pills-tab');
+    },
+    error: function error(xhr, status, _error) {}
+  });
+});
+
+/***/ }),
+
+/***/ "./resources/js/time-reception/addTime.js":
+/*!************************************************!*\
+  !*** ./resources/js/time-reception/addTime.js ***!
+  \************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+// $('#add_rt').on('click', function() {
+//     $('#reception-time-template').removeClass('d-none');
+// });
+$('#save_rt').on('click', function () {
+  console.log($('#time').val(), $('.tab-pane fade active').attr('id')); //     $.ajaxSetup({
+  //         headers: {
+  //             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+  //         },
+  //     });
+  //     $.ajax({
+  //         type: 'PUT',
+  //         cache:false,
+  //         url: 'reception_time',
+  //         data: {
+  //             'time': $('#time').val(),
+  //             'reception_date_id':$('.tab-pane fade active').attr('id'),
+  //         },
+  //         success: function(xhr, status, error) {
+  //             $('#reception-times-table').load('reception_time #reception-times-table');
+  //             statusOk();
+  //         },
+  //         error: function(xhr, status, error) {
+  //             statusError();
+  //         }
+  //     });
+}); // function statusOk() {
+//     return $('#notifications_data').append(
+//         '<div class="alert alert-success fade show animated fadeInRight" role="alert">' +
+//         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+//         '<span aria-hidden="true">&times;</span>' +
+//         '</button>' +
+//         '<p class="alert-heading">Well done!</p>' +
+//         '<p>Done</p>' +
+//         '</div>'
+//     );
+// }
+// function statusError() {
+//     return $('#notifications_data').append(
+//         '<div class="alert alert-danger fade show animated fadeInRight" role="alert">' +
+//         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+//         '<span aria-hidden="true">&times;</span>' +
+//         '</button>' +
+//         '<p class="alert-heading">Well done!</p>' +
+//         '<p>Done</p>' +
+//         '</div>'
+//     );
+// }
+
+/***/ }),
+
+/***/ "./resources/js/time-reception/changeTime.js":
+/*!***************************************************!*\
+  !*** ./resources/js/time-reception/changeTime.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('[data-time-reception-id]').change(function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'POST',
+    url: 'reception_time',
+    data: {
+      'status': $(this).val(),
+      'id': $(this).data('time-reception-id')
+    },
+    success: function success(xhr, status, error) {
+      statusOk();
+    },
+    error: function error(xhr, status, _error) {
+      statusError();
+    }
+  });
+});
+
+function statusOk() {
+  return $('#notifications_data').append('<div class="alert alert-success fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
+}
+
+function statusError() {
+  return $('#notifications_data').append('<div class="alert alert-danger fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">Well done!</p>' + '<p>Done</p>' + '</div>');
+}
+
+/***/ }),
+
+/***/ "./resources/js/time-reception/deleteTime.js":
+/*!***************************************************!*\
+  !*** ./resources/js/time-reception/deleteTime.js ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.deleteReceptionTime').on('click', function () {
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'DELETE',
+    url: 'reception_time',
+    data: {
+      'id': $(this).data('time-reception-id')
+    },
+    success: function success(xhr, status, error) {},
+    error: function error(xhr, status, _error) {}
+  });
+});
+
+/***/ }),
+
 /***/ "./resources/sass/app.scss":
 /*!*********************************!*\
   !*** ./resources/sass/app.scss ***!
@@ -37143,8 +37379,8 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/kdc/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /home/vagrant/code/kdc/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /home/vagrant/code/kdc/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })
