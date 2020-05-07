@@ -10,7 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark bg-dark cm-navbar">
+    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark @auth bg-dark @else bg-gradient-primary @endauth cm-navbar">
         <div class="navbar-expand w-100" id="navbarNav">
             <ul class="navbar-nav justify-content-around justify-content-md-end">
                 <li class="nav-item d-lg-block d-none">
@@ -61,6 +61,16 @@
                         </a>
                     </li>
                 @endguest
+                <li class="nav-item dropdown d-lg-block d-none">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        {{ __('app.' . App::getLocale()) }}
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{asset('change_locale/ru')}}">ru</a>
+                        <a class="dropdown-item" href="{{asset('change_locale/en')}}">en</a>
+                        <a class="dropdown-item" href="{{asset('change_locale/ar')}}">ar</a>
+                    </div>
+                </li>
             </ul>
         </div>
     </header>
@@ -86,8 +96,8 @@
                     </div>
                 </div>
             @else
-                <div class="col-12">
-                    <main class="mt-4 container-fluid">
+                <div class="col-12 m-0 p-0">
+                    <main class="m-0 p-0 mt-4 container-fluid">
                         @yield('content')
                     </main>
                 </div>

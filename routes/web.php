@@ -11,6 +11,8 @@
 |
 */
 
+use App\User;
+
 Auth::routes();
 Route::resource('/', 'IndexController');
 Route::resource('/about_us', 'AboutUsController');
@@ -35,3 +37,17 @@ Route::resource('/reception_date', 'ReceptionDateController');
 
 Route::resource('/submit_documents', 'SubmitDocumentsController');
 Route::resource('/news', 'NewsController');
+
+Route::get('change_locale/{locale}', function($locale) {
+    if (in_array($locale, ['ru', 'en', 'ar'])) {
+        if (!empty(Auth::user())) {
+            $user = new User();
+            $user
+                ->where('id', Auth::user()->id)
+                ->update(['lang' => $locale]);
+        }
+        session(['locale' => $locale]);
+    }
+
+    return redirect()->back();    
+});
