@@ -38,7 +38,8 @@
 .cm-sidebar-menu {
     margin: 0;
     padding: 0;
-    &__item button, a {
+    &__item button,
+    a {
         text-align: left;
     }
 }
