@@ -14,10 +14,7 @@ class IndexController extends Controller
      */
     public function index()
     {
-        $news = new News();
-        $news = $news->where(['for_all' => 'on'])->orderBy('created_at', 'desc')->get();
-
-        return view('index', ['news' => $news]);
+        return view('index');
     }
 
     /**

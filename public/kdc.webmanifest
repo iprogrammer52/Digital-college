@@ -1,7 +1,7 @@
 {
     "name": "KDC",
     "short_name": "kdc",
-    "start_url": ".",
+    "start_url": "/index.php",
     "display": "standalone",
     "background_color": "#fff",
     "description": "A simply readable Hacker News app.",

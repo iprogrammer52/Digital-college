@@ -14,3 +14,6 @@ require('./time-reception/changeTime');
 require('./time-reception/addTime');
 require('./time-reception/deleteTime');
 require('./time-reception/addDate');
+
+//service worker for PWA
+require('./service-worker');

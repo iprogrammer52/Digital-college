@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{App::getLocale()}}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,7 +10,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark @auth bg-dark @else bg-gradient-primary @endauth cm-navbar">
+    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark @auth bg-dark @else bg-primary @endauth cm-navbar">
         <div class="navbar-expand w-100" id="navbarNav">
             <ul class="navbar-nav justify-content-around justify-content-md-end">
                 <li class="nav-item d-lg-block d-none">

@@ -26,6 +26,7 @@
                 <div class="form-group d-flex justify-content-end">
                     <input id="add" class="btn btn-dark" type="submit" name="add" value="{{ __('app.publish') }}">
                 </div>
+                @component('components/imageuploader')@endcomponent
             </form>
         </div>
     </div>
