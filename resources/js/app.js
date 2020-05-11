@@ -10,10 +10,11 @@ require('./sidebar');
 require('./cm-vertical-carusel');
 
 // reception time scrits
-require('./time-reception/changeTime');
-require('./time-reception/addTime');
-require('./time-reception/deleteTime');
-require('./time-reception/addDate');
+// require('./time-reception/changeTime');
+// require('./time-reception/addTime');
+// require('./time-reception/deleteTime');
+// require('./time-reception/addDate');
+require('./time-reception/change-date');
 
 //service worker for PWA
 require('./service-worker');

@@ -16,7 +16,7 @@ class ReceptionTimesTable extends Migration
         Schema::create('reception_times', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->time('time');
-            $table->integer('reception_date_id');
+            $table->date('date');
             $table->boolean('free')->default(true);
             $table->integer('user_id')->nullable();
             $table->string('status');

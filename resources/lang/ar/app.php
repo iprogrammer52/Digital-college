@@ -56,5 +56,6 @@ return [
     'title'                => 'ترويسة',
     'text_news'            => 'News body',
     'for_all'              => 'للجميع',
-    'publish'              => 'نشر',    
+    'publish'              => 'نشر',  
+    'status'               => 'الحالة',  
 ];
