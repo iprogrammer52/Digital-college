@@ -35,7 +35,7 @@ Route::delete('/reception_time', 'ReceptionTimeController@deleteReceptionTime');
 
 Route::resource('/reception_date', 'ReceptionDateController');
 
-Route::resource('/submit_documents', 'SubmitDocumentsController');
+Route::resource('/submit_docs', 'SubmitDocumentsController');
 Route::resource('/news', 'NewsController');
 
 Route::get('change_locale/{locale}', function($locale) {
@@ -49,5 +49,5 @@ Route::get('change_locale/{locale}', function($locale) {
         session(['locale' => $locale]);
     }
 
-    return redirect()->back();    
+    return redirect()->back();
 });

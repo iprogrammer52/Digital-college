@@ -16,7 +16,7 @@ class SubmitDocumentsController extends Controller
     public function index()
     {
         $receptionTime = new ReceptionTime();
-        return view('submit_documents',['receptionTime' => $receptionTime->get()]);
+        return view('submit_docs',['receptionTime' => $receptionTime->get()]);
     }
 
     /**

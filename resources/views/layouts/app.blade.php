@@ -29,11 +29,6 @@
                             {{ __('app.login') }}
                         </a>
                     </li>
-                    <li class="nav-item d-lg-block d-none">
-                        <a class="nav-link" href="{{ route('register') }}">
-                            {{ __('app.register') }}
-                        </a>
-                    </li>
                     <li class="nav-item d-md-none">
                         <a class="nav-link" href="{{ route('login') }}">
                             <img src="{{ asset('icons/login.svg') }}" alt="{{ __('app.login') }}">

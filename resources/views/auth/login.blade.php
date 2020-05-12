@@ -1,7 +1,7 @@
 @extends('layouts.auth')
 
 @section('auth_form')
-    <h2 class="title mb-4">{{strtoupper(__('app.login'))}}</h2>
+    <h2 class="title mb-4">{{ strtoupper(__('app.login')) }}</h2>
     <form
         method="POST"
         action="{{ route('login') }}"
