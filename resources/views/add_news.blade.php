@@ -16,7 +16,10 @@
                     <label for="body">{{ __('app.text_news') }}</label>
                     <textarea class="form-control" id="text" name="body" rows="3"></textarea>
                 </div>
-                @component('components/imageuploader')@endcomponent
+                <div class="form-group">
+                    <label>{{ __('app.uploading_images') }}</label>
+                    @component('components/imageuploader')@endcomponent
+                </div>
                 <div class="form-group d-flex justify-content-end">
                     <input id="add" class="btn btn-dark" type="submit" name="add" value="{{ __('app.publish') }}">
                 </div>

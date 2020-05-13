@@ -59,4 +59,5 @@ return [
     'publish'                   => 'نشر',
     'status'                    => 'الحالة',
     'drag_and_drop_the_file'    => 'اسحب الملف إلى المنطقة المحددة أو انقر الزر لاختيار الملف',
+    'uploading_images'          => 'تحميل الصور',
 ];

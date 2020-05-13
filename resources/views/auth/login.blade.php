@@ -72,7 +72,7 @@
             </div>
         </div>
         <div class="form-group mb-0 d-flex justify-content-end">
-            <button type="submit" class="btn btn-dark">
+            <button type="submit" class="btn btn-primary">
                 {{ __('app.login') }}
             </button>
         </div>
