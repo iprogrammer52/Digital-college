@@ -11164,7 +11164,36 @@ a.text-dark:focus {
   display: flex;
   width: 100%;
   height: 100%;
-  background-color: #343a40;
+  margin-bottom: 1rem;
+}
+
+.cm-imageuploader-wrapper__loader {
+  display: flex;
+  width: 100%;
+  height: 256px;
+  border: #343a40;
+  border-style: dashed;
+  opacity: 0.6;
+  overflow: hidden;
+  border-radius: 0.25rem;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-left: 1px;
+  margin-right: 1px;
+  cursor: pointer;
+}
+
+.cm-imageuploader-wrapper__select-file-button {
+  cursor: pointer;
+}
+
+.cm-imageuploader-wrapper__info {
+  text-align: center;
+}
+
+#fileElem {
+  display: none;
 }
 
 .cm-wrapper-sidebar {

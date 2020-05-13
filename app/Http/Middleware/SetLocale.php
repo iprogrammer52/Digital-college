@@ -19,9 +19,8 @@ class SetLocale
         if (!empty(Auth::user())) {
             App::setLocale(Auth::user()->lang ?? session('locale'));
         } else {
-            App::setLocale(session('locale') ?? App::getLocale());
+            // App::setLocale();
         }
-
         return $next($request);
     }
 }
