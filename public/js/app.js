@@ -37742,6 +37742,18 @@ $('#cm-js-open-notifications').on('click', function () {
 /*! no static exports found */
 /***/ (function(module, exports) {
 
+function _toConsumableArray(arr) { return _arrayWithoutHoles(arr) || _iterableToArray(arr) || _unsupportedIterableToArray(arr) || _nonIterableSpread(); }
+
+function _nonIterableSpread() { throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _iterableToArray(iter) { if (typeof Symbol !== "undefined" && Symbol.iterator in Object(iter)) return Array.from(iter); }
+
+function _arrayWithoutHoles(arr) { if (Array.isArray(arr)) return _arrayLikeToArray(arr); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
 var dropArea = $('#cm-js-imageuploader-click')[0];
 ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(function (eventName) {
   dropArea.addEventListener(eventName, preventDefaults, false);
@@ -37752,19 +37764,74 @@ function preventDefaults(e) {
   e.stopPropagation();
 }
 
-['dragenter', 'dragover'].forEach(function (eventName) {
-  dropArea.addEventListener(eventName, highlight, false);
-});
-['dragleave', 'drop'].forEach(function (eventName) {
-  dropArea.addEventListener(eventName, unhighlight, false);
+$('#cm-js-imageuploader-click').on('change', function () {
+  handleFiles($('#fileElem').prop('files'));
 });
 
-function highlight(e) {
-  dropArea.addClass('highlight');
+function handleFiles(files) {
+  files = _toConsumableArray(files);
+  console.log(files); // initializeProgress(files.length);
+  // files.forEach(uploadFile);
+
+  files.forEach(previewFile);
+} // подстветка
+// ['dragenter', 'dragover'].forEach(eventName => {
+//     dropArea.addEventListener(eventName, highlight, false);
+// });
+// ['dragleave', 'drop'].forEach(eventName => {
+//     dropArea.addEventListener(eventName, unhighlight, false);
+// })
+// function highlight(e) {
+//     dropArea.addClass('highlight');
+// }
+// function unhighlight(e) {
+//     dropArea.classList.remove('highlight');
+// }
+
+
+dropArea.addEventListener('drop', handleDrop, false);
+
+function handleDrop(e) {
+  var dt = e.dataTransfer;
+  var files = dt.files;
+  handleFiles(files);
+} // function uploadFile(file) {
+//     let url = '/add_news';
+//     let formData = new FormData();
+//     formData.append('file', file);
+//     fetch(url, {
+//             method: 'POST',
+//             body: formData
+//         })
+//         .then((progressDone) => { /* Готово. Информируем пользователя */ })
+//         .catch(() => { /* Ошибка. Информируем пользователя */ });
+// }
+
+
+function previewFile(file) {
+  var reader = new FileReader();
+  reader.readAsDataURL(file);
+
+  reader.onloadend = function () {
+    var img = document.createElement('img');
+    img.src = reader.result;
+    document.getElementById('cm-imageuploader-wrapper__uploaded-id').appendChild(img);
+  };
 }
 
-function unhighlight(e) {
-  dropArea.classList.remove('highlight');
+var filesDone = 0;
+var filesToDo = 0;
+var progressBar = document.getElementById('progress-bar');
+
+function initializeProgress(numfiles) {
+  progressBar.value = 0;
+  filesDone = 0;
+  filesToDo = numfiles;
+}
+
+function progressDone() {
+  filesDone++;
+  progressBar.value = filesDone / filesToDo * 100;
 }
 
 /***/ }),

@@ -7,14 +7,11 @@
                 @csrf
                 <div class="form-group">
                     <label for="title">{{ __('app.title') }}</label>
-                    <input id="title" class="form-control @error('title') is-invalid @enderror" type="text" name="title">
-                    @error('title')
-                        <div class="alert alert-danger">{{ $message }}</div>
-                    @enderror
+                    <input id="title" class="form-control @error('title') is-invalid @enderror" type="text" name="title" required>
                 </div>
                 <div class="form-group">
                     <label for="body">{{ __('app.text_news') }}</label>
-                    <textarea class="form-control" id="text" name="body" rows="3"></textarea>
+                    <textarea class="form-control" id="text" name="body" rows="3" required></textarea>
                 </div>
                 <div class="form-group">
                     <label>{{ __('app.uploading_images') }}</label>

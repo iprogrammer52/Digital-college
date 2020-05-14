@@ -48,16 +48,20 @@ class NewsController extends Controller
     {
         $news = new News();
 
-        // $validatedData = $request->validate([
-        //     'title' => 'required|max:100',
-        //     'body' => 'required',
-        //     'for_all' => Rule::in(['on','off']),
-        // ]);
+        $validatedData = $request->validate([
+            'title' => 'required|max:100',
+            'body' => 'required',
+        ]);
 
-        if (!empty($request->image)) {
-            $imageName = $request->image->store('news', 'public');
+        $imagesName = [];
+        
+        if (!empty($request->images)) {
+            for ($i = 0; $i < count($request->images); $i++) {
+                $imagesName[$i] = $request->images[$i]->store('news', 'public');
+            }
+            $images = json_encode($imagesName);
         } else {
-            $imageName = '';
+            $images = '';
         }
 
         $news
@@ -65,7 +69,7 @@ class NewsController extends Controller
                 'title'   => $request['title'],
                 'body'    => $request['body'],
                 'for_all' => $request->for_all ?? '',
-                'image'   => $imageName,
+                'images'  => $images,
             ])
             ->save();
  
@@ -81,7 +85,12 @@ class NewsController extends Controller
     public function show($id)
     {
         $news = News::find($id);
-        return view('news', ['news' => $news]);
+        if (!empty($news)) {
+            $news->images = json_decode($news->images);
+            return view('news', ['news' => $news]);
+        } else {
+            abort(404);
+        }
     }
 
     /**

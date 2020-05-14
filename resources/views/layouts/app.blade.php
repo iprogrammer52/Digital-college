@@ -58,7 +58,7 @@
                 @endguest
                 <li class="nav-item dropdown d-lg-block d-none">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        {{ __('app.' . App::getLocale()) }}
+                        <img src="{{ asset('icons/language.svg') }}" alt="{{ __('app.' . App::getLocale()) }}">
                     </a>
                     <div class="dropdown-menu dropdown-menu-md-right" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="{{asset('change_locale/ru')}}">ru</a>

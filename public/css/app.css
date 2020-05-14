@@ -11162,6 +11162,7 @@ a.text-dark:focus {
 
 .cm-imageuploader-wrapper {
   display: flex;
+  flex-direction: column;
   width: 100%;
   height: 100%;
   margin-bottom: 1rem;
@@ -11179,8 +11180,8 @@ a.text-dark:focus {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-left: 1px;
-  margin-right: 1px;
+  margin-left: 2px;
+  margin-right: 2px;
   cursor: pointer;
 }
 
@@ -11190,6 +11191,20 @@ a.text-dark:focus {
 
 .cm-imageuploader-wrapper__info {
   text-align: center;
+}
+
+.cm-imageuploader-wrapper__uploaded {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.cm-imageuploader-wrapper__uploaded > img {
+  margin-top: 0.5rem;
+  width: 100%;
+}
+
+.highlight {
+  opacity: 1;
 }
 
 #fileElem {

@@ -1,13 +1,13 @@
 @extends('layouts.app')
 
 @section('content')
-        @foreach ($news as $item)
+    @foreach ($news as $item)
             @component('components.card')
                 @slot('id')
                     {{$item['id']}}
                 @endslot
                 @slot('image')
-                    {{$item['image']}}                
+                    {{$item['images']}}                
                 @endslot
                 @slot('title')
                     {{$item['title']}}
