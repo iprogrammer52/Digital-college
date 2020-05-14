@@ -48,118 +48,122 @@
                 </div>
             </div>
         </li>
-        <li class="cm-sidebar-menu__item">
-            <div class="accordion" id="accordionManagement">
-                <div class="card rounded-0 bg-dark text-light border-0">
-                    <div class="card-header" id="headingManagement">
-                        <h2 class="mb-0">
-                            <button
-                                class="btn btn-link text-light"
-                                type="button"
-                                data-toggle="collapse"
-                                data-target="#collapseManagement"
-                                aria-expanded="false"
-                                aria-controls="collapseManagement"
-                            >
-                                {{ __('app.management') }}
-                            </button>
-                        </h2>
-                    </div>
-                    <div
-                        id="collapseManagement"
-                        class="collapse"
-                        aria-labelledby="headingManagement"
-                        data-parent="#accordionManagement"
-                    >
-                        <ul class="list-group list-group-flush text-light">
-                            <li class="list-group-item bg-dark">
-                                <a href="{{asset('add_news')}}" class="card-link text-light pl-4">
-                                    {{ __('app.add_news') }}
-                                </a>
-                            </li>
-                            <li class="list-group-item bg-dark">
-                                <a href="{{asset('user_settings')}}" class="card-link text-light pl-4">
-                                    {{ __('app.users') }}
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </li>
-        <li class="cm-sidebar-menu__item">
-            <div class="accordion" id="accordionCreateNotifications">
-                <div class="card rounded-0 bg-dark text-light border-0">
-                    <div class="card-header" id="headingCreateNotifications">
-                        <h2 class="mb-0">
-                            <button
-                                class="btn btn-link text-light"
-                                type="button"
-                                data-toggle="collapse"
-                                data-target="#collapseCreateNotifications"
-                                aria-expanded="false"
-                                aria-controls="collapseCreateNotifications"
-                            >
-                                {{ __('app.create_notifications') }}
-                            </button>
-                        </h2>
-                    </div>
-                    <div
-                        id="collapseCreateNotifications"
-                        class="collapse"
-                        aria-labelledby="headingCreateNotifications"
-                        data-parent="#accordionCreateNotifications"
-                    >
-                        <ul class="list-group list-group-flush text-light">
-                            <li class="list-group-item bg-dark">
-                                <a href="{{ asset('mailing') }}" class="card-link text-light pl-4">
-                                    {{ __('app.add_mailing') }}
-                                </a>
-                            </li>
-                            <li class="list-group-item bg-dark">
-                                <a href="{{ asset('notify') }}" class="card-link text-light pl-4">
-                                    {{ __('app.notify') }}
-                                </a>
-                            </li>
-                        </ul>
+        @if(in_array(Auth::user()->usergroup, ['administration', 'root']))
+            <li class="cm-sidebar-menu__item">
+                <div class="accordion" id="accordionManagement">
+                    <div class="card rounded-0 bg-dark text-light border-0">
+                        <div class="card-header" id="headingManagement">
+                            <h2 class="mb-0">
+                                <button
+                                    class="btn btn-link text-light"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#collapseManagement"
+                                    aria-expanded="false"
+                                    aria-controls="collapseManagement"
+                                >
+                                    {{ __('app.management') }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseManagement"
+                            class="collapse"
+                            aria-labelledby="headingManagement"
+                            data-parent="#accordionManagement"
+                        >
+                            <ul class="list-group list-group-flush text-light">
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{asset('add_news')}}" class="card-link text-light pl-4">
+                                        {{ __('app.add_news') }}
+                                    </a>
+                                </li>
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{asset('user_settings')}}" class="card-link text-light pl-4">
+                                        {{ __('app.users') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
-        <li class="cm-sidebar-menu__item">
-            <div class="accordion" id="accordionAdmissionCampaign">
-                <div class="card rounded-0 bg-dark text-light border-0">
-                    <div class="card-header" id="headingAdmissionCampaign">
-                        <h2 class="mb-0">
-                            <button
-                                class="btn btn-link text-light"
-                                type="button"
-                                data-toggle="collapse"
-                                data-target="#collapseAdmissionCampaign"
-                                aria-expanded="false"
-                                aria-controls="collapseAdmissionCampaign"
-                            >
-                                {{ __('app.admission_campaign') }}
-                            </button>
-                        </h2>
-                    </div>
-                    <div
-                        id="collapseAdmissionCampaign"
-                        class="collapse"
-                        aria-labelledby="headingAdmissionCampaign"
-                        data-parent="#accordionAdmissionCampaign"
-                    >
-                        <ul class="list-group list-group-flush text-light">
-                            <li class="list-group-item bg-dark">
-                                <a href="{{ asset('reception_time') }}" class="card-link text-light pl-4">
-                                    {{ __('app.reception_time') }}
-                                </a>
-                            </li>
-                        </ul>
+            </li>
+            <li class="cm-sidebar-menu__item">
+                <div class="accordion" id="accordionAdmissionCampaign">
+                    <div class="card rounded-0 bg-dark text-light border-0">
+                        <div class="card-header" id="headingAdmissionCampaign">
+                            <h2 class="mb-0">
+                                <button
+                                    class="btn btn-link text-light"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#collapseAdmissionCampaign"
+                                    aria-expanded="false"
+                                    aria-controls="collapseAdmissionCampaign"
+                                >
+                                    {{ __('app.admission_campaign') }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseAdmissionCampaign"
+                            class="collapse"
+                            aria-labelledby="headingAdmissionCampaign"
+                            data-parent="#accordionAdmissionCampaign"
+                        >
+                            <ul class="list-group list-group-flush text-light">
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{ asset('reception_time') }}" class="card-link text-light pl-4">
+                                        {{ __('app.reception_time') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </li>
+            </li>
+        @endif
+        @if(in_array(Auth::user()->usergroup, ['administration', 'root', 'teachers']))
+            <li class="cm-sidebar-menu__item">
+                <div class="accordion" id="accordionCreateNotifications">
+                    <div class="card rounded-0 bg-dark text-light border-0">
+                        <div class="card-header" id="headingCreateNotifications">
+                            <h2 class="mb-0">
+                                <button
+                                    class="btn btn-link text-light"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#collapseCreateNotifications"
+                                    aria-expanded="false"
+                                    aria-controls="collapseCreateNotifications"
+                                >
+                                    {{ __('app.create_notifications') }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseCreateNotifications"
+                            class="collapse"
+                            aria-labelledby="headingCreateNotifications"
+                            data-parent="#accordionCreateNotifications"
+                        >
+                            <ul class="list-group list-group-flush text-light">
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{ asset('mailing') }}" class="card-link text-light pl-4">
+                                        {{ __('app.add_mailing') }}
+                                    </a>
+                                </li>
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{ asset('notify') }}" class="card-link text-light pl-4">
+                                        {{ __('app.notify') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        @endif
         <li class="cm-sidebar-menu__item">
             <div class="accordion" id="accordionExtra">
                 <div class="card rounded-0 bg-dark text-light border-0">
