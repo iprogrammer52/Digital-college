@@ -53,17 +53,16 @@ class NewsController extends Controller
             'body' => 'required',
         ]);
 
-        $imagesName = [];
+        $imageName = [];
         
         if (!empty($request->images)) {
             for ($i = 0; $i < count($request->images); $i++) {
-                $imagesName[$i] = $request->images[$i]->store('news', 'public');
+                $imageName[$i] = $request->images[$i]->store('news', 'public');
             }
-            $images = json_encode($imagesName);
+            $images = json_encode($imageName);
         } else {
             $images = '';
         }
-
         $news
             ->create([
                 'title'   => $request['title'],

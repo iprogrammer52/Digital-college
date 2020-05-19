@@ -20,7 +20,7 @@
     @if($image != '')
         <img
             src="{{ asset("storage/{$image}") }}"
-            class="card-img-bottom"
+            class="card-img-bottom cm-auto-size-image p-3"
         >
     @endif
 </div>

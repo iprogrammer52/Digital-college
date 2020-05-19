@@ -7,9 +7,6 @@
             <p class="card-text">
                 {{$news->body}}
             </p>
-            <p class="card-text text-muted text-right">
-                - {{$news->created_at}}
-            </p>
             @if (!empty($news->images))
                 <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
                     <div class="carousel-inner">
@@ -29,6 +26,10 @@
                     </a>
                 </div>
             @endif
+            <br />
+            <p class="card-text text-muted text-right">
+                - {{$news->created_at}}
+            </p>
         </div>
     </div>
 @endsection
