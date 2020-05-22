@@ -4,24 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\ReceptionTime;
-use Illuminate\Validation\Rule;
-use Illuminate\Support\Facades\Validator;
-use App\Events\Notify;
-use App\ReceptionDate;
 
 class ReceptionTimeController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-        $this->middleware('root');
-    }
-
     /**
      * Display a listing of the resource.
      *
@@ -29,55 +14,81 @@ class ReceptionTimeController extends Controller
      */
     public function index()
     {
-        $receptionDate = ReceptionDate::all();
-
-        return view('reception_time', ['receptionDate' => $receptionDate]);
+        return view('reception_time');
     }
 
-    public function changeStatus(Request $request)
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        Validator::make($request->all(), [
-            'status' => [
-                'required',
-                Rule::in(['on','off']),
-            ],
-            'id' => 'numeric'
-        ])->validate();
-
-        $receptionTimes = new ReceptionTime();
-
-        $renewed = $receptionTimes
-            -> where('id', $request->id)
-            -> update(['status' => $request->status]);
-
-        return $renewed;
+        //
     }
 
-    public function addReceptionTime(Request $request)
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request)
     {
-        $receptionTimeData = new ReceptionTime();
+        $reception_time = new ReceptionTime();
+        $reception_time
+        ->create([
+            'time' => $request->reception_time,
+            'reception_date' => $request->reception_date,
+            'status' => 'on',
+        ])
+        ->save();
 
-        $receptionTimeData
-            ->create([
-                'time' => $request->time,
-                'reception_date_id' => $request->eception_date_id,
-                'status'=> 'on',
-                'free' => true,
-                'created_at'=>date('Y:m:d'),
-            ])
-            ->save();
-
-        // event(new Notify());
-
-        return true;
+        return redirect()->back();
     }
 
-    // public function deleteReceptionTime($id)
-    // {
-    //     $receptionTime = new ReceptionTime();
-    //     $receptionTime
-    //         ->where('id', '=', $id)
-    //         ->delete();
-    //     return true;
-    // }
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        //
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $id)
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($id)
+    {
+        //
+    }
 }

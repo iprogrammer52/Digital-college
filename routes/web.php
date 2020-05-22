@@ -28,12 +28,8 @@ Route::resource('/abiturient_info', 'AbiturientInfoController');
 Route::resource('/notify', 'NotifyController');
 
 
-Route::get('/reception_time', 'ReceptionTimeController@index');
-Route::post('/reception_time', 'ReceptionTimeController@changeStatus');
-Route::put('/reception_time', 'ReceptionTimeController@addReceptionTime');
-Route::delete('/reception_time', 'ReceptionTimeController@deleteReceptionTime');
+Route::resource('/reception_time', 'ReceptionTimeController');
 
-Route::resource('/reception_date', 'ReceptionDateController');
 
 Route::resource('/submit_docs', 'SubmitDocumentsController');
 Route::resource('/news', 'NewsController');

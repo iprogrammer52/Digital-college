@@ -1,3 +1,0 @@
-$('#date').on('change', function() {
-
-});

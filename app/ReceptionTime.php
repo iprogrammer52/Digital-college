@@ -17,7 +17,7 @@ class ReceptionTime extends Model
      * @var array
      */
     protected $fillable = [
-        'time', 'reception_date_id', 'free', 'status',
+        'time', 'reception_date', 'free', 'status',
     ];
 
 }
