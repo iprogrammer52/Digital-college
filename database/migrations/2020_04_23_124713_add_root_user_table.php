@@ -21,7 +21,8 @@ class AddRootUserTable extends Migration
                     'middlename' => 'Алексеевич',
                     'email'      => 'test@test.com',
                     'password'   => Hash::make('kdc12345'),
-                    'usergroup'  => 'root'
+                    'usergroup'  => 'root',
+                    'lang'       => 'ru'
                 ]);
         }
     }

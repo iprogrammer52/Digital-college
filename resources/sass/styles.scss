@@ -1,6 +1,18 @@
 .cm-auto-size-image {
+    object-fit: contain;
+}
+
+.cm-image-wrapper {
+    display: flex;
     width: 100%;
-    object-fit: cover;
+    max-height: 50vh !important;
+    margin: 0px;
+    padding: 0px;
+    justify-content: center;
+}
+
+.cm-svg-on-hover>line:hover {
+    stroke: $warning;
 }
 
 @media (max-width: 576px) {

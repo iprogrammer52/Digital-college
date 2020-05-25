@@ -11147,9 +11147,21 @@ a.text-dark:focus {
 }
 
 .cm-auto-size-image {
+  -o-object-fit: contain;
+     object-fit: contain;
+}
+
+.cm-image-wrapper {
+  display: flex;
   width: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
+  max-height: 50vh !important;
+  margin: 0px;
+  padding: 0px;
+  justify-content: center;
+}
+
+.cm-svg-on-hover > line:hover {
+  stroke: #ffc107;
 }
 
 @media (max-width: 576px) {
