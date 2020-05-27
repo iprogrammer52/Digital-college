@@ -59,4 +59,7 @@ return [
     'publish'                   => 'Publish',
     'drag_and_drop_the_file'    => 'Drag the file(s) to the selected area or click the button to select the file(s)',
     'uploading_images'              => 'Uploading images',
+    'news_was_created_successfully' => 'The news was created successfully',
+    'add'                       => 'Add',
+    'cancel'                    => 'Cancel'
 ];

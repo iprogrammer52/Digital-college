@@ -11,19 +11,37 @@
                     </th>
                 </tr>
                 <tr>
-                <th scope="col">Reception time</th>
-                <th scope="col">status</th>
+                    <th scope="col">Reception time</th>
+                    <th scope="col">status</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
+                    <th>12:30</th>
+                    <th>
+                        <select id="my-select" class="custom-select" name="">
+                            <option>{{__('app.on')}}</option>
+                            <option>{{__('app.off')}}</option>
+                        </select>
+                    </th>
+                </tr>
+                <tr id="new_reception_time" style="display:none;">
+                    <th>
+                        <input class="form-control" type="time" name="reception_time">
+                    </th>
+                    <th>
+                        <select id="my-select" class="custom-select" name="">
+                            <option>{{__('app.on')}}</option>
+                            <option>{{__('app.off')}}</option>
+                        </select>
+                    </th>
                 </tr>
                 <tr>
                     <th></th>
                     <th class="d-flex justify-content-end">
-                        <button type="submit" class="btn btn-dark">Добавить</button>
+                        <button type="submit" class="btn btn-dark" id="add_reception_time">
+                            {{__('app.add')}}
+                        </button>
                     </th>
                 </tr>
             </tbody>

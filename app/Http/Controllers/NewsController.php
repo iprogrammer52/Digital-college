@@ -71,9 +71,9 @@ class NewsController extends Controller
                 'images'  => $images,
             ])
             ->save();
-            $status = false;
+
         if ($status) {
-            return redirect('home')->with('alert', ['type' => 'success', 'text' => 'новость создана']);
+            return redirect('home')->with('alert', ['type' => 'success', 'text' => __('app.news_was_created_successfully')]);
         } else {
             return redirect('home')->with('alert', ['type' => 'danger', 'text' => 'произошла ошибка']);
         }
