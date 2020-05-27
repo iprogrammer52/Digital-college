@@ -7,7 +7,7 @@
                 @csrf
                 <div class="form-group">
                     <label for="title">{{ __('app.title') }}</label>
-                    <input id="title" class="form-control @error('title') is-invalid @enderror" type="text" name="title" required>
+                    <input id="title" class="form-control @error('title') is-invalid @enderror" type="text" name="title" placeholder="{{__('app.maximum_of_100_characters')}}..." required>
                 </div>
                 <div class="form-group">
                     <label for="body">{{ __('app.text_news') }}</label>

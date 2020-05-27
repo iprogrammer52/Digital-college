@@ -27,7 +27,7 @@
                 </div>
             @endif
         </div>
-        <p class="card-text text-muted text-right">
+        <p class="card-text text-muted text-right pr-4">
             - {{$news->created_at}}
         </p>
     </div>

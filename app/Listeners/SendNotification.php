@@ -6,6 +6,7 @@ use App\Events\Changes;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Blade;
 
 class SendNotification
 {

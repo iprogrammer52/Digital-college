@@ -54,7 +54,7 @@ class NewsController extends Controller
         ]);
 
         $imageName = [];
-        
+
         if (!empty($request->images)) {
             for ($i = 0; $i < count($request->images); $i++) {
                 $imageName[$i] = $request->images[$i]->store('news', 'public');
@@ -63,7 +63,7 @@ class NewsController extends Controller
         } else {
             $images = '';
         }
-        $news
+        $status = $news
             ->create([
                 'title'   => $request['title'],
                 'body'    => $request['body'],
@@ -71,8 +71,12 @@ class NewsController extends Controller
                 'images'  => $images,
             ])
             ->save();
- 
-        return redirect('home');
+            $status = false;
+        if ($status) {
+            return redirect('home')->with('alert', ['type' => 'success', 'text' => 'новость создана']);
+        } else {
+            return redirect('home')->with('alert', ['type' => 'danger', 'text' => 'произошла ошибка']);
+        }
     }
 
     /**

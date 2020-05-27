@@ -81,14 +81,16 @@
                     </main>
                 </div>
                 <div class="col-md-2 col-sm-12 d-lg-block d-none mt-4" id="notifications_data">
-                    <div class="card bg-light">
-                        <div class="card-body">
-                            <h5 class="card-title">Добавлено в релизе</h5>
-                            <ul>
-                                <li>Иконки меню</li>
-                            </ul>
-                        </div>
-                    </div>
+                    @if(session('alert'))
+                        @component('components.alert')
+                            @slot('type')
+                                {{session('alert')['type']}}
+                            @endslot
+                            @slot('text')
+                                {{session('alert')['text']}}
+                            @endslot
+                        @endcomponent
+                    @endif
                 </div>
             @else
                 <div class="col-12 m-0 p-0">
