@@ -8,6 +8,17 @@ use App\ReceptionTime;
 class ReceptionTimeController extends Controller
 {
     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+        $this->middleware('root');
+    }
+
+    /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
@@ -35,16 +46,16 @@ class ReceptionTimeController extends Controller
      */
     public function store(Request $request)
     {
-        $reception_time = new ReceptionTime();
-        $reception_time
-        ->create([
-            'time' => $request->reception_time,
-            'reception_date' => $request->reception_date,
-            'status' => 'on',
-        ])
-        ->save();
+        // $reception_time = new ReceptionTime();
+        // $reception_time
+        // ->create([
+        //     'time' => $request->reception_time,
+        //     'reception_date' => $request->reception_date,
+        //     'status' => 'on',
+        // ])
+        // ->save();
 
-        return redirect()->back();
+        return redirect()->back()->with('alert', ['type' => 'success', 'text' => __('app.news_was_created_successfully')]);
     }
 
     /**
