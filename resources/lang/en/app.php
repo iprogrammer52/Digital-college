@@ -61,5 +61,20 @@ return [
     'uploading_images'              => 'Uploading images',
     'news_was_created_successfully' => 'The news was created successfully',
     'add'                       => 'Add',
-    'cancel'                    => 'Cancel'
+    'cancel'                    => 'Cancel',
+    'communications'            => 'Communications',
+    'get_certificated'          => 'Get certificated',
+    'order'                     => 'Order',
+    'full_name'                 => 'Full name',
+    'certificated_type'         => 'Certificated type',
+    'help_was_ordered_successfully' => 'The help has been ordered successfully, wait for a notification to be sent to your account as soon as the help is ready',
+    'ordered_certificateds'     => 'Заказанные справки',
+    'about_training'            => 'About training at the place of the requirement',
+    'open'                      => 'Open',
+    'in_progress'               => 'In progress',
+    'done'                      => 'Done',
+    'refused'                   => 'Refused',
+    'status'                    => 'Status',
+    'certificates'              => 'Certificates',
+    'no_certificates'           => 'No certificates'
 ];

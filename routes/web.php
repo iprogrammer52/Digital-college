@@ -47,3 +47,6 @@ Route::get('change_locale/{locale}', function($locale) {
 
     return redirect()->back();
 });
+
+Route::resource('/get_cert', 'GetCertificatedController');
+Route::resource('/certificates', 'CertificatesController');

@@ -48,6 +48,42 @@
                 </div>
             </div>
         </li>
+        @if(in_array(Auth::user()->usergroup, ['administration', 'root', 'students']))
+            <li class="cm-sidebar-menu__item">
+                <div class="accordion" id="accordionCommunications">
+                    <div class="card rounded-0 bg-dark text-light border-0">
+                        <div class="card-header" id="headingCommunications">
+                            <h2 class="mb-0">
+                                <button
+                                    class="btn btn-link text-light"
+                                    type="button"
+                                    data-toggle="collapse"
+                                    data-target="#collapseCommunications"
+                                    aria-expanded="false"
+                                    aria-controls="collapseCommunications"
+                                >
+                                    {{ __('app.communications') }}
+                                </button>
+                            </h2>
+                        </div>
+                        <div
+                            id="collapseCommunications"
+                            class="collapse"
+                            aria-labelledby="headingCommunications"
+                            data-parent="#accordionCommunications"
+                        >
+                            <ul class="list-group list-group-flush text-light">
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{asset('get_cert')}}" class="card-link text-light pl-4">
+                                        {{ __('app.get_certificated') }}
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        @endif
         @if(in_array(Auth::user()->usergroup, ['administration', 'root']))
             <li class="cm-sidebar-menu__item">
                 <div class="accordion" id="accordionManagement">
@@ -81,6 +117,11 @@
                                 <li class="list-group-item bg-dark">
                                     <a href="{{asset('user_settings')}}" class="card-link text-light pl-4">
                                         {{ __('app.users') }}
+                                    </a>
+                                </li>
+                                <li class="list-group-item bg-dark">
+                                    <a href="{{asset('certificates')}}" class="card-link text-light pl-4">
+                                        {{ __('app.certificates') }}
                                     </a>
                                 </li>
                             </ul>

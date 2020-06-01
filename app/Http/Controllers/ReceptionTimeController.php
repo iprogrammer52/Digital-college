@@ -25,7 +25,9 @@ class ReceptionTimeController extends Controller
      */
     public function index()
     {
-        return view('reception_time');
+        $reception_time = ReceptionTime::get();
+
+        return view('reception_time', ['reception_time' => $reception_time]);
     }
 
     /**
@@ -46,15 +48,16 @@ class ReceptionTimeController extends Controller
      */
     public function store(Request $request)
     {
-        // $reception_time = new ReceptionTime();
-        // $reception_time
-        // ->create([
-        //     'time' => $request->reception_time,
-        //     'reception_date' => $request->reception_date,
-        //     'status' => 'on',
-        // ])
-        // ->save();
+        $reception_time = new ReceptionTime();
+        $status = $reception_time
+        ->create([
+            'time' => $request->reception_time,
+            'reception_date' => $request->reception_date,
+            'status' => 'off',
+        ])
+        ->save();
 
+        // return $status;
         return redirect()->back()->with('alert', ['type' => 'success', 'text' => __('app.news_was_created_successfully')]);
     }
 

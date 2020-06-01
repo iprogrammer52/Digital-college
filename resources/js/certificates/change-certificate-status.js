@@ -1,10 +1,7 @@
-$('#add_reception_time').on('click', function(){
-    $('#new_reception_time').toggle();
-});
+$('.certificate-status').on('change',function(){
+    var id = $(this).data('certificate-id');
+    var new_status = $(this).val();
 
-$('#save').on('click', function(){
-    $('#new_reception_time').toggle();
-    $('#progress-bar').fadeIn();
     $.ajaxSetup({
         headers: {
             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
@@ -13,21 +10,16 @@ $('#save').on('click', function(){
 
     $.ajax({
         type: 'POST',
-        url: 'reception_time',
+        url: 'certificates',
         data: {
-            'reception_date': $('#reception_date').val(),
-            'reception_time': $('#reception_time').val(),
+            'id': id,
+            'status': new_status
         },
-
         success: function(xhr, status, error) {
-            $('#reception_time_content').load('reception_time #reception_time_content');
-            // $('#notifications_data').load('reception_time #notifications_data');
-            $('#progress-bar').fadeOut();
+            $('#certificate-table').load('certificates #certificate-table');
             notice('success', 'Статус справки обновлен');
-            $('#new_reception_time').toggle();
         },
         error: function(xhr, status, error) {
-            $('#progress-bar').toggle();
             notice('danger', 'error');
         }
 

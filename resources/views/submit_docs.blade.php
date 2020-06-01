@@ -124,12 +124,14 @@
                     <hr class="hr">
                     <div class="form-group">
                         <label for="my-select">Выбирите время</label>
-                        <select id="my-select" class="form-control" name="">
-                            <option>Text</option>
+                        <select id="my-select" class="form-control" name="" @if(empty($reception_time)) disabled @endif>
+                            @foreach ($reception_time as $time)
+                            <option>{{$time->time}}</option>
+                            @endforeach
                         </select>
                     </div>
                     <div class="form-group">
-                        <button type="submit" class="btn btn-dark">
+                        <button type="submit" class="btn btn-primary">
                             {{ __('app.send') }}
                         </button>
                     </div>

@@ -11236,6 +11236,7 @@ a.text-dark:focus {
   min-height: 100vh;
   overflow: hidden;
   background-color: #343a40;
+  color: #f8f9fa;
 }
 
 .cm-wrapper-sidebar__profile-info {

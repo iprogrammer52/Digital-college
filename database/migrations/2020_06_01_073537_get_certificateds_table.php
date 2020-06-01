@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class ReceptionTimesTable extends Migration
+class GetCertificatedsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class ReceptionTimesTable extends Migration
      */
     public function up()
     {
-        Schema::create('reception_times', function (Blueprint $table) {
+        Schema::create('get_certificateds', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->time('time');
-            $table->date('reception_date');
-            $table->integer('user_id')->nullable();
-            $table->string('status')->default('off');
+            $table->integer('user_id');
+            $table->string('certificated_type');
+            $table->string('time_of_receipt')->nullable();
+            $table->string('status')->default('open');
             $table->timestamps();
         });
     }

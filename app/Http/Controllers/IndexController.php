@@ -15,9 +15,10 @@ class IndexController extends Controller
      */
     public function index()
     {
-        if(isset(Auth::user()->id)) {
+        if (isset(Auth::user()->id)) {
             return redirect('home');
         }
+
         return view('index');
     }
 

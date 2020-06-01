@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\ReceptionTime;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\GetCertificated;
 
-class SubmitDocumentsController extends Controller
+class CertificatesController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,9 +15,9 @@ class SubmitDocumentsController extends Controller
      */
     public function index()
     {
-        $receptionTime = ReceptionTime::where('user_id', null)->get();
+        $certificates = GetCertificated::get();
 
-        return view('submit_docs',['reception_time' => $receptionTime]);
+        return view('certificates', ['certificates' => $certificates]);
     }
 
     /**
@@ -37,7 +38,14 @@ class SubmitDocumentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $certificates = new GetCertificated();
+        $status = $certificates
+            ->where('id', $request->id)
+            ->update([
+                'status' => $request->status
+            ]);
+
+        return $status;
     }
 
     /**

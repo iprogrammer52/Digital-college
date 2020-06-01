@@ -37366,7 +37366,10 @@ __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
 __webpack_require__(/*! ../../node_modules/dots/index */ "./node_modules/dots/index.js");
 
-__webpack_require__(/*! ../../node_modules/croppie/croppie.min.js */ "./node_modules/croppie/croppie.min.js"); // custom script
+__webpack_require__(/*! ../../node_modules/croppie/croppie.min.js */ "./node_modules/croppie/croppie.min.js"); //notifiocations
+
+
+__webpack_require__(/*! ./notifications */ "./resources/js/notifications.js"); // custom script
 
 
 __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"); // require('./imageuploader');
@@ -37377,7 +37380,10 @@ __webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
 __webpack_require__(/*! ./cm-vertical-carusel */ "./resources/js/cm-vertical-carusel.js"); //reception time
 
 
-__webpack_require__(/*! ./reception-time/button-click-add */ "./resources/js/reception-time/button-click-add.js"); //service worker for PWA
+__webpack_require__(/*! ./reception-time/button-click-add */ "./resources/js/reception-time/button-click-add.js"); //certificate
+
+
+__webpack_require__(/*! ./certificates/change-certificate-status */ "./resources/js/certificates/change-certificate-status.js"); //service worker for PWA
 // require('./service-worker');
 
 /***/ }),
@@ -37427,6 +37433,44 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 
 /***/ }),
 
+/***/ "./resources/js/certificates/change-certificate-status.js":
+/*!****************************************************************!*\
+  !*** ./resources/js/certificates/change-certificate-status.js ***!
+  \****************************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.certificate-status').on('change', function () {
+  var id = $(this).data('certificate-id');
+  var new_status = $(this).val();
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'POST',
+    url: 'certificates',
+    data: {
+      'id': id,
+      'status': new_status
+    },
+    success: function success(xhr, status, error) {
+      $('#certificate-table').load('certificates #certificate-table');
+      notice('success', 'Статус справки обновлен');
+    },
+    error: function error(xhr, status, _error) {
+      notice('danger', 'error');
+    }
+  });
+}); // TODO: Убрать функцию, так быть не должно
+
+function notice(type, text) {
+  return $('#notifications_data').append('<div class="alert alert-' + type + ' fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p>' + text + '</p>' + '</div>');
+}
+
+/***/ }),
+
 /***/ "./resources/js/cm-js-open-menu.js":
 /*!*****************************************!*\
   !*** ./resources/js/cm-js-open-menu.js ***!
@@ -37454,6 +37498,19 @@ $('#cm-js-open-notifications').on('click', function () {
 
 /***/ }),
 
+/***/ "./resources/js/notifications.js":
+/*!***************************************!*\
+  !*** ./resources/js/notifications.js ***!
+  \***************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+function notice(type, text) {
+  return $('#notifications_data').append('<div class="alert alert-' + type + ' fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">' + text + '</p>' + '<p>Done</p>' + '</div>');
+}
+
+/***/ }),
+
 /***/ "./resources/js/reception-time/button-click-add.js":
 /*!*********************************************************!*\
   !*** ./resources/js/reception-time/button-click-add.js ***!
@@ -37465,19 +37522,37 @@ $('#add_reception_time').on('click', function () {
   $('#new_reception_time').toggle();
 });
 $('#save').on('click', function () {
-  // $.ajaxSetup({
-  //     headers: {
-  //         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-  //     },
-  console.log('ok'); // });
-  // $.ajax({
-  //     url: 'reception_time',
-  //     type: 'POST',
-  //     success: function(html){
-  //         $("#notifications_data").html(html);
-  //     },
-  // });
-});
+  $('#new_reception_time').toggle();
+  $('#progress-bar').fadeIn();
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'POST',
+    url: 'reception_time',
+    data: {
+      'reception_date': $('#reception_date').val(),
+      'reception_time': $('#reception_time').val()
+    },
+    success: function success(xhr, status, error) {
+      $('#reception_time_content').load('reception_time #reception_time_content'); // $('#notifications_data').load('reception_time #notifications_data');
+
+      $('#progress-bar').fadeOut();
+      notice('success', 'Статус справки обновлен');
+      $('#new_reception_time').toggle();
+    },
+    error: function error(xhr, status, _error) {
+      $('#progress-bar').toggle();
+      notice('danger', 'error');
+    }
+  });
+}); // TODO: Убрать функцию, так быть не должно
+
+function notice(type, text) {
+  return $('#notifications_data').append('<div class="alert alert-' + type + ' fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p>' + text + '</p>' + '</div>');
+}
 
 /***/ }),
 
