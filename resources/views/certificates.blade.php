@@ -9,6 +9,7 @@
                     <tr>
                         <th>{{__('app.certificated_type')}}</th>
                         <th>{{__('app.status')}}</th>
+                        <th></th>
                     </tr>
                     @foreach ($certificates as $certificate)
                     <tr>
@@ -23,6 +24,13 @@
                                     <option value="refused" @if($certificate->status == 'refused') selected @endif>{{__('app.refused')}}</option>
                                 </select>
                             </div>
+                        </td>
+                        <td>
+                            <form action="{{asset('certificates')}}" method="GET">
+                                @method('HEAD')
+                                @csrf
+                                <input type="submit" value="Подготовить">
+                            </form>
                         </td>
                     </tr>
                     @endforeach
