@@ -18,7 +18,6 @@ $('#save').on('click', function() {
             'reception_date': $('#reception_date').val(),
             'reception_time': $('#reception_time').val(),
         },
-
         success: function(xhr, status, error) {
             $('#reception_time_content').load('reception_time #reception_time_content');
             // $('#notifications_data').load('reception_time #notifications_data');
