@@ -1,8 +1,8 @@
-$('#add_reception_time').on('click', function(){
+$('#add_reception_time').on('click', function() {
     $('#new_reception_time').toggle();
 });
 
-$('#save').on('click', function(){
+$('#save').on('click', function() {
     $('#new_reception_time').toggle();
     $('#progress-bar').fadeIn();
     $.ajaxSetup({
@@ -41,7 +41,7 @@ function notice(type, text) {
         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
         '<span aria-hidden="true">&times;</span>' +
         '</button>' +
-        '<p>'+ text +'</p>' +
+        '<p>' + text + '</p>' +
         '</div>'
     );
 }

@@ -79,4 +79,5 @@ return [
     'certificates'              => 'Справки',
     'no_certificates'           => 'Нет справок',
     'delete'                    => 'Удалить',
+    'print'                     => 'Печать'
 ];

@@ -76,5 +76,6 @@ return [
     'refused'                   => 'Refused',
     'status'                    => 'Status',
     'certificates'              => 'Certificates',
-    'no_certificates'           => 'No certificates'
+    'no_certificates'           => 'No certificates',
+    'print'                     => 'Print',
 ];

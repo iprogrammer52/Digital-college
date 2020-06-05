@@ -7,7 +7,7 @@
             Ждем тебя в свою команду
         </h5>
         <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus quaerat consequatur, expedita perferendis laborum illo. Quia odio laboriosam error officiis, consectetur a quam est praesentium, voluptas minus omnis. Delectus, harum.
+            Колледж экономики и информатики очень любит свою команду, а еще больше он любит пополнять свою команду и мы ждем тебя
         </p>
         <img src="{{asset('images/welcome_in_teams.jpg')}}" alt="" style="height: 450px;">
     </div>

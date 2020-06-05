@@ -3,6 +3,9 @@
 @section('content')
 <div class="card">
     <div class="card-body">
+        <h5 class="card-title">
+            {{__('app.ordered_certificateds')}}
+        </h5>
         @if (!empty($certificates))
             <table class="table" id="certificate-table">
                 <tbody>
@@ -26,11 +29,14 @@
                             </div>
                         </td>
                         <td>
-                            <form action="{{asset('certificates')}}" method="GET">
+                            {{-- <form action="{{asset('certificates')}}" method="GET">
                                 @method('HEAD')
                                 @csrf
                                 <input type="submit" value="Подготовить">
-                            </form>
+                            </form> --}}
+                            <a href="">
+                                <img class="mt-1" src="{{asset('icons/print.svg')}}" alt="{{__('app.print')}}">
+                            </a>
                         </td>
                     </tr>
                     @endforeach

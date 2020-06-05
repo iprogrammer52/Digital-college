@@ -26,8 +26,14 @@
                                 <option>{{__('app.off')}}</option>
                             </select>
                         </th>
-                        <th class=" d-flex justify-content-end">
-                            <img src="{{asset('icons/delete.svg')}}" alt="{{__('app.delete')}}">
+                        <th class="d-flex justify-content-end">
+                            @if (empty($time->user_id))
+                                <img src="{{asset('icons/delete.svg')}}" alt="{{__('app.delete')}}">
+                            @else
+                                <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Извините, время занято его нельзя удалить сейчас">
+                                    <img class="opacity-5" src="{{asset('icons/delete.svg')}}" alt="{{__('app.delete')}}">
+                                </span>
+                            @endif
                         </th>
                     </tr>
                 @endforeach
