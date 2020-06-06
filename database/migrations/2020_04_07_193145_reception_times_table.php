@@ -18,7 +18,7 @@ class ReceptionTimesTable extends Migration
             $table->time('time');
             $table->date('reception_date');
             $table->integer('user_id')->nullable();
-            $table->string('status')->default('off');
+            $table->boolean('status')->default(false);
             $table->timestamps();
         });
     }

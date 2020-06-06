@@ -53,7 +53,7 @@ class ReceptionTimeController extends Controller
         ->create([
             'time' => $request->reception_time,
             'reception_date' => $request->reception_date,
-            'status' => 'off',
+            'status' => true,
         ])
         ->save();
 

@@ -17,6 +17,7 @@ $('#save').on('click', function() {
         data: {
             'reception_date': $('#reception_date').val(),
             'reception_time': $('#reception_time').val(),
+            // 'status': $('#status').val(),
         },
         success: function(xhr, status, error) {
             $('#reception_time_content').load('reception_time #reception_time_content');

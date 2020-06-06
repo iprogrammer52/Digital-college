@@ -21,10 +21,14 @@
                     <tr>
                         <th>{{$time->time}}</th>
                         <th>
-                            <select id="my-select" class="custom-select">
+                            <div class="custom-control custom-switch">
+                                <input type="checkbox" class="custom-control-input" id="status" name="status" @if($time->status) checked @endif>
+                                <label class="custom-control-label" for="status"></label>
+                            </div>
+                            {{-- <select id="my-select" class="custom-select">
                                 <option>{{__('app.on')}}</option>
                                 <option>{{__('app.off')}}</option>
-                            </select>
+                            </select> --}}
                         </th>
                         <th class="d-flex justify-content-end">
                             @if (empty($time->user_id))
