@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use TCPDF;
+use Spipu\Html2Pdf\Html2Pdf as PDF;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\GetCertificated;
@@ -58,7 +58,7 @@ class CertificatesController extends Controller
      */
     public function show($id)
     {
-       $this->renderCertificateInPdf();
+       $this->getPDF();
     }
 
     /**
@@ -95,7 +95,12 @@ class CertificatesController extends Controller
         //
     }
 
-    public static function renderCertificateInPdf(){
-    
+    private function getPDF(){
+        // include dirname(__FILE__).'/res/example00.php';
+        $pdf = new PDF('P', 'A4', 'ru', true, 'UTF-8');
+        // $pdf->setDefaultFont('Arial');
+        $content = file_get_contents(asset('docs/report.html'));
+        $pdf->writeHTML($content);
+        $pdf->output('report.pdf');
     }
 }
