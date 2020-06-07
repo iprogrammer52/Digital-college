@@ -10,7 +10,12 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark @auth bg-dark @else bg-primary @endauth cm-navbar">
+    <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark @auth bg-dark @else cm-background-color-gradient @endauth cm-navbar">
+        @if(!isset(Auth::user()->id))
+            <a class="navbar-brand d-lg-block d-none" href="/">
+                KEI
+            </a>
+        @endif
         <div class="navbar-expand w-100" id="navbarNav">
             <ul class="navbar-nav justify-content-around justify-content-md-end">
                 <li class="nav-item d-lg-block d-none">
@@ -101,9 +106,41 @@
             @endauth
         </div>
     </div>
-    <footer class="bg-light cm-footer">
-        &copy;  2014–2020 Колледж экономики и информатики им. А.Н. Афанасьева | Все права защищены
-    </footer>
+    @if (!isset(Auth::user()->id))
+    <hr>
+        <footer class="bg-light text-dark cm-footer container-fluid">
+            <div class="row p-4">
+                <div class="col-lg-4 col-md-12">
+                    <h5>Контакты</h5>
+                    <p>
+                        432063, г. Ульяновск <br>
+                        ул.Энгельса, 3 <br>
+                        (учебный корпус № 1) <br>
+                        каб. 119, тел.(8422) 77-88-14 <br>
+                        kei@ido.ulstu.ru <br>
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Режим работы</h5>
+                    <p>
+                        Понедельник-Четверг <br>
+                        с 8:30 до 17:22 <br>
+                        Пятница с 8:30 до 16:22 <br>
+                        Обед с 13:00 до 13:40 <br>
+                    </p>
+                </div>
+                <div class="col-lg-4 col-md-12">
+                    <h5>Соц.сети</h5>
+                    <p>
+                        ВК <br>
+                        instagram <br>
+                    </p>
+                </div>
+            </div>
+            <hr>
+            &copy;  2014–2020 Колледж экономики и информатики им. А.Н. Афанасьева | Все права защищены
+        </footer>
+    @endif
     <script src="{{ asset('js/app.js') }}"></script>
 </body>
 </html>

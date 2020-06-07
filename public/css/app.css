@@ -336,7 +336,7 @@ body {
   line-height: 1.5;
   color: #212529;
   text-align: left;
-  background-color: #F8F9FA;
+  background-color: #fff;
 }
 
 [tabindex="-1"]:focus:not(:focus-visible) {
@@ -776,7 +776,7 @@ mark,
 
 .img-thumbnail {
   padding: 0.25rem;
-  background-color: #F8F9FA;
+  background-color: #fff;
   border: 1px solid #dee2e6;
   border-radius: 0.25rem;
   max-width: 100%;
@@ -4529,15 +4529,15 @@ input[type=button].btn-block {
 }
 
 .custom-range:focus::-webkit-slider-thumb {
-  box-shadow: 0 0 0 1px #F8F9FA, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .custom-range:focus::-moz-range-thumb {
-  box-shadow: 0 0 0 1px #F8F9FA, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .custom-range:focus::-ms-thumb {
-  box-shadow: 0 0 0 1px #F8F9FA, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+  box-shadow: 0 0 0 1px #fff, 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
 
 .custom-range::-moz-focus-outer {
@@ -4743,8 +4743,8 @@ input[type=button].btn-block {
 .nav-tabs .nav-link.active,
 .nav-tabs .nav-item.show .nav-link {
   color: #495057;
-  background-color: #F8F9FA;
-  border-color: #dee2e6 #dee2e6 #F8F9FA;
+  background-color: #fff;
+  border-color: #dee2e6 #dee2e6 #fff;
 }
 
 .nav-tabs .dropdown-menu {
@@ -11146,22 +11146,22 @@ a.text-dark:focus {
   }
 }
 
-.cm-auto-size-image {
-  -o-object-fit: contain;
-     object-fit: contain;
-}
-
 .cm-image-wrapper {
-  display: flex;
   width: 100%;
-  max-height: 50vh !important;
+  height: 50vh !important;
   margin: 0px;
   padding: 0px;
-  justify-content: center;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
 
 .cm-svg-on-hover > line:hover {
   stroke: #ffc107;
+}
+
+.cm-background-color-gradient {
+  background: #008fff;
+  background: linear-gradient(54deg, #008fff 0%, #6f4db8 50%, #002845 100%);
 }
 
 @media (max-width: 576px) {
@@ -11171,10 +11171,6 @@ a.text-dark:focus {
     width: 100%;
     bottom: 0;
     z-index: 1703;
-  }
-
-  .cm-footer {
-    padding-bottom: 60px;
   }
 }
 

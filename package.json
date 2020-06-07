@@ -26,7 +26,6 @@
     "animate.css": "^3.7.2",
     "animejs": "^3.1.0",
     "croppie": "^2.6.4",
-    "dots": "^0.1.0",
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11"
   }

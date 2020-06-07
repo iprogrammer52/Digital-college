@@ -79,5 +79,6 @@ return [
     'certificates'              => 'Справки',
     'no_certificates'           => 'Нет справок',
     'delete'                    => 'Удалить',
-    'print'                     => 'Печать'
+    'print'                     => 'Печать',
+    'submit_documents'          => 'Подать документы',
 ];

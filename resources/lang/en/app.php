@@ -78,4 +78,5 @@ return [
     'certificates'              => 'Certificates',
     'no_certificates'           => 'No certificates',
     'print'                     => 'Print',
+    'submit_documents'          => 'Submit documents',
 ];

@@ -5,8 +5,6 @@
             <img src="{{ asset('icons/cloud-upload.svg') }}" alt="">
         </label>
         <input type="file" id="fileElem" accept="image/*" name="images[]" multiple>
-        <div class="progress">
-        </div>
     </div>
     <div class="cm-imageuploader-wrapper__uploaded" id="cm-imageuploader-wrapper__uploaded-id">
     </div>
