@@ -21,14 +21,14 @@
                     <tr>
                         <th>{{$time->time}}</th>
                         <th>
-                            <div class="custom-control custom-switch">
+                            {{-- <div class="custom-control custom-switch">
                                 <input type="checkbox" class="custom-control-input" id="status" name="status" @if($time->status) checked @endif>
                                 <label class="custom-control-label" for="status"></label>
-                            </div>
-                            {{-- <select id="my-select" class="custom-select">
-                                <option>{{__('app.on')}}</option>
-                                <option>{{__('app.off')}}</option>
-                            </select> --}}
+                            </div> --}}
+                            <select class="custom-select reception-time-status" id="status-{{$time->id}}">
+                                <option value="on">{{__('app.on')}}</option>
+                                <option value="off">{{__('app.off')}}</option>
+                            </select>
                         </th>
                         <th class="d-flex justify-content-end">
                             @if (empty($time->user_id))
@@ -46,7 +46,7 @@
                         <input class="form-control" type="time" name="reception_time" id="reception_time">
                     </th>
                     <th>
-                        <select id="my-select" class="custom-select" name="new_status" id="new_status">
+                        <select id="new_status" class="custom-select" name="new_status" id="new_status">
                             <option>{{__('app.on')}}</option>
                             <option>{{__('app.off')}}</option>
                         </select>

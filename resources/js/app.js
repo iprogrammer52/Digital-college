@@ -13,11 +13,12 @@ require('./sidebar');
 
 //reception time
 require('./reception-time/button-click-add');
+require('./reception-time/change-status');
 
 //certificate
 require('./certificates/change-certificate-status');
 
 require('./popup');
-require('./cm-card-carousel');
+// require('./cm-card-carousel');
 //service worker for PWA
 // require('./service-worker');

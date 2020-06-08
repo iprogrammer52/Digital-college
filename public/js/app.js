@@ -37357,14 +37357,15 @@ __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"
 __webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js"); //reception time
 
 
-__webpack_require__(/*! ./reception-time/button-click-add */ "./resources/js/reception-time/button-click-add.js"); //certificate
+__webpack_require__(/*! ./reception-time/button-click-add */ "./resources/js/reception-time/button-click-add.js");
+
+__webpack_require__(/*! ./reception-time/change-status */ "./resources/js/reception-time/change-status.js"); //certificate
 
 
 __webpack_require__(/*! ./certificates/change-certificate-status */ "./resources/js/certificates/change-certificate-status.js");
 
-__webpack_require__(/*! ./popup */ "./resources/js/popup.js");
-
-__webpack_require__(/*! ./cm-card-carousel */ "./resources/js/cm-card-carousel.js"); //service worker for PWA
+__webpack_require__(/*! ./popup */ "./resources/js/popup.js"); // require('./cm-card-carousel');
+//service worker for PWA
 // require('./service-worker');
 
 /***/ }),
@@ -37453,65 +37454,6 @@ function notice(type, text) {
 
 /***/ }),
 
-/***/ "./resources/js/cm-card-carousel.js":
-/*!******************************************!*\
-  !*** ./resources/js/cm-card-carousel.js ***!
-  \******************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-var state = {};
-var carouselList = document.querySelector('.cm-carousel__list');
-var carouselItems = document.querySelectorAll('.cm-carousel__item');
-var elems = Array.from(carouselItems);
-carouselList.addEventListener('click', function (event) {
-  var newActive = event.target;
-  var isItem = newActive.closest('.cm-carousel__item');
-
-  if (!isItem || newActive.classList.contains('cm-carousel__item_active')) {
-    return;
-  }
-
-  ;
-  update(newActive);
-});
-
-var update = function update(newActive) {
-  var newActivePos = newActive.dataset.pos;
-  var current = elems.find(function (elem) {
-    return elem.dataset.pos == 0;
-  });
-  var prev = elems.find(function (elem) {
-    return elem.dataset.pos == -1;
-  });
-  var next = elems.find(function (elem) {
-    return elem.dataset.pos == 1;
-  });
-  var first = elems.find(function (elem) {
-    return elem.dataset.pos == -2;
-  });
-  var last = elems.find(function (elem) {
-    return elem.dataset.pos == 2;
-  });
-  current.classList.remove('cm-carousel__item_active');
-  [current, prev, next, first, last].forEach(function (item) {
-    var itemPos = item.dataset.pos;
-    item.dataset.pos = getPos(itemPos, newActivePos);
-  });
-};
-
-var getPos = function getPos(current, active) {
-  var diff = current - active;
-
-  if (Math.abs(current - active) > 2) {
-    return -current;
-  }
-
-  return diff;
-};
-
-/***/ }),
-
 /***/ "./resources/js/cm-js-open-menu.js":
 /*!*****************************************!*\
   !*** ./resources/js/cm-js-open-menu.js ***!
@@ -37595,6 +37537,52 @@ $('#save').on('click', function () {
 function notice(type, text) {
   return $('#notifications_data').append('<div class="alert alert-' + type + ' fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p>' + text + '</p>' + '</div>');
 }
+
+/***/ }),
+
+/***/ "./resources/js/reception-time/change-status.js":
+/*!******************************************************!*\
+  !*** ./resources/js/reception-time/change-status.js ***!
+  \******************************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$('.reception-time-status').change(function () {
+  console.log($('#' + $(this).attr('id')).val());
+  $.ajaxSetup({
+    headers: {
+      'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+    }
+  });
+  $.ajax({
+    type: 'PUT',
+    url: 'reception_time',
+    data: {
+      'status': $('#' + $(this).attr('id')).val()
+    },
+    success: function success(xhr, status, error) {
+      $('#reception_time_content').load('reception_time #reception_time_content'); // $('#notifications_data').load('reception_time #notifications_data');
+
+      $('#progress-bar').fadeOut();
+      notice('success', 'Статус справки обновлен');
+      $('#new_reception_time').toggle();
+    },
+    error: function error(xhr, status, _error) {
+      $('#progress-bar').toggle();
+      notice('danger', 'error');
+    }
+  });
+}); // // TODO: Убрать функцию, так быть не должно
+// function notice(type, text) {
+//     return $('#notifications_data').append(
+//         '<div class="alert alert-' + type + ' fade show animated fadeInRight" role="alert">' +
+//         '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' +
+//         '<span aria-hidden="true">&times;</span>' +
+//         '</button>' +
+//         '<p>' + text + '</p>' +
+//         '</div>'
+//     );
+// }
 
 /***/ }),
 
