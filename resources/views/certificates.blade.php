@@ -34,7 +34,7 @@
                                 @csrf
                                 <input type="submit" value="Подготовить">
                             </form> --}}
-                            <a href="{{asset('certificates/' . Auth::user()->id)}}">
+                            <a href="#" class="open-popup">
                                 <img class="mt-1" src="{{asset('icons/print.svg')}}" alt="{{__('app.print')}}">
                             </a>
                         </td>

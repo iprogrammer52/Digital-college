@@ -6446,26 +6446,6 @@ module.exports = {
 
 /***/ }),
 
-/***/ "./node_modules/dots/index.js":
-/*!************************************!*\
-  !*** ./node_modules/dots/index.js ***!
-  \************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-module.exports = function (str, length) {
-	if (length < 1) {
-		return '';
-	}
-
-	return str.length >= length ? str.slice(0, length - 1) + '…' : str;
-};
-
-
-/***/ }),
-
 /***/ "./node_modules/jquery/dist/jquery.js":
 /*!********************************************!*\
   !*** ./node_modules/jquery/dist/jquery.js ***!
@@ -37636,9 +37616,8 @@ module.exports = function(module) {
 /***/ (function(module, exports, __webpack_require__) {
 
 // require from node_module
-__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
+__webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js"); // require('../../node_modules/dots/index');
 
-__webpack_require__(/*! ../../node_modules/dots/index */ "./node_modules/dots/index.js");
 
 __webpack_require__(/*! ../../node_modules/croppie/croppie.min.js */ "./node_modules/croppie/croppie.min.js"); //notifiocations
 
@@ -37649,15 +37628,15 @@ __webpack_require__(/*! ./notifications */ "./resources/js/notifications.js"); /
 __webpack_require__(/*! ./cm-js-open-menu */ "./resources/js/cm-js-open-menu.js"); // require('./imageuploader');
 
 
-__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js");
-
-__webpack_require__(/*! ./cm-vertical-carusel */ "./resources/js/cm-vertical-carusel.js"); //reception time
+__webpack_require__(/*! ./sidebar */ "./resources/js/sidebar.js"); //reception time
 
 
 __webpack_require__(/*! ./reception-time/button-click-add */ "./resources/js/reception-time/button-click-add.js"); //certificate
 
 
-__webpack_require__(/*! ./certificates/change-certificate-status */ "./resources/js/certificates/change-certificate-status.js"); //service worker for PWA
+__webpack_require__(/*! ./certificates/change-certificate-status */ "./resources/js/certificates/change-certificate-status.js");
+
+__webpack_require__(/*! ./popup */ "./resources/js/popup.js"); //service worker for PWA
 // require('./service-worker');
 
 /***/ }),
@@ -37761,17 +37740,6 @@ $('#cm-js-open-notifications').on('click', function () {
 
 /***/ }),
 
-/***/ "./resources/js/cm-vertical-carusel.js":
-/*!*********************************************!*\
-  !*** ./resources/js/cm-vertical-carusel.js ***!
-  \*********************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
-
-/***/ }),
-
 /***/ "./resources/js/notifications.js":
 /*!***************************************!*\
   !*** ./resources/js/notifications.js ***!
@@ -37782,6 +37750,17 @@ $('#cm-js-open-notifications').on('click', function () {
 function notice(type, text) {
   return $('#notifications_data').append('<div class="alert alert-' + type + ' fade show animated fadeInRight" role="alert">' + '<button type="button" class="close" data-dismiss="alert" aria-label="Close">' + '<span aria-hidden="true">&times;</span>' + '</button>' + '<p class="alert-heading">' + text + '</p>' + '<p>Done</p>' + '</div>');
 }
+
+/***/ }),
+
+/***/ "./resources/js/popup.js":
+/*!*******************************!*\
+  !*** ./resources/js/popup.js ***!
+  \*******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+
 
 /***/ }),
 

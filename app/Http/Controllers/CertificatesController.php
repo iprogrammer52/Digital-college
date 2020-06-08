@@ -58,7 +58,7 @@ class CertificatesController extends Controller
      */
     public function show($id)
     {
-       $this->getPDF();
+       $this->getPDF('Петров Сергей Иванович');
     }
 
     /**
@@ -95,12 +95,13 @@ class CertificatesController extends Controller
         //
     }
 
-    private function getPDF(){
-        // include dirname(__FILE__).'/res/example00.php';
+    private function getPDF($fio){
+        
         $pdf = new PDF('P', 'A4', 'ru', true, 'UTF-8');
-        // $pdf->setDefaultFont('Arial');
+        $pdf->setDefaultFont('timesnewroman');
         $content = file_get_contents(asset('docs/report.html'));
+        $content = str_replace('[fio]', $fio, $content);
         $pdf->writeHTML($content);
-        $pdf->output('report.pdf');
+        $pdf->output('Справка об обучении.pdf');
     }
 }
