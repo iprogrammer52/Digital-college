@@ -36,7 +36,7 @@ Route::resource('/news', 'NewsController');
 
 Route::get('change_locale/{locale}', function($locale) {
     if (in_array($locale, ['ru', 'en', 'ar'])) {
-        if (!empty(Auth::user())) {
+        if (isset(Auth::user()->id)) {
             $user = new User();
             $user
                 ->where('id', Auth::user()->id)

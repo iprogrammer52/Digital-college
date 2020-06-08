@@ -18,5 +18,6 @@ require('./reception-time/button-click-add');
 require('./certificates/change-certificate-status');
 
 require('./popup');
+require('./cm-card-carousel');
 //service worker for PWA
 // require('./service-worker');

@@ -5,9 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>kdc</title>
+    <title>Колледж экономики и информатики</title>
     {{-- <link rel="manifest" href="{{ asset('kdc.webmanifest') }}"> --}}
     <link href="{{ asset('css/app.css') }}" rel="stylesheet" type="text/css">
+    <link rel="icon" href="{{asset('images/logo_ulgtu.jpg')}}"  type="image/x-icon">
 </head>
 <body>
     <header class="navbar navbar-expand justify-content-center justify-content-md-end navbar-dark @auth bg-dark @else cm-background-color-gradient @endauth cm-navbar">

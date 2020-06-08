@@ -11164,6 +11164,99 @@ a.text-dark:focus {
   background: linear-gradient(54deg, #008fff 0%, #6f4db8 50%, #002845 100%);
 }
 
+.cm-carousel {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+}
+
+.cm-carousel__list {
+  display: flex;
+  list-style: none;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  justify-content: center;
+  perspective: 300px;
+}
+
+.cm-carousel__item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  width: 450px;
+  height: 250px;
+  border-radius: 0.25rem;
+  box-shadow: 0px 2px 8px 0px rgba(50, 50, 50, 0.5);
+  position: absolute;
+  transition: all 0.3s ease-in;
+}
+
+.cm-carousel__item__content {
+  display: flex;
+  flex-direction: column;
+}
+
+.cm-carousel__item:nth-child(1) {
+  background: linear-gradient(45deg, #2D35EB 0%, #904ED4 100%);
+}
+
+.cm-carousel__item:nth-child(2) {
+  background: linear-gradient(45deg, #2D35EB 0%, #fdbb2d 100%);
+}
+
+.cm-carousel__item:nth-child(3) {
+  background: linear-gradient(45deg, #2D35EB 0%, #22c1c3 100%);
+}
+
+.cm-carousel__item:nth-child(4) {
+  background: linear-gradient(45deg, #fdbb2d 0%, #904ED4 100%);
+}
+
+.cm-carousel__item:nth-child(5) {
+  background: linear-gradient(45deg, #22c1c3 0%, #904ED4 100%);
+}
+
+.cm-carousel__item[data-pos="0"] {
+  z-index: 5;
+}
+
+.cm-carousel__item[data-pos="-1"],
+.cm-carousel__item[data-pos="1"] {
+  opacity: 0.7;
+  -webkit-filter: blur(1px) grayscale(10%);
+          filter: blur(1px) grayscale(10%);
+}
+
+.cm-carousel__item[data-pos="-1"] {
+  transform: translateX(-40%) scale(0.9);
+  z-index: 4;
+}
+
+.cm-carousel__item[data-pos="1"] {
+  transform: translateX(40%) scale(0.9);
+  z-index: 4;
+}
+
+.cm-carousel__item[data-pos="-2"],
+.cm-carousel__item[data-pos="2"] {
+  opacity: 0.4;
+  -webkit-filter: blur(3px) grayscale(20%);
+          filter: blur(3px) grayscale(20%);
+}
+
+.cm-carousel__item[data-pos="-2"] {
+  transform: translateX(-70%) scale(0.8);
+  z-index: 3;
+}
+
+.cm-carousel__item[data-pos="2"] {
+  transform: translateX(70%) scale(0.8);
+  z-index: 3;
+}
+
 @media (max-width: 576px) {
   .cm-navbar {
     display: flex;
@@ -11171,6 +11264,10 @@ a.text-dark:focus {
     width: 100%;
     bottom: 0;
     z-index: 1703;
+  }
+
+  .cm-carousel__item {
+    width: 150px;
   }
 }
 

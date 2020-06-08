@@ -1,4 +1,5 @@
 $('.certificate-status').on('change',function(){
+    console.log('200');
     var id = $(this).data('certificate-id');
     var new_status = $(this).val();
 
