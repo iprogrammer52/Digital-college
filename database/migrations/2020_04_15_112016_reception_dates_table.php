@@ -14,9 +14,7 @@ class ReceptionDatesTable extends Migration
     public function up()
     {
         Schema::create('reception_dates', function (Blueprint $table) {
-            $table->bigIncrements('id');
             $table->date('date');
-            $table->timestamps();
         });
     }
 
