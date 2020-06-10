@@ -40,29 +40,45 @@
 </div>
 <hr class="w-75">
 <div class="container-fluid">
-    <h4 align="center">Наши настравники</h4>
-    <p align="center" class="text-muted">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae, sunt.
+    <h4 align="center">Преподавательский состав</h4>
+    <p class="text-muted" align="center">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, laudantium!
     </p>
-    <div class="cm-carousel">
-        <ul class="cm-carousel__list mr-5">
-            <li class="cm-carousel__item" data-pos="-2"></li>
-            <li class="cm-carousel__item" data-pos="-1"></li>
-            <li class="cm-carousel__item" data-pos="0">
-                {{-- TODO Полная хуйня, исправить. Сейчас делаю так, сроки горят. --}}
-                    {{-- <img src="https://codelayers.net/templates/aicsa/images/21.png" alt=""> --}}
-                    <div class="cm-carousel__content">
-                        <h4 class="cm-carousel__header">Семенов Семен Семенович</h4>
-                        <p class="cm-carousel__body">
-                            Кандитат юмористических наук, в 2020 году получил греми за лучший реп трек века.
-                            Главным приимуществом являеться целеустремленность, внимательность, ответственность.
-                            Всегда поможет со сложными науками и будет отзывчивым.
-                        </p>
+    <div id="students" class="carousel slide mt-n4 mb-4" data-ride="carousel">
+        <div class="carousel-inner d-flex">
+            <div class="carousel-item active">
+                <div class="card cm-background-color-gradient">
+                    <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Content</p>
                     </div>
-            </li>
-            <li class="cm-carousel__item" data-pos="1"></li>
-            <li class="cm-carousel__item" data-pos="2"></li>
-        </ul>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card cm-background-color-gradient">
+                    <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Content</p>
+                    </div>
+                </div>
+            </div>
+            <div class="carousel-item">
+                <div class="card cm-background-color-gradient">
+                    <div class="card-body">
+                        <h5 class="card-title">Title</h5>
+                        <p class="card-text">Content</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#students" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#students" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>
 <div class="card-columns mb-4">
@@ -128,26 +144,5 @@
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
     </div>
-</div>
-<div id="students" class="carousel slide mt-n4 mb-4 d-none d-md-block" data-ride="carousel">
-    <div class="carousel-inner d-flex">
-        <div class="carousel-item active">
-            <img src="https://cat-cat-cat.ru/photo/2015/01/999-.jpg" class="d-block w-100 cm-image-wrapper" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://windesk.ru/wp-content/uploads/2013/02/NightfallStarlightPanoramic.jpg" class="d-block w-100 cm-image-wrapper" alt="...">
-        </div>
-        <div class="carousel-item">
-            <img src="https://lookw.ru/8/855/1476177249-panoramic-wallpapers-1.jpg" class="d-block w-100 cm-image-wrapper" alt="...">
-        </div>
-    </div>
-    <a class="carousel-control-prev" href="#students" role="button" data-slide="prev">
-        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-        <span class="sr-only">Previous</span>
-    </a>
-    <a class="carousel-control-next" href="#students" role="button" data-slide="next">
-        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-        <span class="sr-only">Next</span>
-    </a>
 </div>
 @endsection

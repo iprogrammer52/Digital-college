@@ -29,11 +29,6 @@
                             </div>
                         </td>
                         <td>
-                            {{-- <form action="{{asset('certificates')}}" method="GET">
-                                @method('HEAD')
-                                @csrf
-                                <input type="submit" value="Подготовить">
-                            </form> --}}
                             <a href="#" class="open-popup">
                                 <img class="mt-1" src="{{asset('icons/print.svg')}}" alt="{{__('app.print')}}">
                             </a>
