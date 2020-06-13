@@ -54,7 +54,7 @@
                 </span>
             @enderror
         </div>
-        <div class="form-group">
+        {{-- <div class="form-group">
             <div class="form-check">
                 <input
                     id="remember"
@@ -70,9 +70,9 @@
                     {{ __('app.remember_me') }}
                 </label>
             </div>
-        </div>
+        </div> --}}
+        <button type="submit" class="btn cm-background-color-gradient text-white">
         <div class="form-group mb-0 d-flex justify-content-end">
-            <button type="submit" class="btn btn-primary">
                 {{ __('app.login') }}
             </button>
         </div>

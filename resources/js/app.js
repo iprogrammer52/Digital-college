@@ -14,6 +14,7 @@ require('./sidebar');
 //reception time
 require('./reception-time/button-click-add');
 require('./reception-time/change-status');
+require('./reception-time/select-reception-date');
 
 //certificate
 require('./certificates/change-certificate-status');

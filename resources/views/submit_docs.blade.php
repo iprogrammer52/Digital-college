@@ -123,13 +123,24 @@
                     </div>
                     <hr class="hr">
                     <div class="form-group">
-                        <label for="my-select">Выбирите время</label>
-                        <select id="my-select" class="form-control" name="" @if(empty($reception_time)) disabled @endif>
-                            @foreach ($reception_time as $time)
-                            <option>{{$time->time}}</option>
+                        <label for="select_reception_date">Выбирите Дату</label>
+                        <select id="select_reception_date" class="form-control" name="" @if(empty($reception_date)) disabled @endif>
+                            <option value=""></option>
+                            @foreach ($reception_date as $date_value => $date)
+                                <option>{{$date_value}}</option>
                             @endforeach
                         </select>
                     </div>
+                    <div class="form-group d-none" id="reception_time">
+                        <label for="select_reception_date">Выбирите Время</label>
+                        <select id="select_reception_date" class="form-control" name="">
+                            <option value="-">-</option>
+                            @foreach ($reception_date as $date_value => $date)
+                                <option>{{$date_value}}</option>
+                            @endforeach
+                        </select>
+                    </div>
+
                     <div class="form-group">
                         <button type="submit" class="btn btn-primary">
                             {{ __('app.send') }}
