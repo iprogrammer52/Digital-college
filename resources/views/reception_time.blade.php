@@ -21,10 +21,6 @@
                     <tr>
                         <th>{{$time->time}}</th>
                         <th>
-                            {{-- <div class="custom-control custom-switch">
-                                <input type="checkbox" class="custom-control-input" id="status" name="status" @if($time->status) checked @endif>
-                                <label class="custom-control-label" for="status"></label>
-                            </div> --}}
                             <select class="custom-select reception-time-status" id="status-{{$time->id}}">
                                 <option value="on">{{__('app.on')}}</option>
                                 <option value="off">{{__('app.off')}}</option>

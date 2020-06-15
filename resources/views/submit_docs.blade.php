@@ -126,18 +126,16 @@
                         <label for="select_reception_date">Выбирите Дату</label>
                         <select id="select_reception_date" class="form-control" name="" @if(empty($reception_date)) disabled @endif>
                             <option value=""></option>
-                            @foreach ($reception_date as $date_value => $date)
-                                <option>{{$date_value}}</option>
+                            @foreach ($reception_date as $date)
+                                <option>{{$date}}</option>
                             @endforeach
                         </select>
                     </div>
+                    {{-- TODO: исправить, не эффективно --}}
                     <div class="form-group d-none" id="reception_time">
                         <label for="select_reception_date">Выбирите Время</label>
                         <select id="select_reception_date" class="form-control" name="">
-                            <option value="-">-</option>
-                            @foreach ($reception_date as $date_value => $date)
-                                <option>{{$date_value}}</option>
-                            @endforeach
+                            <option value=""></option>
                         </select>
                     </div>
 

@@ -14,7 +14,7 @@ class SubmitDocumentsController extends Controller
      */
     public function index()
     {
-        $receptionDate = ReceptionTime::where('user_id', null)->get()->groupBy('reception_date');
+        $receptionDate = ReceptionTime::where('user_id', null)->pluck('reception_date');
 
         return view('submit_docs',['reception_date' => $receptionDate]);
     }
