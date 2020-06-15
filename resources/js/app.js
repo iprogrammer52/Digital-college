@@ -19,7 +19,7 @@ require('./reception-time/select-reception-date');
 //certificate
 require('./certificates/change-certificate-status');
 
-require('./popup');
+require('./cm-generate-fio');
 // require('./cm-card-carousel');
 //service worker for PWA
 // require('./service-worker');

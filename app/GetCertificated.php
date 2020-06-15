@@ -14,4 +14,9 @@ class GetCertificated extends Model
     protected $fillable = [
         'certificated_type', 'user_id', 'status',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 }

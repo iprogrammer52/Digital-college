@@ -56,9 +56,16 @@ class CertificatesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($id, Request $request)
     {
-       $this->getPDF('Петров Сергей Иванович');
+        $validatedData = $request->validate([
+            'surname' => 'required',
+            'name' => 'required',
+            'middlename' => 'required',
+        ]);
+
+        $fio = $validatedData['surname'] . ' ' . $validatedData['name'] . ' ' . $validatedData['middlename']; 
+        $this->getPDF($fio);
     }
 
     /**

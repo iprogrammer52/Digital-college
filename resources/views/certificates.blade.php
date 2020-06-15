@@ -29,9 +29,24 @@
                             </div>
                         </td>
                         <td>
-                            <a href="#" class="open-popup">
-                                <img class="mt-1" src="{{asset('icons/print.svg')}}" alt="{{__('app.print')}}">
-                            </a>
+                            <img data-certificate="{{$certificate->id}}" class="cm-generate-fio mt-1" src="{{asset('icons/print.svg')}}" alt="{{__('app.print')}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td colspan="3" id="certificate-{{$certificate->id}}" class="d-none">
+                            <form action="{{asset("certificates/$certificate->user_id")}}" method="GET">
+                                @csrf
+                                <div class="form-group">
+                                    <input class="form-control" type="text" value="{{$certificate->user->surname}}" name="surname" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" value="{{$certificate->user->name}}" name="name" required>
+                                </div>
+                                <div class="form-group">
+                                    <input class="form-control" type="text" value="{{$certificate->user->middlename}}" name="middlename" required>
+                                </div>
+                                <button class="btn btn-dark" type="submit">{{__('app.print')}}</button>    
+                            </form>
                         </td>
                     </tr>
                     @endforeach
